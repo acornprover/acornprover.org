@@ -1,0 +1,4 @@
+--ignore-dir=build
+--ignore-dir=.docusaurus
+--ignore-dir=.cache-loader
+--ignore-dir=node_modules
