@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "The Acorn Theorem Prover",
   tagline: "Perfectly rigorous mathematics, as simple as possible.",
-  favicon: "img/favicon.ico",
+  favicon: "img/achy64.png",
 
   url: "https://acornprover.org",
   baseUrl: "/",
