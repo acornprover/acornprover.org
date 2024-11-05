@@ -5,7 +5,12 @@
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.featureImageContainer {
+  width: 230px;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto; /* Centering the inner container itself within `text--center` */
 }
