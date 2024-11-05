@@ -32,3 +32,18 @@
   --ifm-hero-text-color: #000;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Override the background color for secondary buttons */
+.button--secondary {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+/* Slightly darker shade for hover effect */
+.button--secondary:hover {
+  background-color: #388e3c;
+}
+
+.footer {
+  background-color: #222;
+}
