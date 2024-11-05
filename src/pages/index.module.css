@@ -16,8 +16,10 @@
   }
 }
 
+/* Intended just for the buttons in the hero banner */
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  --ifm-button-size-multiplier: 1.6;
 }
