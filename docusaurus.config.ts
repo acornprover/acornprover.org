@@ -67,13 +67,37 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          sidebarId: "sidebar",
+          position: "left",
+          label: "Getting Started",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "sidebar",
           position: "left",
           label: "Tutorial",
         },
+        {
+          type: "docSidebar",
+          sidebarId: "sidebar",
+          position: "left",
+          label: "Language Reference",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "sidebar",
+          position: "left",
+          label: "Library Reference",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "sidebar",
+          position: "left",
+          label: "Community",
+        },
         { to: "/blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/acornprover/acornprover.org",
+          href: "https://github.com/acornprover/acornlib",
           label: "GitHub",
           position: "right",
         },
