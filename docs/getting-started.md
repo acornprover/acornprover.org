@@ -23,7 +23,7 @@ Once you save this file, the Assistant window should appear. The assistant will 
 
 Now let's get proving. Enter this theorem into your file, and when you're done, save it.
 
-```
+```acorn
 from nat import Nat
 
 theorem hello_world(a: Nat, b: Nat) {
@@ -41,13 +41,13 @@ If this didn't work, check to be sure that the Acorn extension is installed and 
 
 Let's go over each of the parts of the code.
 
-```
+```acorn
 from nat import Nat
 ```
 
 This is an import statement, using syntax like Python. "Nat" is the natural numbers, which are implemented in the standard Acorn library.
 
-```
+```acorn
 theorem hello_world(a: Nat, b: Nat)
 ```
 
@@ -55,7 +55,7 @@ This is the signature for a theorem. The theorem is named `hello_world`. You don
 
 The `(a: Nat, b: Nat)` part indicates that this theorem is about two natural numbers, which we're calling `a` and `b` for the duration of the proof.
 
-```
+```acorn
 a < b -> a != b
 ```
 
