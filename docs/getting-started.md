@@ -5,7 +5,7 @@ sidebar_position: 1
 # Getting Started
 
 The primary way to use Acorn is through the Acorn VS Code extension.
-It works on Windows, Linux, or modern Macs with Apple Silicon.
+It works on Windows, Linux, or modern Macs with an M-something chip.
 
 ## Installing the VS Code Extension
 
@@ -49,7 +49,7 @@ Let's go over each of the parts of the code.
 from nat import Nat
 ```
 
-This is an import statement, using syntax like Python. "Nat" is the natural numbers, which are implemented in the standard Acorn library.
+This is an import statement, using syntax like Python. "nat" is the name of the module we're importing from the Acorn standard library, and "Nat" is the natural numbers.
 
 ```acorn
 theorem hello_world(a: Nat, b: Nat)
@@ -57,7 +57,7 @@ theorem hello_world(a: Nat, b: Nat)
 
 This is the signature for a theorem. The theorem is named `hello_world`. You don't have to give theorems names, because the AI can usually figure out what theorem you need without names. But it can help you organize your code.
 
-The `(a: Nat, b: Nat)` part indicates that this theorem is about two natural numbers, which we're calling `a` and `b` for the duration of the proof.
+The `(a: Nat, b: Nat)` part indicates that this theorem is about two natural numbers, which we're calling `a` and `b`, each with the `Nat` type, for the duration of the proof.
 
 ```acorn
 a < b -> a != b
