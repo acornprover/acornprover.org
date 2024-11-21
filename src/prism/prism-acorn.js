@@ -1,3 +1,3 @@
 Prism.languages.acorn = {
-    keyword: /\btheorem\b/,
-  };
+  keyword: /\btheorem\b/,
+};

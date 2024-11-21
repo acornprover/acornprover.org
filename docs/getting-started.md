@@ -17,9 +17,13 @@ We're ready to go. Open up VS Code.
 
 ## Proving A Theorem
 
-Make a new Acorn file. An Acorn file has to end with a `.ac` extension, so save this new file as `hello.ac`. You can make a new folder for the project, or just stick this file anywhere.
+Make a new Acorn file. An Acorn file has to end with a `.ac` extension, so save this new file as `hello.ac`.
+You can make a new folder for the project, or just stick this file anywhere.
 
-Once you save this file, the Assistant window should appear. The assistant will tell us useful information while we're writing Acorn code, like why things are true, or how to fill in the missing bits of a proof. If you accidentally close it, you can open it back up with Ctrl-Enter, or by clicking the little green acorn icon.
+Once you save this file, the Assistant window should appear. The assistant will tell us useful information
+while we're writing Acorn code, like why things are true, or how to fill in the missing bits of a proof.
+If you accidentally close it, you can open it back up with Ctrl-Enter, or by clicking the little green acorn
+icon in the upper right.
 
 Now let's get proving. Enter this theorem into your file, and when you're done, save it.
 
@@ -31,7 +35,7 @@ theorem hello_world(a: Nat, b: Nat) {
 }
 ```
 
-When you save, Acorn checks your work. You should see a little check mark appear. Click on the theorem, and the assistant should tell you, yep, this is trivial, and also give you a longer explanation for why exactly it's true.
+When you save, Acorn's AI checks your work, to ensure that everything you wrote can be proven. The AI runs locally, so you don't need internet access. You should see a little check mark appear. Click on the theorem, and the assistant should tell you, yep, this is trivial, and also give you a longer explanation for why exactly it's true.
 
 Success!
 
@@ -65,7 +69,7 @@ This is the statement of the theorem. If `a` is less than `b`, that implies that
 
 This is how easy proofs should work. The sort of mathematical statement that a human would call trivial, Acorn should instantly understand it, and be able to provide a rigorous proof for it.
 
-If you're familiar with other theorem provers, you know that there is often a simple mathematical statement that seems completely obvious to you, but it takes a lot of annoying work to write down a rigorous proof. The vision of Acorn is to do this annoying work for you. We don't always achieve this vision, but as AI technology improves, and as the Acorn dataset gets larger, we'll do better and better.
+If you're familiar with other theorem provers, you know that there is often a simple mathematical statement that seems completely obvious to you, but it takes a lot of annoying work to write down a rigorous proof. The vision of Acorn is that the AI should do this annoying work for you. We don't always achieve this vision, but as technology improves, and as the Acorn dataset gets larger, the AI will get better and better.
 
 And one day... who knows. Maybe your wildest dreams will all come true.
 
