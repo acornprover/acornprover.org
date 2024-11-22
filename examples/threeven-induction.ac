@@ -1,6 +1,8 @@
 from nat import Nat
 numerals Nat
 
+// Multi-step proofs
+
 define threeven(n: Nat) -> Bool {
     exists(d: Nat) {
         3 * d = n

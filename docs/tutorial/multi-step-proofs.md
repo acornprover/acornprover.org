@@ -24,11 +24,13 @@ theorem cool_theorem {
 
 When humans are communicating proofs to each other, we generally don't describe in great detail why each step works. We just break the proof down into steps, where each step is obvious. If a step isn't obvious, you ask for more detail.
 
-Acorn works the same way. You write a proof, and Acorn tells you whether it understands all the steps or not.
+Acorn works the same way. You write a proof, and Acorn tells you whether it understands all the steps or not. The keyword `by` introduces the block, the block has one step per line, and the block itself is delineated by `{ ... }` braces.
 
 We should go through a nontrivial proof so that this makes sense. Let's start by defining a novel and innovative mathematical concept, and then do some proofs about it.
 
 ## Threeven
+
+Open up a new Acorn file and stick this in.
 
 ```acorn
 from nat import Nat
@@ -55,7 +57,7 @@ This tells Acorn that in the rest of this file, numerals like `3` should be inte
 define threeven(n: Nat) -> Bool
 ```
 
-This defines a new function, called `threeven`. The function takes one argument, a natural number, and returns a boolean value, which just means it can be true or false.
+This defines a new function, called `threeven`. The function takes one argument, a natural number, and returns a boolean value, which just means it can be true or false. Note that `Nat` and `Bool` are capitalized, because they are types.
 
 ```acorn
 exists(d: Nat) {
@@ -78,7 +80,7 @@ theorem zero_is_threeven {
 Type this in, save the file, and you should see a little check mark appear. But now, try the same thing with a trickier theorem.
 
 ```acorn
-theorem adding_three(n: Nat) {
+theorem threeven_plus_three(n: Nat) {
     threeven(n) -> threeven(n + 3)
 }
 ```
@@ -136,7 +138,7 @@ unknown identifier 'blorf':
 
 If there's an error but you don't see where it is, hit F8 to jump to it in VS Code.
 
-The red squiggle is a compile-time error. When you get a red squiggle, you entered some expression that doesn't make sense. The syntax is wrong, or you're using a name that doesn't mean anything, or you forgot a parenthesis, or there's a type error, like adding `3 + false`.
+The red squiggle is a compile-time error. You get a red squiggle because you entered an expression that doesn't make sense. The syntax is wrong, or you're using a name that doesn't mean anything, or you forgot a parenthesis, or there's a type error, like adding `3 + false`.
 
 ## The Basic Development Cycle
 
@@ -146,4 +148,4 @@ The red squiggle is a compile-time error. When you get a red squiggle, you enter
 
 3. When you get a yellow squiggle, that step isn't simple enough. Add more steps.
 
-Most proofs can be expressed in this sequential way. But sometimes, it's more convenient to structure the proof differently. Next, let's discuss indirect proofs.
+Many proofs can be expressed in this sequential way. But sometimes, it's more convenient to structure the proof differently. Next, let's discuss indirect proofs.
