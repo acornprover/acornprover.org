@@ -38,7 +38,7 @@ theorem threeven_plus_three(n: Nat) {
 
 ## Throdd
 
-A number that is not even is called "odd". Naturally, a number that is not threeven is called "throdd".
+A number that is not even is called "odd". Naturally, a number that is not threeven is called "throdd". Enter this definition:
 
 ```acorn
 define throdd(n: Nat) -> Bool {

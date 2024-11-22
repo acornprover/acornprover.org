@@ -30,7 +30,7 @@ We should go through a nontrivial proof so that this makes sense. Let's start by
 
 ## Threeven
 
-Open up a new Acorn file and stick this in.
+Open up a new Acorn file, which you could call `threeven.ac`, and type this in.
 
 ```acorn
 from nat import Nat
