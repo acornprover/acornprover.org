@@ -39,10 +39,6 @@ theorem throdd_follows_threeven(n: Nat) {
     }
 }
 
-theorem three_neq_zero {
-    3 != 0
-}
-
 theorem threeven_kinda_follows_throdd(n: Nat) {
     throdd(n) -> threeven(n + 1) or threeven(n + 2)
 } by {
