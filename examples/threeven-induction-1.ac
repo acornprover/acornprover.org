@@ -22,7 +22,7 @@ theorem threeven_plus_three(n: Nat) {
     3 * (d + 1) = n + 3
 }
 
-// Induction
+// Induction method one: lots of little theorems
 
 define threeven_nearby(n: Nat) -> Bool {
     threeven(n) or threeven(n + 1) or threeven(n + 2)
@@ -35,10 +35,12 @@ theorem base_case {
 theorem inductive_step(n: Nat) {
     threeven_nearby(n) -> threeven_nearby(n + 1)
 } by {
-    if not threeven_nearby(n + 1) {
-        not threeven(n + 1) and not threeven(n + 2)
-        threeven(n)
-        false
+    if threeven(n) {
+        threeven(n + 3)
+        threeven_nearby(n + 1)
+    } else {
+        threeven(n + 1) or threeven(n + 2)
+        threeven_nearby(n + 1)
     }
 }
 

@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Induction and Inductive Types
+# Induction
 
 Induction is the soul of the natural numbers. You prove something is true for zero, and that whenever it's true for one number, it's true for the next one. And there you go, it's true for all natural numbers.
 
@@ -71,7 +71,7 @@ Let's look at the parts of this code.
 
 `forall(k: Nat) { f(k) -> f(k + 1) }` is the inductive step. When `f` is true for `k`, it must also be true for `k + 1`.
 
-## Two Ways To Do It
+## Method One: Lots Of Little Theorems
 
 One way to do prove `threeven_everywhere` is by making the base case and inductive step their own theorems. For example:
 
@@ -87,10 +87,12 @@ theorem base_case {
 theorem inductive_step(n: Nat) {
     threeven_nearby(n) -> threeven_nearby(n + 1)
 } by {
-    if not threeven_nearby(n + 1) {
-        not threeven(n + 1) and not threeven(n + 2)
-        threeven(n)
-        false
+    if threeven(n) {
+        threeven(n + 3)
+        threeven_nearby(n + 1)
+    } else {
+        threeven(n + 1) or threeven(n + 2)
+        threeven_nearby(n + 1)
     }
 }
 
@@ -101,4 +103,64 @@ theorem threeven_everywhere(n: Nat) {
 
 We use a short proof by contradiction to prove the inductive step, and otherwise the steps are trivial. We don't need to explicitly cite "induction". We just need to prove the base case and the inductive step, and Acorn will do the lookup itself.
 
-Another way to do the same thing is
+## Method Two: One Big Theorem
+
+Another way to do the same thing is by proving the base case and the inductive step inline, as steps in a multi-step proof. For example:
+
+```acorn
+define threeven_nearby(n: Nat) -> Bool {
+    threeven(n) or threeven(n + 1) or threeven(n + 2)
+}
+
+theorem threeven_everywhere(n: Nat) {
+    threeven_nearby(n)
+} by {
+    // Base case
+    threeven_nearby(0)
+
+    // Inductive step
+    forall(m: Nat) {
+        if threeven_nearby(m) {
+            if threeven(m) {
+                threeven(m + 3)
+                threeven_nearby(m + 1)
+            } else {
+                threeven(m + 1) or threeven(m + 2)
+                threeven_nearby(m + 1)
+            }
+
+            // Not necessary, but here for clarity
+            threeven_nearby(m + 1)
+        }
+    }
+}
+```
+
+This is essentially the same logic as the first example, just written as a single function. The `forall` statement works like it's an anonymous, inline theorem. The last line of an `if` statement works like it's the conclusion of a theorem. So these two
+
+```acorn
+// Named theorem version
+theorem my_theorem(x: MyType) {
+    foo(x) -> bar(x)
+} by {
+    first_step
+    second_step
+}
+
+// Same thing, but anonymous
+forall(x: MyType) {
+    if foo(x) {
+        first_step
+        second_step
+        bar(x)
+    }
+}
+```
+
+## What's special about induction?
+
+For the most part, a proof by induction works the same way as any other Acorn proof. You go step by step, and induction is just the last step. There's no special syntax for
+
+The only different thing is that `Nat.induction` isn't a theorem that's proven in the standard library. It's more like an axiom. It's an inherent part of the Acorn type system, because the natural numbers are an _inductive type_.
+
+Next, let's talk about inductive types, and the neat things you can do with them.

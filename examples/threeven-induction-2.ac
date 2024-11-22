@@ -1,0 +1,52 @@
+from nat import Nat
+numerals Nat
+
+// Multi-step proofs
+
+define threeven(n: Nat) -> Bool {
+    exists(d: Nat) {
+        3 * d = n
+    }
+}
+
+theorem zero_is_threeven {
+    threeven(0)
+}
+
+theorem threeven_plus_three(n: Nat) {
+    threeven(n) -> threeven(n + 3)
+} by {
+    let d: Nat satisfy {
+        3 * d = n
+    }
+    3 * (d + 1) = n + 3
+}
+
+// Induction method two: one big theorem
+
+define threeven_nearby(n: Nat) -> Bool {
+    threeven(n) or threeven(n + 1) or threeven(n + 2)
+}
+
+theorem threeven_everywhere(n: Nat) {
+    threeven_nearby(n)
+} by {
+    // Base case
+    threeven_nearby(0)
+
+    // Inductive step
+    forall(m: Nat) {
+        if threeven_nearby(m) {
+            if threeven(m) {
+                threeven(m + 3)
+                threeven_nearby(m + 1)
+            } else {
+                threeven(m + 1) or threeven(m + 2)
+                threeven_nearby(m + 1)
+            }
+
+            // Not necessary, but here for clarity
+            threeven_nearby(m + 1)
+        }
+    }
+}
