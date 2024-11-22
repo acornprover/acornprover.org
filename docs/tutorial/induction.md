@@ -52,7 +52,7 @@ theorem threeven_everywhere(n: Nat) {
 }
 ```
 
-Type these in and save, and the theorem will get yellow-squiggled. It isn't simple enough to be proven in one step. (Unless you left in the theorem `threeven_kinda_follows_throdd` from the previous tutorial page, for which this theorem is a trivial corollary. That's why we deleted the throdd stuff!)
+Type these in and save, and the theorem will get yellow-squiggled. It isn't simple enough to be proven in one step. (Unless you left in the theorem `threeven_kinda_follows_throdd` from the previous tutorial section, for which this theorem is a trivial corollary. That's why we deleted the throdd stuff!)
 
 So, we have to do a proof by induction. Induction isn't an explicit theorem in Acorn, because it's part of the kernel, rather than part of the standard library. But if it were an explicit theorem, it would look something like this:
 
