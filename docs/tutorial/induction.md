@@ -159,7 +159,7 @@ forall(x: MyType) {
 
 ## What's special about induction?
 
-For the most part, a proof by induction works the same way as any other Acorn proof. You go step by step, and induction is just the last step. There's no special syntax for
+For the most part, a proof by induction works the same way as any other Acorn proof. You go step by step, and induction is just the last step. There's no special syntax for it.
 
 The only different thing is that `Nat.induction` isn't a theorem that's proven in the standard library. It's more like an axiom. It's an inherent part of the Acorn type system, because the natural numbers are an _inductive type_.
 
