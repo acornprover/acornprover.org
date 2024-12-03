@@ -136,7 +136,7 @@ theorem threeven_everywhere(n: Nat) {
 }
 ```
 
-This is essentially the same logic as the first example, just written as a single function. The `forall` statement works like it's an anonymous, inline theorem. The last line of an `if` statement works like it's the conclusion of a theorem. So these two
+This is essentially the same logic as the first example, just written as a single function. The `forall` statement works like it's an anonymous, inline theorem. The last line of an `if` statement works like it's the conclusion of a theorem. So in this code:
 
 ```acorn
 // Named theorem version
@@ -157,10 +157,16 @@ forall(x: MyType) {
 }
 ```
 
-## What's special about induction?
+The two examples are proving the same theorem.
+
+## Philosophy
 
 For the most part, a proof by induction works the same way as any other Acorn proof. You go step by step, and induction is just the last step. There's no special syntax for it.
 
-The only different thing is that `Nat.induction` isn't a theorem that's proven in the standard library. It's more like an axiom. It's an inherent part of the Acorn type system, because the natural numbers are an _inductive type_.
+In Acorn, you don't have to express _why_ each line is true. You only have to express _what_ is true.
 
-Next, let's talk about inductive types, and the neat things you can do with them.
+Many theorem provers are based on a concept of "tactics", that let you precisely explain why a theorem is true. Acorn is designed to fill in the tactics using AI when it verifies code, to make it easier for people to formalize proofs.
+
+Does this actually work? Yes. Sure. Well, it mostly works. And it'll get better and better as AI gets better. Eventually, you should be able to only jot down the key points of a proof, the way you would communicate a proof to a smart human mathematician, and have the AI fill in the blanks.
+
+Try it for yourself!
