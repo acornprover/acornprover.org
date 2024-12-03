@@ -1,0 +1,8 @@
+from nat import Nat
+numerals Nat
+
+// Unordered binary tree
+inductive Tree {
+  leaf(Nat)
+  node(Tree, Tree)
+}
