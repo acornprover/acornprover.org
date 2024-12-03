@@ -62,6 +62,7 @@ Here, `Tree.leaf` is the base constructor.
 You can define a function on an inductive type by defining it for each of the constructors. For example:
 
 ```acorn
+// Is this tree a three leaf?
 define is_three_leaf(t: Tree) -> Bool {
   match t {
     leaf(n) {
@@ -110,6 +111,26 @@ theorem Tree.induction(f: Tree -> Bool, t: Tree) {
 
 The general principle of induction is that if you prove a theorem for all the constructors, it's proven for the whole type.
 
-## Match in proofs
+Here's an example of generalized induction operating over our tree type:
 
-TODO: example
+```acorn
+// Reversing a tree twice gives the original tree
+theorem reverse_reverse(t: Tree) {
+  reverse(reverse(t)) = t
+} by {
+    // Base case
+    forall(k: Nat) {
+        reverse_reverse(Tree.leaf(k))
+    }
+
+    // Inductive case
+    forall(left: Tree, right: Tree) {
+        if reverse_reverse(left) and reverse_reverse(right) {
+            reverse(reverse(Tree.node(left, right))) = Tree.node(left, right)
+            reverse_reverse(Tree.node(left, right))
+        }
+    }
+}
+```
+
+When we're proving a theorem by induction, it's often helpful to refer to the theorem itself within the proof. Inside its own proof, a theorem is a function returning a Bool value. It can't be simplified to merely `true` because it hasn't been proven yet.

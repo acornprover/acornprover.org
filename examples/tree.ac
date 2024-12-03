@@ -6,3 +6,33 @@ inductive Tree {
   leaf(Nat)
   node(Tree, Tree)
 }
+
+// Flip left and right, all the way down a tree
+define reverse(t: Tree) -> Tree {
+  match t {
+    Tree.leaf(k) {
+      Tree.leaf(k)
+    }
+    Tree.node(left, right) {
+      Tree.node(reverse(right), reverse(left))
+    }
+  }
+}
+
+// Reversing a tree twice gives the original tree
+theorem reverse_reverse(t: Tree) {
+  reverse(reverse(t)) = t
+} by {
+    // Base case
+    forall(k: Nat) {
+        reverse_reverse(Tree.leaf(k))
+    }
+
+    // Inductive case
+    forall(left: Tree, right: Tree) {
+        if reverse_reverse(left) and reverse_reverse(right) {
+            reverse(reverse(Tree.node(left, right))) = Tree.node(left, right)
+            reverse_reverse(Tree.node(left, right))
+        }
+    }
+}
