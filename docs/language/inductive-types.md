@@ -57,9 +57,26 @@ inductive Tree {
 
 Here, `Tree.leaf` is the base constructor.
 
+## Match in definitions
+
+You can define a function on an inductive type by defining it for each of the constructors. For example:
+
+```acorn
+define is_three_leaf(t: Tree) -> Bool {
+  match t {
+    leaf(n) {
+      n == 3
+    }
+    node(left, right) {
+      false
+    }
+  }
+}
+```
+
 ## Recursion
 
-You can define a function on an inductive type by defining it for each of the constructors, using the `match` keyword. For example, if we want to reverse left and right, all the way down a tree:
+`match` statements are often useful as a building block for recursion. Inside the definition of a function, you can call the function itself on "parts" of the object being matched. For example, if we want to reverse left and right, all the way down a tree:
 
 ```acorn
 define reverse(t: Tree) -> Tree {
@@ -73,6 +90,8 @@ define reverse(t: Tree) -> Tree {
   }
 }
 ```
+
+The restriction to "parts" is checked at compile time and ensures that the recursive function is well-defined.
 
 ## Induction
 
@@ -90,3 +109,7 @@ theorem Tree.induction(f: Tree -> Bool, t: Tree) {
 ```
 
 The general principle of induction is that if you prove a theorem for all the constructors, it's proven for the whole type.
+
+## Match in proofs
+
+TODO: example

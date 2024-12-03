@@ -1,0 +1,8 @@
+{
+  "label": "Language Reference",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "The language reference describes every part of the Acorn language. I guess you could just read through it linearly, if you wanted."
+  }
+}
