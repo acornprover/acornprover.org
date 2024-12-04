@@ -42,7 +42,7 @@ let square: Nat -> Nat = function(n: Nat) {
 
 It's common to define logical predicates as functions that return `Bool`. For example:
 
-````acorn
+```acorn
 define is_even(n: Nat) -> Bool {
     exists(d: Nat) {
         2 * d = n
@@ -75,7 +75,7 @@ define add_then_double(a: Nat, b: Nat) -> Nat {
 }
 
 let add_three_then_double: Nat -> Nat = add_then_double(3)
-````
+```
 
 So you can supply just some of the arguments, left to right, and get a function that takes the remaining arguments.
 
