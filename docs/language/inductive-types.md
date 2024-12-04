@@ -75,9 +75,27 @@ define is_three_leaf(t: Tree) -> Bool {
 }
 ```
 
+You can also use `match` as a statement. If you prove a proposition for each of the branches, that proves the proposition outside the `match` statement.
+
+```acorn
+// This has the effect of proving "goal".
+match value {
+  foo(a) {
+    foo_step_one
+    foo_step_two
+    goal
+  }
+  bar {
+    bar_step_one
+    bar_step_two
+    goal
+  }
+}
+```
+
 ## Recursion
 
-`match` statements are often useful as a building block for recursion. Inside the definition of a function, you can call the function itself on "parts" of the object being matched. For example, if we want to reverse left and right, all the way down a tree:
+`match` expressions are often useful as a building block for recursion. Inside the definition of a function, you can call the function itself on "parts" of the object being matched. For example, if we want to reverse left and right, all the way down a tree:
 
 ```acorn
 define reverse(t: Tree) -> Tree {
