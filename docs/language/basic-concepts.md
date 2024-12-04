@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Basic Syntax
+# Basic Concepts
 
 Acorn is a line-oriented language. Usually, you write one thing on one line, then continue on to the next line.
 
@@ -35,7 +35,7 @@ The variables defined as the arguments to the theorem can be used within both th
 An expression in Acorn is either a named value, or a way of building one value out of other values. Here are some example expressions.
 
 ```acorn
-// Built-in logic
+// Logic
 p -> q
 p or q
 p and q
@@ -47,11 +47,12 @@ false
 // Arithmetic
 1 + 1
 (1 + 2) * 3
+2 + 2 < 5
 
 // Calling functions
 foo(bar, baz, qux)
 
-// A practical example
+// Expressions can get complicated
 n > 1 and not exists(d: Nat) { d > 1 and d != n and exists(q: Nat) { q * d = n } }
 ```
 
@@ -107,4 +108,14 @@ Nat -> Nat
 (Nat, Nat) -> Nat
 ```
 
-In Acorn, proofs and types are different things. Typechecking happens first, then proving.
+## Non-features
+
+Acorn's goal is to make it easy to do math with the help of powerful AI. Completeness can be sacrificed in favor of any other quality.
+
+Acorn is not a programming language. You can't write a webserver in it.
+
+Acorn does not support constructive logic. Classical logic, including the law of the excluded middle, is built into the kernel.
+
+Acorn assumes the axiom of choice. Skolemization is built into the kernel.
+
+Acorn doesn't really use the Curry-Howard correspondence. Proofs and types are different things. Typechecking happens first, then proving.

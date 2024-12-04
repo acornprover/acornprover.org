@@ -36,3 +36,13 @@ theorem reverse_reverse(t: Tree) {
         }
     }
 }
+
+theorem foo(a: Nat, b: Nat) {
+  2 * a != 2 * b + 3
+} by {
+  if 2 * a = 2 * b + 3 {
+    2 * a  = 2 * (b + 1) + 1
+    2 * (a - (b + 1)) = 1
+    false 
+  }
+}

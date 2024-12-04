@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Functions
@@ -9,7 +9,7 @@ The `define` statement lets you define a named function.
 Its general form is:
 
 ```acorn
-define function_name(arg1: Arg1Type1, arg2: Arg2Type, arg3: Arg3Type) -> ReturnType {
+define function_name(arg1: Arg1Type, arg2: Arg2Type, arg3: Arg3Type) -> ReturnType {
     expression
 }
 ```
@@ -59,11 +59,53 @@ define is_less_than_or_equal_to(a: Nat, b: Nat) -> Bool {
 
 ## Let-satisfy
 
-TODO
+Sometimes you want to define a function in terms of what condition it satisfies, rather than how to calculate it. The general form of this statement is:
 
-## Proof Blocks
+```acorn
+let function_name(arg1: Arg1Type, arg2: Arg2Type, ...) -> ret: ReturnType {
+    expression
+} by {
+    proof
+}
+```
 
-TODO
+The expression can use the arguments and the return value, and the function is defined so that the expression is true.
+
+For example, let's say we want to define the "predecessor" function, which is the inverse of the built-in "successor" function, except we'll make the predecessor of zero equal to zero.
+
+```acorn
+let predecessor(n: Nat) -> p: Nat satisfy {
+    if n = 0 {
+        p = 0
+    } else {
+        p.suc = n
+    }
+}
+```
+
+Here, the return value of the function, `p` is named so that we can refer to it with the expression.
+
+It may be nontrivial that a return value exists that can satisfy the condition. If we need to prove it, we can do that in a `by` block. An example from the standard library:
+
+```acorn
+// This is a "bounded" version of subtraction that returns 0 instead of negative numbers.
+let bounded_sub(a: Nat, b: Nat) -> d: Nat satisfy {
+    // The condition that `d` satisfies
+    if a < b {
+        d = 0
+    } else {
+        d + b = a
+    }
+} by {
+    // The proof that such a `d` exists
+    if a < b {
+        0 = 0
+    } else {
+        b <= a
+        let d: Nat satisfy { d + b = a }
+    }
+}
+```
 
 ## Currying
 
