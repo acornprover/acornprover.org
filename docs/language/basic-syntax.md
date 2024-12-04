@@ -48,6 +48,32 @@ false
 foo(bar, baz, qux)
 ```
 
+## Statements
+
+Acorn is a statement-based language. Sometimes, a statement requires a proposition to be proven. A statement can also introduce a proposition, which can be used to prove subsequent things. These may be slightly different propositions.
+
+If you write an expression by itself on a line, that counts as a statement. You are expressing the proposition that this expression is always true.
+
+Here's an example from the standard library:
+
+```acorn
+theorem lt_cancel_suc(a: Nat, b: Nat) {
+    a.suc < b.suc -> a < b
+} by {
+    a.suc <= b.suc
+    b.suc != a.suc
+    a <= b and b != a
+}
+```
+
+The entire theorem is a statement. It doesn't have a "return value". Once the verifier proves it, it's available to all subsequent code.
+
+The individual lines inside the `by` block are also each simple statements. They are each single expressions. You can think of single-expression statements as saying, "we declare this expression to be a true proposition".
+
+When we prove this theorem, we can use the variables `a` and `b`, as well as the condition `a.suc < b.suc`.
+
+When we use the theorem later, we can bind it to any variables. So the form we prove and the form we use are slightly different.
+
 ## Types
 
 Acorn has strong, static typing. Every expression has a type.
@@ -58,19 +84,11 @@ Function types can be defined based on their argument type and return type:
 
 ```acorn
 // Functions that take a natural number and return another, like "successor"
-Nat -> Bool
+Nat -> Nat
 
-// This is the type of comparison operators, like "less than"
-(Nat, Nat) -> Bool
+// Functions that take two natural numbers and return another, like "addition"
+(Nat, Nat) -> Nat
 ```
-
-The only type defined in the Acorn kernel is `Bool`, along with the values `true` and `false`.
-
-## Statements
-
-Acorn is a statement-based language. Sometimes, a statement requires a proposition to be proven. A statement can also introduce a proposition, which can be used to prove subsequent things. These may or may not be the same proposition.
-
-If you write an expression by itself on a line, that counts as a statement. The expression must have `Bool` type, and the statement is the proposition that this expression is always true.
 
 ## Philosophy of Proofs vs Types
 

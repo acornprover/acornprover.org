@@ -1,0 +1,11 @@
+theorem modus_ponens(p: Bool, q: Bool) {
+    (p -> q) and p -> q
+}
+
+theorem modus_tollens(p: Bool, q: Bool) {
+    (p -> q) and not q -> not p
+}
+
+theorem hypothetical_syllogism(p: Bool, q: Bool, r: Bool) {
+    (p -> q) and (q -> r) -> (p -> r)
+}
