@@ -10,51 +10,58 @@ Sometimes, code is grouped into blocks. These are delineated with `{ ... }` brac
 
 Comments start with `//` and extend through the rest of the line.
 
-For example:
+Line breaks inside parentheses or after infix operators are ignored, which you can use to split a statement among multiple lines if you want.
+
+## Theorems
+
+A typical Acorn file is mostly a bunch of theorems. Theorems look like this:
 
 ```acorn
-// Here's an if-else
-if foo {
-    bar
-} else {
-    baz
-}
-
-// Here's a theorem
-theorem foo {
-    bar
+theorem my_theorem(var1: Type1, var2: Type2, var3: Type3) {
+    expression
 } by {
-    baz
+    statement1
+    statement2
+    statement3
 }
 ```
 
-Line breaks inside parentheses or after infix operators are ignored, which you can use to split a statement among multiple lines if you want.
+Theorems typically have two blocks. The first block is the thing we're proving. The `by` block is the proof. If it's simple enough for the AI to prove directly, the second block is optional.
+
+The variables defined as the arguments to the theorem can be used within both the expression of the theorem, and its proof.
 
 ## Expressions
 
-An expression in Acorn is either a named value, or a way of building one value out of other values. Here are some examples.
+An expression in Acorn is either a named value, or a way of building one value out of other values. Here are some example expressions.
 
 ```acorn
+// Built-in logic
+p -> q
+p or q
+p and q
+not p
+p <-> q
 true
-
 false
 
-1
-
+// Arithmetic
 1 + 1
+(1 + 2) * 3
 
-(1 + 2) + 3
-
+// Calling functions
 foo(bar, baz, qux)
+
+// A practical example
+n > 1 and not exists(d: Nat) { d > 1 and d != n and exists(q: Nat) { q * d = n } }
 ```
 
 ## Statements
 
-Acorn is a statement-based language. Sometimes, a statement requires a proposition to be proven. A statement can also introduce a proposition, which can be used to prove subsequent things. These may be slightly different propositions.
+Acorn is a statement-based language. When you verify Acorn code, it checks that every statement is well-formed and true.
 
 If you write an expression by itself on a line, that counts as a statement. You are expressing the proposition that this expression is always true.
 
-Here's an example from the standard library:
+Let's look an example from the standard library:
 
 ```acorn
 theorem lt_cancel_suc(a: Nat, b: Nat) {
@@ -66,13 +73,23 @@ theorem lt_cancel_suc(a: Nat, b: Nat) {
 }
 ```
 
-The entire theorem is a statement. It doesn't have a "return value". Once the verifier proves it, it's available to all subsequent code.
+The entire theorem is a statement. It doesn't have a "return value". Once the verifier proves it, all the subsequent code can use it as a proof step.
 
-The individual lines inside the `by` block are also each simple statements. They are each single expressions. You can think of single-expression statements as saying, "we declare this expression to be a true proposition".
+The individual lines inside the `by` block are also each simple statements. They are each single expressions. You can think of single-expression statements as saying, "I declare that this expression is true".
 
-When we prove this theorem, we can use the variables `a` and `b`, as well as the condition `a.suc < b.suc`.
+Inside the block, any premises of the theorem statement can be assumed to be true. In this case, the premise is:
 
-When we use the theorem later, we can bind it to any variables. So the form we prove and the form we use are slightly different.
+```acorn
+a.suc < b.suc
+```
+
+When the verifier runs, it finds a proof for each statement in the block. Each statement can use the statements before it.
+
+Finally, it finds a proof for the conclusion of the theorem itself, based on all the statements inside the block. In this case, the conclusion is:
+
+```acorn
+a < b
+```
 
 ## Types
 
@@ -90,12 +107,4 @@ Nat -> Nat
 (Nat, Nat) -> Nat
 ```
 
-## Philosophy of Proofs vs Types
-
-The "Curry-Howard correspondence" is a famous and profound connection between logic and computation. The Curry-Howard correspondence shows how each logical proposition can be viewed as a type in a programming language, a proof can be viewed as a program of the associated type, and proof normalization can be viewed as program execution. It is beautiful. A diamond-like jewel.
-
-Acorn does not use the Curry–Howard correspondence.
-
-In Acorn, proofs and types are fundamentally different things. The Acorn verifier runs in two phases: first compilation, then proving. This makes it very natural to express "incomplete proofs" in Acorn. An incomplete proof is one where typechecking works, but proving doesn't work.
-
-An incomplete proof is the ideal artifact for a human to share with an AI. The human has done some work, but it would be really nice if the AI could take it from here.
+In Acorn, proofs and types are different things. Typechecking happens first, then proving.
