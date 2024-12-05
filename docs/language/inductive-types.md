@@ -1,8 +1,10 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Inductive Types
+
+An inductive type can refer to itself in its definition. It describes ways to build objects of this type from other objects of the type.
 
 Inductive types are defined with the `inductive` keyword. For example, the natural numbers are defined this way:
 

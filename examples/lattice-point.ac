@@ -1,0 +1,27 @@
+from int import Int
+numerals Int
+
+structure LatticePoint {
+    x: Int
+    y: Int
+}
+
+let origin: LatticePoint = LatticePoint.new(0, 0)
+
+theorem origin_x_is_zero {
+    LatticePoint.x(origin) = 0
+}
+
+theorem origin_y_is_zero {
+    origin.y = 0
+}
+
+theorem new_is_surjective(p: LatticePoint) {
+    exists(x: Int, y: Int) {
+        p = LatticePoint.new(x, y)
+    }
+}
+
+theorem fundamental(x: Int, y: Int) {
+    LatticePoint.new(x, y).x = x and LatticePoint.new(x, y).y = y
+}
