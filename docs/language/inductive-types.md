@@ -40,6 +40,8 @@ theorem Nat.induction(f: Nat -> Bool, n: Nat) {
 }
 ```
 
+Constructors must be alphanumeric, plus underscores. They can either start with a lowercase letter like 'suc' or 'foo_bar_baz', or they can be all numeric digits like '0' or '10'.
+
 ## Defining your own
 
 Naturals are in the standard library, but you can define your own inductive types.

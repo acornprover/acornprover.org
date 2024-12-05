@@ -52,6 +52,9 @@ false
 // Calling functions
 foo(bar, baz, qux)
 
+// An equality is an expression
+2 + 2 = 4
+
 // Expressions can get complicated
 n > 1 and not exists(d: Nat) { d > 1 and d != n and exists(q: Nat) { q * d = n } }
 ```

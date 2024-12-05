@@ -12,7 +12,7 @@ Its general form is:
 let name: Type = expression
 ```
 
-Variable names must start with a lowercase letter. The rest of the name must be alphanumeric, or an underscore.
+Variable names start with a lowercase letter. The rest of the name must be alphanumeric, or an underscore.
 
 ## Examples
 

@@ -36,7 +36,7 @@ class LatticePoint {
 
 The first argument to a function must be named `self`, and has the type of the class itself.
 
-Variables and functions defined inside a `class` block are now methods accessible as `TypeName.method_name`. For example:
+Constants and functions defined inside a `class` block are now methods accessible as `TypeName.method_name`. For example:
 
 ```acorn
 theorem swap_is_involutive(p: LatticePoint) {
@@ -46,6 +46,9 @@ theorem swap_is_involutive(p: LatticePoint) {
     p.swap.y = p.x
 }
 ```
+
+The names for constants and functions inside a class block are the same as outside, except that constants in a
+class can also have numeric names. Thus `Nat.0` is the name for zero, the natural number, and `Int.0` is the name for zero, the integer.
 
 It's okay to have multiple `class` blocks for a single class. You often want to define some methods, prove some things about them, then define more methods.
 
