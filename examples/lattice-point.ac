@@ -22,6 +22,33 @@ theorem new_is_surjective(p: LatticePoint) {
     }
 }
 
-theorem fundamental(x: Int, y: Int) {
+theorem projection(x: Int, y: Int) {
     LatticePoint.new(x, y).x = x and LatticePoint.new(x, y).y = y
+}
+
+class LatticePoint {
+    // Now accessible as LatticePoint.origin
+    let origin: LatticePoint = LatticePoint.new(0, 0)
+
+    // Now accessible as LatticePoint.swap
+    define swap(self) -> LatticePoint {
+        LatticePoint.new(self.y, self.x)
+    }
+}
+
+theorem swap_is_involutive(p: LatticePoint) {
+    p.swap.swap = p
+} by {
+    p.swap.x = p.y
+    p.swap.y = p.x
+}
+
+class LatticePoint {
+    define add(self, other: LatticePoint) -> LatticePoint {
+        LatticePoint.new(self.x + other.x, self.y + other.y)
+    }
+}
+
+theorem add_origin(p: LatticePoint) {
+    p + LatticePoint.origin = p
 }
