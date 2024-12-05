@@ -33,7 +33,7 @@ theorem goal<T>(a: T, b: T, c: T) {
 }
 ```
 
-This isn't really enough to be useful. We need a type system strong enough to handle proving some theorem about all rings, and then applying it to particular rings. Or proving a theorem about finite groups for any prime modulus. So we might have to change how the current system works to get there.
+This isn't quite enough to be useful. We at least need types to be polymorphic, to express concepts like `List<T>`. And it would nice to have more powerful dependent types, to handle stuff like schemes and sheaves. So, we might want to change how polymorphism currently works, in order to get there.
 
 ## Solve Statements
 
