@@ -74,6 +74,24 @@ You can import any types, variables, and functions defined at the top level.
 
 You can import individual theorems to cite them, but you generally shouldn't need to. Acorn's prover will index all theorems in the imported modules and use them for proving.
 
+## Preventing Imports
+
+You can use a `problem` block to prevent anything inside the block from being visible to anything outside the block.
+
+```acorn
+problem {
+    let a: Nat = 2
+    let b: Nat = 4
+    theorem {
+      a + a = b
+    }
+}
+```
+
+Problems like this are still verified by Acorn. They can be helpful for people reading the code, and also helpful for training the AI. But they can't be used directly elsewhere in the code.
+
+Think of them like problems in a textbook. They're useful for learning, but the book should also make sense if you read through it while skipping all the problems.
+
 ## Caveat Mathematicus
 
 Currently, you can only import from the standard library. You can't import your own modules. We'll need to improve this, in the fullness of time.
