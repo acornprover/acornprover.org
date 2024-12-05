@@ -117,16 +117,3 @@ The factorial function.
 ```acorn
 factorial(3) = 6
 ```
-
-## NatPair
-
-A type for a pair of natural numbers.
-
-```acorn
-structure NatPair {
-    first: Nat
-    second: Nat
-}
-```
-
-It would probably be better to have some polymorphic `Pair` class instead.
