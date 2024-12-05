@@ -37,6 +37,8 @@ theorem even_nearby(n: nat.Nat) {
 }
 ```
 
+The `numerals` statement tells Acorn what class should be used to interpret numerals in this file, like `0`, `1`, and `2`. It's simplest do this at the top of the file, first all your `import` statements, then a `numerals` statement if you want one.
+
 Here, we are using `nat.Nat` to refer to the type `Nat`, and `nat.divides` to refer to the function `divides`, both of which are implemented in `nat.ac`.
 
 ## Importing Parts of a Module
@@ -70,11 +72,7 @@ This makes the code look cleaner, but it can cause conflicts if, for example, mu
 
 You can import any types, variables, and functions defined at the top level.
 
-You usually shouldn't need to import individual theorems. Acorn's prover will index all theorems in the imported modules and use them for proving.
-
-You _can_ import named theorems, though. If the Acorn prover is failing to find a proof, and you know that it should use a particular theorem, you can write it inline as a "hint".
-
-TODO: provide an example.
+You can import individual theorems to cite them, but you generally shouldn't need to. Acorn's prover will index all theorems in the imported modules and use them for proving.
 
 ## Caveat Mathematicus
 

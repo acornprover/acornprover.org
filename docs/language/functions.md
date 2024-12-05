@@ -122,3 +122,34 @@ let add_three_then_double: Nat -> Nat = add_then_double(3)
 So you can supply just some of the arguments, left to right, and get a function that takes the remaining arguments.
 
 Thus, the types `(Nat, Nat) -> Nat` and `Nat -> (Nat -> Nat)` are considered to be the same, in the type system.
+
+## Theorems as Functions
+
+Inside the block of a theorem, the theorem itself is available as a function that takes its arguments and returns a `Bool`. This is useful for techniques like induction. For example, from the standard library:
+
+```acorn
+theorem add_zero_left(a: Nat) {
+    0 + a = a
+} by {
+    0 + 0 = 0
+    add_zero_left(0)
+    forall(x: Nat) {
+        if add_zero_left(x) {
+            0 + x = x
+            0 + x.suc = x.suc
+            add_zero_left(x.suc)
+        }
+    }
+    add_zero_left(a)
+}
+```
+
+Named theorems can also be explicitly cited after they are proven. Usually, the AI should handle this for you. But if it doesn't, you can provide the theorem as a hint. For example, after proving `add_zero_left` as above, you can cite it in a later proof:
+
+```acorn
+theorem zero_plus_seven {
+    0 + 7 = 7
+} by {
+    add_zero_left(7)
+}
+```

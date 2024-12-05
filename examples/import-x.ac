@@ -3,17 +3,17 @@ import nat
 numerals nat.Nat
 
 theorem even_nearby(n: nat.Nat) {
-  nat.divides(2, n) or nat.divides(2, n + 1)
+    nat.divides(2, n) or nat.divides(2, n + 1)
 } by {
-  let (q: nat.Nat, r: nat.Nat) satisfy {
-    r < 2 and n = q * 2 + r
-  }
-  if r = 0 {
-    nat.divides(2, n)
-  } else {
-    r = 1
-    n = q * 2 + 1
-    n + 1 = (q + 1) * 2
-    nat.divides(2, n + 1)
-  }
+    let (q: nat.Nat, r: nat.Nat) satisfy {
+        r < 2 and n = q * 2 + r
+    }
+    if r = 0 {
+        nat.divides(2, n)
+    } else {
+        r = 1
+        n = q * 2 + 1
+        n + 1 = (q + 1) * 2
+        nat.divides(2, n + 1)
+    }
 }

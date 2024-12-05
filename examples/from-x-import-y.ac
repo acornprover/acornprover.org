@@ -1,18 +1,19 @@
+// This imports the 'nat' module, and makes the names `Nat` and `divides` available.
 from nat import Nat, divides
 numerals Nat
 
 theorem even_nearby(n: Nat) {
-  divides(2, n) or divides(2, n + 1)
+    divides(2, n) or divides(2, n + 1)
 } by {
-  let (q: Nat, r: Nat) satisfy {
-    r < 2 and n = q * 2 + r
-  }
-  if r = 0 {
-    divides(2, n)
-  } else {
-    r = 1
-    n = q * 2 + 1
-    n + 1 = (q + 1) * 2
-    divides(2, n + 1)
-  }
+    let (q: Nat, r: Nat) satisfy {
+        r < 2 and n = q * 2 + r
+    }
+    if r = 0 {
+        divides(2, n)
+    } else {
+        r = 1
+        n = q * 2 + 1
+        n + 1 = (q + 1) * 2
+        divides(2, n + 1)
+    }
 }
