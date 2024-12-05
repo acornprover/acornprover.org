@@ -41,7 +41,7 @@ Here, we are using `nat.Nat` to refer to the type `Nat`, and `nat.divides` to re
 
 ## Importing Parts of a Module
 
-You can also just import selected names from a module:
+You can also import selected names from a module so that they are usable without the module name:
 
 ```acorn
 from nat import Nat, divides
