@@ -59,6 +59,8 @@ foo(bar, baz, qux)
 n > 1 and not exists(d: Nat) { d > 1 and d != n and exists(q: Nat) { q * d = n } }
 ```
 
+The first step in verification is compilation. When an expression is malformed, or does not typecheck, this should be reported as a red-squiggle error during the compilation phase. Compilation turns each expression into a normalized internal representation, with data structures designed for fast proving.
+
 ## Statements
 
 Acorn is a statement-based language. When you verify Acorn code, it checks that every statement is well-formed and true.
@@ -81,19 +83,19 @@ The entire theorem is a statement. It doesn't have a "return value". Once the ve
 
 The individual lines inside the `by` block are also each simple statements. They are each single expressions. You can think of single-expression statements as saying, "I declare that this expression is true".
 
-Inside the block, any premises of the theorem statement can be assumed to be true. In this case, the premise is:
+Inside the block, any premises of the theorem statement can be assumed to be true, and the goal is to prove the conclusion. In this case, the premise is:
 
 ```acorn
 a.suc < b.suc
 ```
 
-When the verifier runs, it finds a proof for each statement in the block. Each statement can use the statements before it.
-
-Finally, it finds a proof for the conclusion of the theorem itself, based on all the statements inside the block. In this case, the conclusion is:
+and the conclusion is:
 
 ```acorn
 a < b
 ```
+
+During verification, after compilation comes proving. The prover searches for a proof for every statement. In general, the proof for a statement can use all statements before it. When the prover cannot find a proof for a theorem, this is reported as a yellow-squiggle warning.
 
 ## Types
 
