@@ -35,6 +35,31 @@ theorem goal<T>(a: T, b: T, c: T) {
 
 This isn't quite enough to be useful. We at least need types to be polymorphic, to express concepts like `List<T>`. And it would nice to have more powerful dependent types, to handle stuff like schemes and sheaves. So, we might want to change how polymorphism currently works, in order to get there.
 
+## Reading Numerals
+
+There is a special `read` function. If your class has member variables for the digits `0` through `9`, as well as a `read` function that combines an existing number with a new digit, it can be used in a `numerals` statement to process number strings.
+
+```acorn
+// Not exactly how it works in the standard library, but close
+class Nat {
+    let 1: Nat = Nat.0.suc
+    let 2: Nat = Nat.1.suc
+    let 3: Nat = Nat.2.suc
+    let 4: Nat = Nat.3.suc
+    let 5: Nat = Nat.4.suc
+    let 6: Nat = Nat.5.suc
+    let 7: Nat = Nat.6.suc
+    let 8: Nat = Nat.7.suc
+    let 9: Nat = Nat.8.suc
+
+    define read(self, other: Nat) -> Nat {
+        dectuple(self) + other
+    }
+}
+```
+
+This is kind of weird. It would probably make more sense to process a list of characters into a numerical object directly. But, currently we don't have a "list" or a "character" type in the standard library. So, we probably want to change how the `read` function works.
+
 ## Solve Statements
 
 Traditionally, theorem provers are focused on proving theorems. "Solving an expression" is a very common operation in mathematics that doesn't quite fit into this paradigm. You can express this in Acorn with a `solve` statement:
@@ -64,4 +89,4 @@ axiom two_plus_two_is_five {
 }
 ```
 
-This was useful during development, but it isn't clear if it's useful to keep this feature around.
+This is very handy for unit testing, but maybe we don't want to expose it for actual use.

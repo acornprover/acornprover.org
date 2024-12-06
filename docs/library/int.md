@@ -22,7 +22,7 @@ inductive Int {
 
 ## Int's operators
 
-`Int` supports addition, multiplication, subtraction, and comparison operators.
+`Int` supports addition, multiplication, subtraction, negation, and comparison operators.
 
 ```acorn
 numerals Int
@@ -41,6 +41,10 @@ Int.mul(2, 2)
 4 - 2
 Int.sub(4, 2)
 4.sub(2)
+
+// Two ways to negate a number.
+-3
+3.neg
 
 // Three ways for each comparison operator.
 2 < 3
@@ -66,27 +70,36 @@ Converts an integer to a natural number.
 
 ```acorn
 abs(Int.4) = Nat.4
+abs(-Int.4) = Nat.4
 ```
-
-TODO: negative example
 
 ## neg_nat: Nat -> Int
 
 Converts a natural number into its negated integer version.
 
-TODO: example
+```acorn
+neg_nat(Nat.4) = -Int.4
+```
 
 ## is_negative: Nat -> Bool
 
 Whether an integer is negative. Zero is not negative.
 
-TODO: examples
+```acorn
+is_negative(-2)
+not is_negative(2)
+not is_negative(0)
+```
 
 ## is_positive: Nat -> Bool
 
 Whether an integer is positive. Zero is not positive.
 
-TODO: examples
+```acorn
+is_positive(7)
+not is_positive(-7)
+not is_positive(0)
+```
 
 ## is_unit: Int -> Bool
 

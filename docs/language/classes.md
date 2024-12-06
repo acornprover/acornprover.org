@@ -50,11 +50,13 @@ theorem swap_is_involutive(p: LatticePoint) {
 The names for constants and functions inside a class block are the same as outside, except that constants in a
 class can also have numeric names. Thus `Nat.0` is the name for zero, the natural number, and `Int.0` is the name for zero, the integer.
 
+Writing the `numerals Int` statement lets us avoid typing `Int.` before every numeral.
+
 It's okay to have multiple `class` blocks for a single class. You often want to define some methods, prove some things about them, then define more methods.
 
-## Infix Operators
+## Operators
 
-Every infix operator has a alphabetical name. If you define a method of this name, the infix operator will work as well. For example, the `+` operator corresponds to the name `add`:
+Every operator has a alphabetical reserved name. If you define a method of this name, the operator will work as well. For example, the `+` operator corresponds to the name `add`:
 
 ```acorn
 class LatticePoint {
@@ -68,7 +70,7 @@ theorem add_origin(p: LatticePoint) {
 }
 ```
 
-The names of the supported infix operators are:
+The names of the supported operators are:
 
 ```acorn
 // Greater than
@@ -97,29 +99,7 @@ a.div(b) = a / b
 
 // Mod
 a.mod(b) = a % b
+
+// Negative. The unary '-' is different from the binary '-'.
+a.neg = -a
 ```
-
-## Reading Numerals
-
-There is also a special `read` function. If your class has member variables for the digits `0` through `9`, as well as a `read` function that combines an existing number with a new digit, it can be used in a `numerals` statement to process number strings.
-
-```acorn
-// Not exactly how it works in the standard library, but close
-class Nat {
-    let 1: Nat = Nat.0.suc
-    let 2: Nat = Nat.1.suc
-    let 3: Nat = Nat.2.suc
-    let 4: Nat = Nat.3.suc
-    let 5: Nat = Nat.4.suc
-    let 6: Nat = Nat.5.suc
-    let 7: Nat = Nat.6.suc
-    let 8: Nat = Nat.7.suc
-    let 9: Nat = Nat.8.suc
-
-    define read(self, other: Nat) -> Nat {
-        dectuple(self) + other
-    }
-}
-```
-
-This is kind of weird, but currently we don't have a "string" type in the language, so some amount of weirdness is inescapable. Don't get your heart set on this functionality working this way forever.
