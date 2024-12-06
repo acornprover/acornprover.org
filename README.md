@@ -12,4 +12,10 @@ npm install
 npm start
 ```
 
+To deploy to production, run:
+
+```
+npm run deploy
+```
+
 Please feel free to contribute pull requests! It's especially helpful to add documentation when you add new components to the standard library.
