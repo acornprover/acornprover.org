@@ -105,19 +105,34 @@ not is_positive(0)
 
 Whether an integer is a unit, i.e. a divisor of 1, i.e. either one or negative one.
 
-TODO: examples
+```acorn
+is_unit(1)
+is_unit(-1)
+not is_unit(0)
+not is_unit(7)
+```
 
 ## divides: (Int, Int) -> Bool
 
 A predicate for whether one integer divides another.
 
-TODO: examples
+```acorn
+divides(3, 9)
+divides(2, -4)
+divides(-5, 10)
+divides(5, 0)
+not divides(0, -1)
+```
 
 ## gcd: (Int, Int) -> Int
 
 The greatest common divisor. Always returns a nonnegative integer.
 
-TODO: Examples
+```acorn
+gcd(6, 9) = 3
+gcd(-2, -8) = 2
+gcd(-3, 0) = 3
+```
 
 ## spans(a: Int, b: Int, c: Int) -> Bool
 
