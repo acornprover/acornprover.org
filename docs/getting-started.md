@@ -77,4 +77,4 @@ If you're familiar with other theorem provers, you know that there is often a si
 
 And one day... who knows. Maybe your wildest dreams will all come true.
 
-For a harder proof, neither humans nor Acorn will be able to solve it in a single step. We need to structure the proof, to break it down into easy steps. Let's jump into the tutorial.
+For a harder proof, neither humans nor Acorn will be able to solve it in a single step. We need to structure the proof, to break it down into easy steps. Let's [jump into the tutorial](/docs/tutorial/multi-step-proofs/).
