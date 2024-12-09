@@ -3,7 +3,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "The Acorn Theorem Prover",
+  title: "Acorn Theorem Prover",
   tagline: "Perfectly rigorous mathematics, as simple as possible.",
   favicon: "img/achy64.png",
 
@@ -66,34 +66,28 @@ const config: Config = {
       },
       items: [
         {
-          type: "docSidebar",
-          sidebarId: "sidebar",
+          type: "doc",
+          docId: "getting-started",
           position: "left",
           label: "Getting Started",
         },
         {
-          type: "docSidebar",
-          sidebarId: "sidebar",
+          type: "doc",
+          docId: "/category/tutorial",
           position: "left",
           label: "Tutorial",
         },
         {
-          type: "docSidebar",
-          sidebarId: "sidebar",
+          type: "doc",
+          docId: "/category/language-reference",
           position: "left",
           label: "Language Reference",
         },
         {
-          type: "docSidebar",
-          sidebarId: "sidebar",
+          type: "doc",
+          docId: "/category/library-reference",
           position: "left",
           label: "Library Reference",
-        },
-        {
-          type: "docSidebar",
-          sidebarId: "sidebar",
-          position: "left",
-          label: "Community",
         },
         { to: "/blog", label: "Blog", position: "left" },
         {
@@ -109,18 +103,18 @@ const config: Config = {
         {
           title: "Docs",
           items: [
+            { label: "Getting Started", to: "/docs/getting-started/" },
             {
               label: "Tutorial",
               to: "/docs/category/tutorial/",
             },
-          ],
-        },
-        {
-          title: "Community",
-          items: [
             {
-              label: "Twitter",
-              href: "https://twitter.com/acornprover",
+              label: "Language Reference",
+              to: "/docs/category/language-reference/",
+            },
+            {
+              label: "Library Reference",
+              to: "/docs/category/library-reference/",
             },
           ],
         },
@@ -128,12 +122,20 @@ const config: Config = {
           title: "More",
           items: [
             {
+              label: "Twitter",
+              href: "https://twitter.com/acornprover",
+            },
+            {
+              label: "X",
+              href: "https://x.com/acornprover",
+            },
+            {
               label: "Blog",
               to: "/blog",
             },
             {
               label: "GitHub",
-              href: "https://github.com/acornprover",
+              href: "https://github.com/acornprover/acornlib",
             },
           ],
         },
