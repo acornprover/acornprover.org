@@ -20,12 +20,12 @@ We're ready to go. Open up VS Code.
 Make a new Acorn file. An Acorn file has to end with a `.ac` extension, so save this new file as `hello.ac`.
 You can make a new folder for the project, or just stick this file anywhere.
 
-Once you save this file, the Assistant window should appear. The assistant will tell us useful information
-while we're writing Acorn code, like why things are true, or how to fill in the missing bits of a proof.
+Once you save this file, the Assistant window should appear. The assistant will show useful information
+while we're writing Acorn code.
 If you accidentally close it, you can open it back up with Ctrl-Enter, or by clicking the little green acorn
 icon in the upper right.
 
-Now let's get proving. Enter this theorem into your file, and when you're done, save it.
+Now let's get proving. Enter this code:
 
 ```acorn
 from nat import Nat
@@ -35,7 +35,11 @@ theorem hello_world(a: Nat, b: Nat) {
 }
 ```
 
-When you save, Acorn's AI checks your work, to ensure that everything you wrote can be proven. The AI runs locally, so you don't need internet access. You should see a little check mark appear. Click on the theorem, and the assistant should tell you, yep, this is trivial, and also give you a longer explanation for why exactly it's true.
+Informally, we are proving the theorem, "when one number is less than another, they are not equal".
+
+When you're done, save the file.
+
+When you save, Acorn's AI checks your work, to ensure that everything you wrote can be proven. The AI runs locally, so you don't need internet access. You should see a little check mark appear to the left of your code. Click on the theorem, and the assistant should tell you, yep, this is trivial, and also give you a longer explanation for why exactly it's true.
 
 Success!
 

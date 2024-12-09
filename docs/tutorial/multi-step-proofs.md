@@ -4,13 +4,13 @@ sidebar_position: 1
 
 # Multi-step Proofs
 
-Often a theorem isn't so obvious that in your head, you just realize it's true in a single flash of insight. Instead, you think about it, and you start to see a sequence of things that follow from the premises. Your thought process goes:
+Often a theorem isn't so obvious that you just realize it's true in a single flash of insight. Instead, you think about it, and you start to see a sequence of things that follow from the premises. Your thought process goes:
 
 "Given that `my_premise` is true, we know that `first_step` must be true. Then we know that `second_step` is true... well, if we have both of those, then we also can conclude `third_step`. And that implies `interesting_conclusion`. So `my_premise` implies `interesting_conclusion`, nice, that's a cool theorem."
 
 ## Proof Blocks
 
-The way you express this in Acorn code is with a proof block on your theorem:
+The way you express this in Acorn is with a theorem statement that has a proof block:
 
 ```acorn
 theorem cool_theorem {
