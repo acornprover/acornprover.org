@@ -10,7 +10,7 @@ Let's try an example.
 
 ## Our Starting Point
 
-If you've been going through the tutorial linearly, delete the stuff about `throdd`, to keep this example focused. Start with the `threeven` code:
+If you've been going through the tutorial linearly, delete the stuff about `throdd`, to keep this example focused. Start with the [`threeven` code](https://github.com/acornprover/acornprover.org/blob/master/examples/threeven.ac):
 
 ```acorn
 from nat import Nat

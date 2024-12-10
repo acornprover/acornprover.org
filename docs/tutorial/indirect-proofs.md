@@ -10,7 +10,7 @@ To demonstrate this, let's define a more profound mathematical concept, building
 
 ## Our Starting Point
 
-If you've been following along linearly, great. If not, start with the `threeven` code:
+If you've been following along linearly, great. If not, start with the [`threeven` code](https://github.com/acornprover/acornprover.org/blob/master/examples/threeven.ac):
 
 ```acorn
 from nat import Nat

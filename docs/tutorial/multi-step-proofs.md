@@ -30,7 +30,7 @@ We should go through a nontrivial proof so that this makes sense. Let's start by
 
 ## Threeven
 
-Open up a new Acorn file, which you could call `threeven.ac`, and type this in.
+Open up a new Acorn file and type this in.
 
 ```acorn
 from nat import Nat
@@ -42,6 +42,8 @@ define threeven(n: Nat) -> Bool {
     }
 }
 ```
+
+The example code is [available here](https://github.com/acornprover/acornprover.org/blob/master/examples/) if you just want the final version.
 
 If a number is divisible by two, we call that "even". Naturally, if a number is divisible by three, we should call that "threeven".
 
