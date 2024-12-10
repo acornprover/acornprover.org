@@ -31,7 +31,7 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/acornprover/acornprover.org/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/acornprover/acornprover.org/edit/master/",
         },
         blog: {
           showReadingTime: false,
@@ -41,7 +41,7 @@ const config: Config = {
           },
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/acornprover/acornprover.org/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/acornprover/acornprover.org/edit/master/",
 
           // Useful options to enforce blogging best practices
           onInlineTags: "warn",
