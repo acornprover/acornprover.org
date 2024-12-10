@@ -56,7 +56,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: "img/acorn-social-card.jpg",
+    image: "img/acorn-social-card.png",
     navbar: {
       title: "Acorn",
       logo: {
