@@ -30,6 +30,8 @@ We should go through a nontrivial proof so that this makes sense. Let's start by
 
 ## Threeven
 
+If you don't have Acorn installed and you want to follow along, check out the [Getting Started guide](/docs/getting-started/).
+
 Open up a new Acorn file and type this in.
 
 ```acorn
@@ -47,19 +49,25 @@ The example code is [available here](https://github.com/acornprover/acornprover.
 
 If a number is divisible by two, we call that "even". Naturally, if a number is divisible by three, we should call that "threeven".
 
-This code uses some Acorn keywords that we haven't seen before.
+This code uses some common Acorn keywords.
+
+```acorn
+from nat import Nat
+```
+
+The `from` and `import` keywords tell Acorn that we're using the `Nat` type from the `nat` module in the standard library, which provides natural numbers.
 
 ```acorn
 numerals Nat
 ```
 
-This tells Acorn that in the rest of this file, numerals like `3` should be interpreted as natural numbers.
+The `numerals` keyword tells Acorn that in the rest of this file, numerals like `3` should be interpreted as natural numbers.
 
 ```acorn
 define threeven(n: Nat) -> Bool
 ```
 
-This defines a new function, called `threeven`. The function takes one argument, a natural number, and returns a boolean value, which just means it can be true or false. Note that `Nat` and `Bool` are capitalized, because they are types.
+The `define` keyword defines a new function, called `threeven`. The function takes one argument, a natural number, and returns a boolean value, which just means it can be true or false. Note that `Nat` and `Bool` are capitalized, because they are types.
 
 ```acorn
 exists(d: Nat) {
@@ -67,7 +75,7 @@ exists(d: Nat) {
 }
 ```
 
-`exists` is the existential quantifier. A number `n` is threeven if there's some other number, `d`, that you can multiply by 3 to get `n`. There's also `forall`, the universal quantifier.
+The `exists` keyword is the existential quantifier. A number `n` is threeven if there's some other number, `d`, that you can multiply by 3 to get `n`. There's also `forall`, the universal quantifier.
 
 ## The Essence of Being Threeven
 

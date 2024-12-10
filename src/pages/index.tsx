@@ -39,8 +39,8 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Acorn`}
-      description="Description will go into a meta tag in <head />"
+      title="The Acorn Theorem Prover"
+      description="Perfectly rigorous mathematics, as simple as possible."
     >
       <HomepageHeader />
       <main>

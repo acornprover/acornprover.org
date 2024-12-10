@@ -3,7 +3,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "Acorn Theorem Prover",
+  title: "The Acorn Theorem Prover",
   tagline: "Perfectly rigorous mathematics, as simple as possible.",
   favicon: "img/achy64.png",
 
@@ -57,6 +57,7 @@ const config: Config = {
 
   themeConfig: {
     image: "img/acorn-social-card.png",
+    titleTemplate: "%s",
     navbar: {
       title: "Acorn",
       logo: {
