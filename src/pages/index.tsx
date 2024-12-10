@@ -39,7 +39,7 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title="The Acorn Theorem Prover"
+      title=""
       description="Perfectly rigorous mathematics, as simple as possible."
     >
       <HomepageHeader />
