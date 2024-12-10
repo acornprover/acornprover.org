@@ -46,11 +46,11 @@ To work on the library, fork it on GitHub, clone the fork to your local machine,
 
 If you're an AI developer, you're welcome to help out with the Acorn AI.
 
-Currently, the [Acorn AI codebase](https://github.com/acornprover/acorn/tree/master/python) is focused on training the model used by the Acorn Assistant. The goal of the Assistant is to be a useful tool running locally on a decent but not cutting edge developer machine, while being trained on entirely open data from the Acorn library.
+Currently, the [Acorn AI codebase](https://github.com/acornprover/acorn/tree/master/python) trains one fully open source model that's small enough to run on a laptop. It's used in two different ways. It's used by the verifier to check entire files, and it's used by the slower proof search process when you click on a yellow-squiggled proposition.
 
-If you're interested in helping out with that, great.
+It's important that there be a single canonical verifier, that's completely open source and widely usable by individuals without many compute resources. But for proof search, it would be useful to support multiple different mechanisms, including ones that aren't free or open source, as long as they all help people contribute back to the same shared open library.
 
-It also seems entirely possible that one could build a more powerful AI tool, that used Acorn code, but was not constrained to being open source and running locally. If you build one of these or are interested in building one of these, let us know! This also would help the mission.
+In particular, we need to pay attention to the dynamic that generalist LLMs are becoming more and more powerful. We want to be a complement to those services, not to compete with them.
 
 ## The User Experience
 
