@@ -1,6 +1,6 @@
 Prism.languages.acorn = {
   keyword:
-    /\b(and|axiom|by|class|define|else|exists|false|forall|from|function|if|import|inductive|let|not|numerals|or|satisfy|structure|theorem|true|type)\b/,
+    /\b(and|axiom|by|class|constraint|define|else|exists|false|forall|from|function|if|import|inductive|let|not|numerals|or|satisfy|structure|theorem|true|type)\b/,
 
   comment: {
     pattern: /\/\/.*/,
