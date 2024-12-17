@@ -61,3 +61,38 @@ theorem projection(x: Int, y: Int) {
     LatticePoint.new(x, y).x = x and LatticePoint.new(x, y).y = y
 }
 ```
+
+## Constraints
+
+Structure types can also accept a constraint, to form a "constrained type".
+
+```acorn
+structure OrderedIntPair {
+    first: Int
+    second: Int
+} constraint {
+    first <= second
+}
+```
+
+All types in Acorn must be inhabited, so when you define a constrained type, you must prove that it
+is possible to satisfy the constraints.
+
+This can result in a `by` block after the `constraint` block. For example, you could prove this explicitly with:
+
+```acorn
+structure OrderedIntPair {
+    first: Int
+    second: Int
+} constraint {
+    first <= second
+} by {
+    let first: Int = 0
+    let second: Int = 1
+    first <= second
+}
+```
+
+When there is a constraint, the function `OrderedIntPair.new` is still defined on all of its arguments. But the projection theorem is only true when the constraint holds.
+
+(If we decide to include Option types in the base language, we could make `new` return an Option instead.)
