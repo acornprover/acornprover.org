@@ -64,6 +64,26 @@ Int.gte(7, 0)
 7.gte(0)
 ```
 
+## Int.is_negative: self -> Bool
+
+Whether an integer is negative. Zero is not negative.
+
+```acorn
+i(-2).is_negative
+not 2.is_negative
+not 0.is_negative
+```
+
+## Int.is_positive: self -> Bool
+
+Whether an integer is positive. Zero is not positive.
+
+```acorn
+7.is_positive
+not (-7).is_positive
+not 0.is_positive
+```
+
 ## abs: Int -> Nat
 
 Converts an integer to a natural number.
@@ -79,26 +99,6 @@ Converts a natural number into its negated integer version.
 
 ```acorn
 neg_nat(Nat.4) = -Int.4
-```
-
-## is_negative: Nat -> Bool
-
-Whether an integer is negative. Zero is not negative.
-
-```acorn
-is_negative(-2)
-not is_negative(2)
-not is_negative(0)
-```
-
-## is_positive: Nat -> Bool
-
-Whether an integer is positive. Zero is not positive.
-
-```acorn
-is_positive(7)
-not is_positive(-7)
-not is_positive(0)
 ```
 
 ## is_unit: Int -> Bool
