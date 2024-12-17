@@ -34,7 +34,12 @@ Acorn is completely open source. You are encouraged to help out with any of thes
 
 If you read this far in the documentation, you're capable of helping out with the Acorn library.
 
-What could you add? There is a lot of "obvious mathematics" that we're missing. Here's a list of the [top 100 theorems](https://www.cs.ru.nl/~freek/100/) along with which other theorem provers have proven what. Anything on there would be great to add.
+What could you add? There is a lot of "obvious mathematics" that we're missing.
+
+The easiest place to start would be to add theorems to the [/docs/library/real/](real number library), which
+is still missing some pretty basic stuff.
+
+For more advanced goals, here's a list of the [top 100 theorems](https://www.cs.ru.nl/~freek/100/) along with which other theorem provers have proven what. Anything on there would be great to add.
 
 Really, we are early on in the development of the library. If you [take a look at what we have](https://github.com/acornprover/acornlib) you will probably notice many basic things that are missing.
 
