@@ -2,6 +2,8 @@
 
 The `nat` module provides natural numbers and some related functions.
 
+[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/nat.ac)
+
 ## Nat
 
 The `Nat` type is defined inductively. There are two constructors.

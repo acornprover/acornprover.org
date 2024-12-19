@@ -2,6 +2,8 @@
 
 The `real` module provides real numbers.
 
+[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/real.ac)
+
 This module is very incomplete. The real numbers are defined, but that's about it. If you are interested in making a small contribution to the Acorn library, check out this module!
 
 Good places to start:
@@ -11,7 +13,6 @@ Good places to start:
 - Define multiplication
 - Prove the commutativity and associativity of multiplication
 - Prove the distributive property
-- Define the comparison operators
 
 ## Defining Real Numbers
 
@@ -74,6 +75,20 @@ my_real.gt_rat(my_rat)
 ```
 
 compares a real and a rational, telling you whether `my_real` is greater than `my_rat`.
+
+## Real's operators
+
+`Real` supports comparison operators, but the other operators aren't implemented yet.
+
+```acorn
+let zero: Real = Real.from_rat(Rat.0)
+let one: Real = Real.from_rat(Rat.1)
+
+zero < one
+one > zero
+zero <= zero
+one >= zero
+```
 
 ## Real.from_rat: Rat -> Real
 

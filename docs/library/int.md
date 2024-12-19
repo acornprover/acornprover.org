@@ -2,6 +2,8 @@
 
 The `int` module provides integers and related functions.
 
+[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/int.ac)
+
 ## Int
 
 The `Int` type is defined by its two constructors.

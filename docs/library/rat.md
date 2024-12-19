@@ -2,6 +2,8 @@
 
 The `rat` module provides rational numbers and related functions.
 
+[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/rat.ac)
+
 ## Rat
 
 The `Rat` type is a constrained structure built on `Int`s.
