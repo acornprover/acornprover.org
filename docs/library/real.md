@@ -78,18 +78,31 @@ compares a real and a rational, telling you whether `my_real` is greater than `m
 
 ## Real's operators
 
-`Real` supports comparison operators, but the other operators aren't implemented yet.
+`Real` supports addition, multiplication, subtraction, negation, and comparison operators.
 
 ```acorn
 let zero: Real = Real.from_rat(Rat.0)
 let one: Real = Real.from_rat(Rat.1)
+let two: Real = one + one
 
 zero < one
 one > zero
 zero <= zero
 one >= zero
+
+two * one = two
+-(-one) = one
+zero + two = two
 ```
 
 ## Real.from_rat: Rat -> Real
 
 Embeds the rational numbers in the reals, using the Dedekind cut that is simply "all numbers less than this rational number".
+
+## Real.is_negative: self -> Bool
+
+Whether a real number is negative. Zero is not negative.
+
+## Real.is_positive: self -> Bool
+
+Whether a real number is positive. Zero is not positive.

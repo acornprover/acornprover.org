@@ -47,7 +47,7 @@ numerals Rat
 Whether an rational number is negative. Zero is not negative.
 
 ```acorn
-i(-2).is_negative
+(-2).is_negative
 not 2.is_negative
 not 0.is_negative
 ```
