@@ -32,7 +32,7 @@ A theorem prover is even more necessary in a world with many powerful large lang
 
 There is nothing wrong with making AI that solves hard math problems. In fact, it seems like a very exciting thing to work on.
 
-But that is not the primary goal of the Acorn project. Acorn would like to help *you* discover a proof to an unsolved mathematical problem. If you're a brilliant mathematician, perhaps Acorn can help with the boring parts of your work. If you're a brilliant AI programmer, Acorn is open source, so perhaps you can build it into a larger system.
+But that is not the primary goal of the Acorn project. Acorn would like to help _you_ discover a proof to an unsolved mathematical problem. If you're a brilliant mathematician, perhaps Acorn can help with the boring parts of your work. If you're a brilliant AI programmer, Acorn is open source, so perhaps you can build it into a larger system.
 
 The primary goal of the Acorn AI is to help with formalization. This is because a formalized library containing all known mathematics is a critical component for building more advanced systems, and the bottleneck in building such a library is the difficulty of formalization.
 
@@ -50,8 +50,8 @@ Here's the plan in diagram form:
 
 To learn more, you can check out the [Language Reference](/docs/category/language-reference).
 
-If you'd like to contribute to the Acorn library, check out the [Acorn library on GitHub](https://github.com/acornprover/acornlib).
+If you'd like to contribute theorems to the Acorn library, check out the [Acorn library on GitHub](https://github.com/acornprover/acornlib).
 
-If you have ideas for improvements to the Acorn language, the AI, or the user experience, the best place to start is... TODO.
+If you have other ideas or questions about Acorn, let's [discuss them on Discord](https://discord.gg/RqXxaye4MC).
 
 Thanks for reading!
