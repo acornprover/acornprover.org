@@ -122,12 +122,12 @@ const config: Config = {
           title: "More",
           items: [
             {
-              label: "Twitter",
+              label: "Twitter / X",
               href: "https://twitter.com/acornprover",
             },
             {
-              label: "X",
-              href: "https://x.com/acornprover",
+              label: "Discord",
+              href: "https://discord.gg/RqXxaye4MC",
             },
             {
               label: "Blog",
