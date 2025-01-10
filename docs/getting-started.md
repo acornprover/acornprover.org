@@ -4,20 +4,20 @@ sidebar_position: 1
 
 # Getting Started
 
-The primary way to use Acorn is through the Acorn VS Code extension.
+The primary way to use Acorn is through the Acorn Prover VS Code extension.
 It works on Windows, Linux, or modern Macs with an M-something chip.
 
 ## Installing the VS Code Extension
 
 First, [download VS Code](https://code.visualstudio.com/), if you don't have it already.
 
-Then, [install the Acorn extension](https://marketplace.visualstudio.com/VSCode).
+Then, install the Acorn Prover extension. You can do this from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=acornprover.acornprover), or from the VS Code extensions side panel.
 
-We're ready to go. Open up VS Code.
+You're ready to go.
 
 ## Proving A Theorem
 
-Make a new Acorn file. An Acorn file has to end with a `.ac` extension, so save this new file as `hello.ac`.
+Open up VS Code and make a new Acorn file. An Acorn file has to end with a `.ac` extension, so save this new file as `hello.ac`.
 You can make a new folder for the project, or just stick this file anywhere.
 
 Once you save this file, the Assistant window should appear. The assistant will show useful information
@@ -43,7 +43,7 @@ When you save, Acorn's AI checks your work, to ensure that everything you wrote 
 
 Success!
 
-If this didn't work, check to be sure that the Acorn extension is installed and activated.
+If this didn't work, check to be sure that the "Acorn Prover" extension is installed and activated.
 
 ## What did I just type?
 
