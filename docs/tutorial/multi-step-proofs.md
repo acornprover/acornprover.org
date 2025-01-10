@@ -158,4 +158,4 @@ The red squiggle is a compile-time error. You get a red squiggle because you ent
 
 3. When you get a yellow squiggle, that step isn't simple enough. Add more steps.
 
-Many proofs can be expressed in this sequential way. But sometimes, it's more convenient to structure the proof differently. Next, let's discuss indirect proofs.
+Many proofs can be expressed in this sequential way. But sometimes, it's more convenient to structure the proof differently. Next, let's discuss [indirect proofs](/docs/tutorial/indirect-proofs/).

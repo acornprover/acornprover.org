@@ -171,4 +171,4 @@ There are two blocks delineated by `{ ... }` braces here. In the first block, we
 
 Well, fair enough. Aesthetically this might be a little backwards, because in some sense the division theorem is more advanced than the concept of "threeven". Taking commutativity for granted is one thing. But should a tutorial really rely on the division theorem?
 
-We could also do a different sort of proof. Next, let's talk about induction.
+We could also do a different sort of proof. Next, let's talk about [induction](/docs/tutorial/induction/).
