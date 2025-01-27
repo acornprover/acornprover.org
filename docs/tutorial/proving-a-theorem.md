@@ -2,26 +2,14 @@
 sidebar_position: 1
 ---
 
-# Getting Started
-
-The primary way to use Acorn is through the Acorn Prover VS Code extension.
-It works on Windows, Linux, or modern Macs with an M-something chip.
-
-## Installing the VS Code Extension
-
-First, [download VS Code](https://code.visualstudio.com/), if you don't have it already.
-
-Then, install the Acorn Prover extension. You can do this from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=acornprover.acornprover), or from the VS Code extensions side panel.
-
-You're ready to go.
-
-## Proving A Theorem
+# Proving A Theorem
 
 Open up VS Code and make a new Acorn file. An Acorn file has to end with a `.ac` extension, so save this new file as `hello.ac`.
 You can make a new folder for the project, or just stick this file anywhere.
 
-Once you save this file, the Assistant window should appear. The assistant will show useful information
-while we're writing Acorn code.
+Once you save this file, the Assistant window should appear.
+
+The assistant will show useful information while we're writing Acorn code.
 If you accidentally close it, you can open it back up with Ctrl-Enter, or by clicking the little green acorn
 icon in the upper right.
 
@@ -77,4 +65,4 @@ If you're familiar with other theorem provers, you know that there is often a si
 
 And one day... who knows. Maybe your wildest dreams will all come true.
 
-For a harder proof, neither humans nor Acorn will be able to solve it in a single step. We need to structure the proof, to break it down into easy steps. Let's [jump into the tutorial](/docs/tutorial/multi-step-proofs/).
+For a harder proof, neither humans nor Acorn will be able to solve it in a single step. We need to structure the proof, to break it down into easy steps. Let's [take a look at multi-step proofs](/docs/tutorial/multi-step-proofs/).

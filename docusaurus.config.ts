@@ -58,6 +58,8 @@ const config: Config = {
   themeConfig: {
     image: "img/acorn-social-card.png",
     titleTemplate: "%s",
+
+    // The navbar is the top bar of the website.
     navbar: {
       title: "Acorn",
       logo: {
@@ -67,9 +69,9 @@ const config: Config = {
       items: [
         {
           type: "doc",
-          docId: "getting-started",
+          docId: "installation",
           position: "left",
-          label: "Getting Started",
+          label: "Download",
         },
         {
           type: "doc",
@@ -103,7 +105,7 @@ const config: Config = {
         {
           title: "Docs",
           items: [
-            { label: "Getting Started", to: "/docs/getting-started/" },
+            { label: "Download", to: "/docs/installation/" },
             {
               label: "Tutorial",
               to: "/docs/category/tutorial/",

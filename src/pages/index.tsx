@@ -19,13 +19,13 @@ function HomepageHeader() {
         <div className={`margin-top--lg ${styles.buttons}`}>
           <Link
             className={`button button--secondary margin-horiz--md ${styles.leftButton}`}
-            to="/docs/getting-started/"
+            to="/docs/installation/"
           >
-            Get Started
+            Get Acorn
           </Link>
           <Link
             className={`button button--secondary margin-horiz--md ${styles.rightButton}`}
-            to="/docs/category/tutorial/"
+            to="/docs/tutorial/proving-a-theorem/"
           >
             Learn More
           </Link>

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Multi-step Proofs
@@ -30,7 +30,7 @@ We should go through a nontrivial proof so that this makes sense. Let's start by
 
 ## Threeven
 
-If you don't have Acorn installed and you want to follow along, check out the [Getting Started guide](/docs/getting-started/).
+If you don't have Acorn installed and you want to follow along, check out the [installation guide](/docs/get-acorn/).
 
 Open up a new Acorn file and type this in.
 
