@@ -73,7 +73,7 @@ Let's look at the parts of this code.
 
 ## Method One: Lots Of Little Theorems
 
-One way to do prove `threeven_everywhere` is by making the base case and inductive step their own theorems. For example:
+One way to prove `threeven_everywhere` is by making the base case and inductive step their own theorems. For example:
 
 ```acorn
 define threeven_nearby(n: Nat) -> Bool {
@@ -101,7 +101,7 @@ theorem threeven_everywhere(n: Nat) {
 }
 ```
 
-We use a short proof by contradiction to prove the inductive step, and otherwise the steps are trivial. We don't need to explicitly cite "induction". We just need to prove the base case and the inductive step, and Acorn will do the lookup itself.
+We use a short proof by cases to prove the inductive step, and otherwise the steps are trivial. We don't need to explicitly cite "induction". We just need to prove the base case and the inductive step, and Acorn will do the lookup itself.
 
 ## Method Two: One Big Theorem
 
