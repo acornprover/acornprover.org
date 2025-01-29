@@ -4,35 +4,44 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+    .heroBanner {
+        padding: 2rem;
+    }
 }
 
 /* Intended just for the buttons in the hero banner */
 .buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  --ifm-button-size-multiplier: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    --ifm-button-size-multiplier: 1.6;
+}
+
+@media (width >= 48rem) {
+    .buttons {
+        flex-direction: row;
+        gap: 1rem;
+    }
 }
 
 .leftButton {
-  background-color: #4caf50;
-  border-color: #4caf50;
+    background-color: #4caf50;
+    border-color: #4caf50;
 }
 
 .leftButton:hover {
-  background-color: #388e3c;
+    background-color: #388e3c;
 }
 
 .rightButton {
-  border-color: #000;
+    border-color: #000;
 }
