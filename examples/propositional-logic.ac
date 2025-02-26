@@ -7,5 +7,5 @@ theorem modus_tollens(p: Bool, q: Bool) {
 }
 
 theorem hypothetical_syllogism(p: Bool, q: Bool, r: Bool) {
-    (p -> q) and (q -> r) -> (p -> r)
+    (p -> q) and (q -> r) implies (p -> r)
 }

@@ -19,7 +19,7 @@ Now let's get proving. Enter this code:
 from nat import Nat
 
 theorem hello_world(a: Nat, b: Nat) {
-    a < b -> a != b
+    a < b implies a != b
 }
 ```
 
@@ -52,7 +52,7 @@ This is the signature for a theorem. The theorem is named `hello_world`. You don
 The `(a: Nat, b: Nat)` part indicates that this theorem is about two natural numbers, which we're calling `a` and `b`, each with the `Nat` type, for the duration of the proof.
 
 ```acorn
-a < b -> a != b
+a < b implies a != b
 ```
 
 This is the statement of the theorem. If `a` is less than `b`, that implies that `a` is not equal to `b`.

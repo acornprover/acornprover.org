@@ -27,7 +27,7 @@ theorem zero_is_threeven {
 }
 
 theorem threeven_plus_three(n: Nat) {
-    threeven(n) -> threeven(n + 3)
+    threeven(n) implies threeven(n + 3)
 } by {
     let d: Nat satisfy {
         3 * d = n
@@ -54,7 +54,7 @@ The astute reader may notice that every threeven number is followed by a throdd 
 
 ```acorn
 theorem throdd_follows_threeven(n: Nat) {
-    threeven(n) -> throdd(n + 1)
+    threeven(n) implies throdd(n + 1)
 }
 ```
 
@@ -64,7 +64,7 @@ You can express this line of reasoning with an `if` statement.
 
 ```acorn
 theorem throdd_follows_threeven(n: Nat) {
-    threeven(n) -> throdd(n + 1)
+    threeven(n) implies throdd(n + 1)
 } by {
     if threeven(n + 1) {
         let a: Nat satisfy {
@@ -91,7 +91,7 @@ Symmetry is slightly spoiled here, because threeven does not always follow odd. 
 
 ```acorn
 theorem threeven_kinda_follows_throdd(n: Nat) {
-    throdd(n) -> threeven(n + 1) or threeven(n + 2)
+    throdd(n) implies threeven(n + 1) or threeven(n + 2)
 }
 ```
 
@@ -99,7 +99,7 @@ There are a bunch of different ways to prove this. Philosophically, it feels lik
 
 ```acorn
 theorem threeven_kinda_follows_throdd(n: Nat) {
-    throdd(n) -> threeven(n + 1) or threeven(n + 2)
+    throdd(n) implies threeven(n + 1) or threeven(n + 2)
 } by {
     // By the division theorem
     let (d: Nat, r: Nat) satisfy {
@@ -138,7 +138,7 @@ You don't need to formally refer to the division theorem in order to use it. Aco
 
 ```acorn
 theorem division_theorem(m: Nat, n: Nat) {
-    0 < n -> exists(q: Nat, r: Nat) {
+    0 < n implies exists(q: Nat, r: Nat) {
         r < n and m = q * n + r
     }
 }

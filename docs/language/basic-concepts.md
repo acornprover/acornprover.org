@@ -36,11 +36,10 @@ An expression in Acorn is either a named value, or a way of building one value o
 
 ```acorn
 // Logic
-p -> q
+p implies q
 p or q
 p and q
 not p
-p <-> q
 true
 false
 
@@ -71,7 +70,7 @@ Let's look an example from the standard library:
 
 ```acorn
 theorem lt_cancel_suc(a: Nat, b: Nat) {
-    a.suc < b.suc -> a < b
+    a.suc < b.suc implies a < b
 } by {
     a.suc <= b.suc
     b.suc != a.suc

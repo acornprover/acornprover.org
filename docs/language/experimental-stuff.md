@@ -8,33 +8,6 @@ Overall, the Acorn language is in beta. Features are likely to change as we get 
 
 We can't promise that your code will not break. But, we can promise that if you get a pull request merged into the standard library, we'll keep it updated as the language changes. Consider that an incentive to share your code.
 
-## Polymorphism
-
-You can make theorems and functions polymorphic. For example:
-
-```acorn
-define repeat<T>(n: Nat, f: T -> T, a: T) -> T {
-    match n {
-        Nat.zero {
-            a
-        }
-        Nat.suc(pred) {
-            repeat(pred, f, f(a))
-        }
-    }
-}
-
-theorem goal<T>(a: T, b: T, c: T) {
-    a = b and b = c -> a = c
-} by {
-    if (a = b and b = c) {
-        a = c
-    }
-}
-```
-
-This isn't quite enough to be useful. We at least need types to be polymorphic, to express concepts like `List<T>`. And it would nice to have more powerful dependent types, to handle stuff like schemes and sheaves. So, we might want to change how polymorphism currently works, in order to get there.
-
 ## Reading Numerals
 
 There is a special `read` function. If your class has member variables for the digits `0` through `9`, as well as a `read` function that combines an existing number with a new digit, it can be used in a `numerals` statement to process number strings.

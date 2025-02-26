@@ -14,7 +14,7 @@ theorem zero_is_threeven {
 }
 
 theorem threeven_plus_three(n: Nat) {
-    threeven(n) -> threeven(n + 3)
+    threeven(n) implies threeven(n + 3)
 } by {
     let d: Nat satisfy {
         3 * d = n
@@ -33,7 +33,7 @@ theorem base_case {
 }
 
 theorem inductive_step(n: Nat) {
-    threeven_nearby(n) -> threeven_nearby(n + 1)
+    threeven_nearby(n) implies threeven_nearby(n + 1)
 } by {
     if threeven(n) {
         threeven(n + 3)

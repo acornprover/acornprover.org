@@ -14,7 +14,7 @@ theorem zero_is_threeven {
 }
 
 theorem threeven_plus_three(n: Nat) {
-    threeven(n) -> threeven(n + 3)
+    threeven(n) implies threeven(n + 3)
 } by {
     let d: Nat satisfy {
         3 * d = n
@@ -29,7 +29,7 @@ define throdd(n: Nat) -> Bool {
 }
 
 theorem throdd_follows_threeven(n: Nat) {
-    threeven(n) -> throdd(n + 1)
+    threeven(n) implies throdd(n + 1)
 } by {
     if threeven(n + 1) {
         let a: Nat satisfy {
@@ -44,7 +44,7 @@ theorem throdd_follows_threeven(n: Nat) {
 }
 
 theorem threeven_kinda_follows_throdd(n: Nat) {
-    throdd(n) -> threeven(n + 1) or threeven(n + 2)
+    throdd(n) implies threeven(n + 1) or threeven(n + 2)
 } by {
     // By the division theorem
     let (d: Nat, r: Nat) satisfy {

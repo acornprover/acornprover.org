@@ -91,7 +91,7 @@ Type this in, save the file, and you should see a little check mark appear. But 
 
 ```acorn
 theorem threeven_plus_three(n: Nat) {
-    threeven(n) -> threeven(n + 3)
+    threeven(n) implies threeven(n + 3)
 }
 ```
 

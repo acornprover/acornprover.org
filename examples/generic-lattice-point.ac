@@ -1,0 +1,36 @@
+structure LatticePoint<T> {
+    x: T
+    y: T
+}
+
+class LatticePoint<T> {
+    define swap(self) -> LatticePoint<T> {
+        LatticePoint.new(self.y, self.x)
+    }
+
+    define on_main_diagonal(self) -> Bool {
+        self.x = self.y
+    }
+}
+
+theorem swap_is_involutive<T>(p: LatticePoint<T>) {
+    p.swap.swap = p
+} by {
+    p.swap.x = p.y
+    p.swap.y = p.x
+}
+
+define colinear<T>(a: LatticePoint<T>, b: LatticePoint<T>) -> Bool {
+    a.x = b.x or a.y = b.y
+}
+
+theorem swap_colinear_imp_main<T>(a: LatticePoint<T>) {
+    colinear(a, a.swap) implies a.on_main_diagonal
+} by {
+    if a.x = a.swap.x {
+        a.on_main_diagonal
+    } else {
+        a.y = a.swap.y
+        a.on_main_diagonal
+    }
+}

@@ -40,7 +40,7 @@ if condition {
 }
 ```
 
-Inside the block, the condition is assumed to be true. Outside the block, `condition -> final_statement` is usable.
+Inside the block, the condition is assumed to be true. Outside the block, `condition implies final_statement` is usable.
 
 In statement form, the `else` branch isn't required.
 

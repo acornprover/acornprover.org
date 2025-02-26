@@ -27,7 +27,7 @@ theorem zero_is_threeven {
 }
 
 theorem threeven_plus_three(n: Nat) {
-    threeven(n) -> threeven(n + 3)
+    threeven(n) implies threeven(n + 3)
 } by {
     let d: Nat satisfy {
         3 * d = n
@@ -59,7 +59,7 @@ So, we have to do a proof by induction. Induction isn't an explicit theorem in A
 ```acorn
 // This code does not actually compile, don't use it!
 theorem Nat.induction(f: Nat -> Bool, n: Nat) {
-    f(0) and forall(k: Nat) { f(k) -> f(k + 1) } -> f(n)
+    f(0) and forall(k: Nat) { f(k) -> f(k + 1) } implies f(n)
 }
 ```
 
@@ -85,7 +85,7 @@ theorem base_case {
 }
 
 theorem inductive_step(n: Nat) {
-    threeven_nearby(n) -> threeven_nearby(n + 1)
+    threeven_nearby(n) implies threeven_nearby(n + 1)
 } by {
     if threeven(n) {
         threeven(n + 3)
@@ -141,7 +141,7 @@ This is essentially the same logic as the first example, just written as a singl
 ```acorn
 // Named theorem version
 theorem my_theorem(x: MyType) {
-    foo(x) -> bar(x)
+    foo(x) implies bar(x)
 } by {
     first_step
     second_step
