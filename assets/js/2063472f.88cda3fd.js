@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkacornprover_org=self.webpackChunkacornprover_org||[]).push([[3215],{7646:t=>{t.exports=JSON.parse('{"tags":[{"label":"meta","permalink":"/blog/tags/meta","description":"Meta-posts, that are not so much about something, but rather about something that\'s about something.","count":1}]}')}}]);

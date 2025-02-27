@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkacornprover_org=self.webpackChunkacornprover_org||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Hello World","permalink":"/blog/hello-world","unlisted":false,"date":"2024-12-09T00:00:00.000Z"}]}')}}]);
