@@ -4,10 +4,24 @@
         <title>The Acorn Theorem Prover Blog</title>
         <link>https://acornprover.org/blog/</link>
         <description>The Acorn Theorem Prover Blog</description>
-        <lastBuildDate>Wed, 26 Feb 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 13 Mar 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[The Build Cache]]></title>
+            <link>https://acornprover.org/blog/the-build-cache/</link>
+            <guid>https://acornprover.org/blog/the-build-cache/</guid>
+            <pubDate>Thu, 13 Mar 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[There's a useful new feature in Acorn Prover 0.0.8: a build cache.]]></description>
+            <content:encoded><![CDATA[<p>There's a useful new feature in Acorn Prover 0.0.8: a build cache.</p>
+<p>When you save changes to an Acorn project, the AI model automatically completes simple proofs with missing steps. Usually this works great, but this can make refactoring more difficult. In particular, if you make changes to a module like <code>nat.ac</code> that many other modules depend on, it can be slow to rebuild everything. If you want to remove a theorem that is used in many places, this can involve many slow rebuilds.</p>
+<p>The build cache mostly solves this problem. Instead of discarding the detailed proof after finding it, Acorn now saves build artifacts in a <code>build</code> directory of the library. While testing, this speeds up partially-cached refactoring operations like renames by a factor of roughly 10x.</p>
+<p>These build artifacts are somewhat human-readable, for the curious. In particular, it can be interesting to see the dependencies between theorems. These make up most of the build cache, as premise selection is the vast majority of the work of the prover:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#000000;--prism-background-color:#ffffff"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#000000;background-color:#ffffff"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#000000"><span class="token plain">  add_from_int:</span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    rat:</span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    - add_int_eq_int_add</span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    real:</span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    - Real.from_int</span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    - add_from_rat</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>For the most part, though, you won't notice anything visibly different with Acorn 0.0.8. Everything should just be faster, and work the same way you're used to. Give it a try!</p>]]></content:encoded>
+            <category>tooling</category>
+        </item>
         <item>
             <title><![CDATA[Generics]]></title>
             <link>https://acornprover.org/blog/generics/</link>
