@@ -59,7 +59,7 @@ So, we have to do a proof by induction. Induction isn't an explicit theorem in A
 ```acorn
 // This code does not actually compile, don't use it!
 theorem Nat.induction(f: Nat -> Bool, n: Nat) {
-    f(0) and forall(k: Nat) { f(k) -> f(k + 1) } implies f(n)
+    f(0) and forall(k: Nat) { f(k) implies f(k + 1) } implies f(n)
 }
 ```
 
@@ -69,7 +69,7 @@ Let's look at the parts of this code.
 
 `f(0)` is the base case, that `f` is true for zero. You can think of `f` as either a function, or a proposition. They work the same way in Acorn.
 
-`forall(k: Nat) { f(k) -> f(k + 1) }` is the inductive step. When `f` is true for `k`, it must also be true for `k + 1`.
+`forall(k: Nat) { f(k) implies f(k + 1) }` is the inductive step. When `f` is true for `k`, it must also be true for `k + 1`.
 
 ## Method One: Lots Of Little Theorems
 

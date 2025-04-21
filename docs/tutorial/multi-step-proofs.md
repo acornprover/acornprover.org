@@ -14,7 +14,7 @@ The way you express this in Acorn is with a theorem statement that has a proof b
 
 ```acorn
 theorem cool_theorem {
-    my_premise -> interesting_conclusion
+    my_premise implies interesting_conclusion
 } by {
     first_step
     second_step
@@ -105,7 +105,7 @@ Click the yellow squiggle, and the assistant will think harder and see if it can
 
 ```acorn
 theorem threeven_plus_three(n: Nat) {
-    threeven(n) -> threeven(n + 3)
+    threeven(n) implies threeven(n + 3)
 } by {
     let d: Nat satisfy {
         3 * d = n

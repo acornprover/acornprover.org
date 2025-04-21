@@ -36,7 +36,7 @@ When you define an inductive type, the principle of induction for that type gets
 ```acorn
 // This theorem happens automatically; you don't need to define it.
 theorem Nat.induction(f: Nat -> Bool, n: Nat) {
-    f(Nat.0) and forall(k: Nat) { f(k) -> f(Nat.suc(k)) } implies f(n)
+    f(Nat.0) and forall(k: Nat) { f(k) implies f(Nat.suc(k)) } implies f(n)
 }
 ```
 

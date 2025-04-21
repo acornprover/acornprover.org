@@ -42,7 +42,7 @@ A "lower set", or "downward closed", contains every element less than or equal t
 ```acorn
 define is_lower(f: Rat -> Bool) -> Bool {
     forall(x: Rat, y: Rat) {
-        f(y) and x < y -> f(x)
+        f(y) and x < y implies f(x)
     }
 }
 ```

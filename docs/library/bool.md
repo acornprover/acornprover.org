@@ -8,7 +8,7 @@ A number of operators are available for `Bool` values.
 
 ```acorn
 // p implies q
-p -> q
+p implies q
 
 // Disjunction
 p or q
