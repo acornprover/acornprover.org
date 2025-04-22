@@ -1,0 +1,29 @@
+// The code below the line is the code that goes into the social card.
+// To create new images of it, use Polacode.
+// This is just supposed to provide a brief hint of what Acorn code looks like.
+
+from nat import Nat
+numerals Nat
+
+define threeven(n: Nat) -> Bool {
+    exists(d: Nat) {
+        3 * d = n
+    }
+}
+
+theorem zero_is_threeven {
+    threeven(0)
+}
+
+// -------------------------------------------------------------------
+
+// Example code for the Acorn theorem prover.
+
+theorem threeven_plus_three(n: Nat) {
+    threeven(n) implies threeven(n + 3)
+} by {
+    let d: Nat satisfy {
+        3 * d = n
+    }
+    3 * (d + 1) = n + 3
+}
