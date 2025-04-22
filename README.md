@@ -37,4 +37,4 @@ The social card is the image that gets included on social media when a page gets
 You can set the default social card for the site in the config, under `themeConfig.image`, and each blog
 post can also have its own `image` in its markdown.
 
-The dimensions should be 1200 x 675 (landscape). You can use Polacode to make nice images of code. See `examples/social-card.ac` for an example.
+The dimensions should be 1200 x 675 (landscape). You can use Polacode or CodeSnap to make nice images of code. See `examples/social-card.ac` for an example. It's kind of awkward to get the image large enough. You might have to zoom in several times (six?), and then screen shot rather than save.
