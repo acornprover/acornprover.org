@@ -36,7 +36,11 @@ When you define an inductive type, the principle of induction for that type gets
 ```acorn
 // This theorem happens automatically; you don't need to define it.
 theorem Nat.induction(f: Nat -> Bool, n: Nat) {
-    f(Nat.0) and forall(k: Nat) { f(k) implies f(Nat.suc(k)) } implies f(n)
+    f(Nat.0)
+    and forall(k: Nat) {
+        f(k) implies f(Nat.suc(k))
+    }
+    implies f(n)
 }
 ```
 
@@ -146,10 +150,10 @@ theorem reverse_reverse(t: Tree) {
     }
 
     // Inductive case
-    forall(left: Tree, right: Tree) {
-        if reverse_reverse(left) and reverse_reverse(right) {
-            reverse(reverse(Tree.node(left, right))) = Tree.node(left, right)
-            reverse_reverse(Tree.node(left, right))
+    forall(a: Tree, b: Tree) {
+        if reverse_reverse(a) and reverse_reverse(b) {
+            reverse(reverse(Tree.node(a, b))) = Tree.node(a, b)
+            reverse_reverse(Tree.node(a, b))
         }
     }
 }

@@ -55,7 +55,7 @@ foo(bar, baz, qux)
 2 + 2 = 4
 
 // Expressions can get complicated
-n > 1 and not exists(d: Nat) { d > 1 and d != n and exists(q: Nat) { q * d = n } }
+exists(d: Nat) { d > 1 and d != n and exists(q: Nat) { q * d = n } }
 ```
 
 The first step in verification is compilation. When an expression is malformed, or does not typecheck, this should be reported as a red-squiggle error during the compilation phase. Compilation turns each expression into a normalized internal representation, with data structures designed for fast proving.
@@ -105,10 +105,12 @@ Variable names start with a lowercase letter. Type names start with an uppercase
 Function types can be defined based on their argument type and return type:
 
 ```acorn
-// Functions that take a natural number and return another, like "successor"
+// Functions that take a natural number and return another.
+// For example, "successor".
 Nat -> Nat
 
-// Functions that take two natural numbers and return another, like "addition"
+// Functions that take two natural numbers and return another.
+// For example, "addition".
 (Nat, Nat) -> Nat
 ```
 

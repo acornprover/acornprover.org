@@ -9,12 +9,12 @@ The `define` statement lets you define a named function.
 Its general form is:
 
 ```acorn
-define function_name(arg1: Arg1Type, arg2: Arg2Type, arg3: Arg3Type) -> ReturnType {
+define function_name(arg1: Arg1Type, arg2: Arg2Type) -> ReturnType {
     expression
 }
 ```
 
-The type of the resulting function is `(Arg1Type, Arg2Type, Arg3Type) -> ReturnType`.
+The type of the resulting function is `(Arg1Type, Arg2Type) -> ReturnType`.
 
 For example:
 
@@ -25,6 +25,8 @@ define square(n: Nat) -> Nat {
 ```
 
 This defines the function `square`, with type `Nat -> Nat`.
+
+Functions can have any positive number of arguments. You can't have a zero-argument function; there are no side effects in Acorn, so a function without any arguments is just a constant.
 
 ## Anonymous Functions
 
@@ -62,7 +64,7 @@ define is_less_than_or_equal_to(a: Nat, b: Nat) -> Bool {
 Sometimes you want to define a function in terms of what condition it satisfies, rather than how to calculate it. The general form of this statement is:
 
 ```acorn
-let function_name(arg1: Arg1Type, arg2: Arg2Type, ...) -> ret: ReturnType {
+let function_name(arg1: Type1, arg2: Type2, ...) -> ret: ReturnType {
     expression
 } by {
     proof
@@ -88,7 +90,8 @@ Here, the return value of the function, `p` is named so that we can refer to it 
 It may be nontrivial that a return value exists that can satisfy the condition. If we need to prove it, we can do that in a `by` block. An example from the standard library:
 
 ```acorn
-// This is a "bounded" version of subtraction that returns 0 instead of negative numbers.
+// This is a "bounded" version of subtraction.
+// It returns 0 instead of negative numbers.
 let bounded_sub(a: Nat, b: Nat) -> d: Nat satisfy {
     // The condition that `d` satisfies
     if a < b {

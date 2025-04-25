@@ -1,0 +1,69 @@
+from real import Real
+numerals Real
+
+typeclass M: MetricSpace {
+    // Every metric space must have a distance function
+    distance: (M, M) -> Real
+
+    // Rule: the distance from a point to itself is zero
+    self_distance_is_zero(x: M) {
+        x.distance(x) = 0
+    }
+
+    // Rule: distance zero means the points are equal
+    dist_zero_imp_eq(x: M, y: M) {
+        x.distance(y) = 0 implies x = y
+    }
+
+    // Rule: distance must be symmetric
+    symmetric(x: M, y: M) {
+        x.distance(y) = y.distance(x)
+    }
+
+    // Rule: distance must satisfy the triangle inequality
+    triangle(x: M, y: M, z: M) {
+        x.distance(z) <= x.distance(y) + y.distance(z)
+    }
+}
+
+theorem distance_non_negative<M: MetricSpace>(x: M, y: M) {
+    not x.distance(y).is_negative
+} by {
+    x.distance(x) <= x.distance(y) + y.distance(x)
+    0 <= x.distance(y) + x.distance(y)
+    0 <= x.distance(y)
+}
+
+inductive Color {
+    red
+    green
+    blue
+}
+
+define discrete(x: Color, y: Color) -> Real {
+    if x = y {
+        0
+    } else {
+        1
+    }
+}
+
+theorem discrete_self_distance_is_zero(x: Color) {
+    discrete(x, x) = 0
+}
+
+theorem discrete_dist_zero_imp_eq(x: Color, y: Color) {
+    discrete(x, y) = 0 implies x = y
+}
+
+theorem discrete_symmetric(x: Color, y: Color) {
+    discrete(x, y) = discrete(y, x)
+}
+
+theorem discrete_triangle(x: Color, y: Color, z: Color) {
+    discrete(x, z) <= discrete(x, y) + discrete(y, z)
+}
+
+instance Color: MetricSpace {
+    let distance: (Color, Color) -> Real = discrete
+}
