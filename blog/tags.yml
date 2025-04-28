@@ -2,3 +2,13 @@ meta:
   label: meta
   permalink: /meta
   description: Meta-posts, that are not so much about something, but rather about something that's about something.
+
+language:
+  label: language
+  permalink: /language
+  description: Posts about the Acorn language, like new keywords or syntax.
+
+tooling:
+  label: tooling
+  permalink: /tooling
+  description: Posts about the Acorn tools, like the VS Code extension.
