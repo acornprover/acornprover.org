@@ -19,7 +19,7 @@ typeclass S: Semigroup {
 
     // The operation must be associative
     associative(x: S, y: S, z: S) {
-        op(op(x, y), z) = op(x, op(y, z))
+        x.op(y.op(z)) = x.op(y).op(z)
     }
 }
 ```
