@@ -157,6 +157,31 @@ instance Color: MetricSpace {
 
 This way, any condition that is unclear to Acorn will get yellow-squiggled, and you can add extra detail to the proof as needed.
 
+## Extending Typeclasses
+
+A typeclass can extend an existing typeclass, which means it inherits their required attributes and constraints. This uses the `extends` keyword. For example:
+
+```acorn
+typeclass S: Semigroup {
+    // The semigroup operation
+    mul: (S, S) -> S
+
+    // Associativity property
+    mul_associative(a: S, b: S, c: S) {
+        a * (b * c) = (a * b) * c
+    }
+}
+
+// Extending the multiplicative semigroup with commutativity.
+typeclass S: CommSemigroup extends Semigroup {
+    commutative(a: S, b: S) {
+        a * b = b * a
+    }
+}
+```
+
+When we use typeclasses that extend each other, any theorem that we prove for semigroups will also apply to commutative semigroups.
+
 ## Typeclass Attributes Vs Type Attributes
 
 Typeclass attributes and type attributes do not have exactly the same syntax. For example, let's say we defined `discrete` as an attribute on `Color` rather than a top-level function.

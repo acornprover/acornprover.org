@@ -20,7 +20,7 @@ p and q
 not p
 
 // Iff
-p <-> q
+p iff q
 
 // Equality. Just like everything else.
 p = q
