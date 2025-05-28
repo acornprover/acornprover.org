@@ -3,6 +3,7 @@ slug: extending-typeclasses
 title: Extending Typeclasses
 authors: [lacker]
 tags: [language]
+image: /img/extends.png
 ---
 
 Typeclasses in Acorn provide a powerful way to define common behaviors across different types. But what happens when you need to build upon existing typeclasses? Today, we're introducing typeclass extension.
