@@ -24,7 +24,8 @@ typeclass S: Semigroup {
     }
 }
 
-// A multiplicative monoid is a multiplicative semigroup with an identity element.
+// A multiplicative monoid is a multiplicative semigroup
+// with an identity element.
 typeclass M: Monoid extends Semigroup {
     e: M
 

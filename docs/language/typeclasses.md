@@ -180,7 +180,9 @@ typeclass S: CommSemigroup extends Semigroup {
 }
 ```
 
-When we use typeclasses that extend each other, any theorem that we prove for semigroups will also apply to commutative semigroups.
+To prove a type is an instance of an extended typeclass, you first must prove that it is an instance of the base typeclass. In this example, to prove that `instance Foo: CommSemigroup`, you must first prove `instance Foo: Semigroup`.
+
+When we use typeclasses that extend each other, any theorem that we prove for the base typeclass will also apply to the extended typeclass. In this example, any theorem that we prove for semigroups will also apply to commutative semigroups.
 
 ## Typeclass Attributes Vs Type Attributes
 
