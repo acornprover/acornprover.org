@@ -41,7 +41,7 @@ typeclass M: Monoid extends Semigroup {
 }
 ```
 
-This allows you to build hierarchies of mathematical structures naturally, and much of [acornlib](github.com/acornprover/acornlib) has already been converted to use extended typeclasses.
+This allows you to build hierarchies of mathematical structures naturally, and much of [acornlib](https://github.com/acornprover/acornlib) has already been converted to use extended typeclasses.
 
 You can also extend multiple typeclasses at once, combining their requirements into more complex structures. This makes it easier to model the rich relationships between different mathematical concepts.
 
