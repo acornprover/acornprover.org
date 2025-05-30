@@ -2,7 +2,7 @@
 
 The `nat` module provides natural numbers and some related functions.
 
-[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/nat.ac)
+[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/src/nat.ac)
 
 ## Nat
 

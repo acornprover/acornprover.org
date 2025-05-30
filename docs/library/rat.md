@@ -2,7 +2,7 @@
 
 The `rat` module provides rational numbers and related functions.
 
-[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/rat.ac)
+[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/src/rat.ac)
 
 ## Rat
 

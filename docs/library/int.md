@@ -2,7 +2,7 @@
 
 The `int` module provides integers and related functions.
 
-[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/int.ac)
+[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/src/int.ac)
 
 ## Int
 

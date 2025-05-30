@@ -2,7 +2,7 @@
 
 The `nat_gcd` module contains logic around the greatest common denominator.
 
-[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/nat_gcd.ac)
+[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/src/nat_gcd.ac)
 
 ## NatPair
 

@@ -2,7 +2,7 @@
 
 The `real` module provides real numbers.
 
-[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/real.ac)
+[See the code on GitHub.](https://github.com/acornprover/acornlib/blob/master/src/real.ac)
 
 This module is very incomplete. The real numbers are defined, but that's about it. If you are interested in making a small contribution to the Acorn library, check out this module!
 
