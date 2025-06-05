@@ -116,7 +116,7 @@ instance Color: MetricSpace {
 }
 ```
 
-A typeclass usually relies on some attributes of the instance class. In this case, a metric space requires a distance function. When we're declaring an instance class, we have to specify the typeclasss attributes. In this case, the line:
+A typeclass usually relies on some attributes of the instance type. In this case, a metric space requires a distance function. When we're declaring an instance type, we have to specify the typeclasss attributes. In this case, the line:
 
 ```acorn
 let distance: (Color, Color) -> Real = discrete
@@ -124,7 +124,7 @@ let distance: (Color, Color) -> Real = discrete
 
 is specifying that when we are considering the `Color` type as an instance of the `MetricSpace` typeclass, we should use the `discrete` function for its `distance`.
 
-You can refer to these attributes by either the class or the typeclass name. So these expressions are now equivalent:
+You can refer to these attributes by either the type or the typeclass name. So these expressions are now equivalent:
 
 ```acorn
 MetricSpace.distance<Color>(x, y)
@@ -204,7 +204,7 @@ instance Color: MetricSpace {
 }
 ```
 
-Here, `discrete` is an attribute of the `Color` class. But `distance` is an attribute of the `MetricSpace` typeclass. You can use either one with explicit dot syntax:
+Here, `discrete` is an attribute of the `Color` type. But `distance` is an attribute of the `MetricSpace` typeclass. You can use either one with explicit dot syntax:
 
 ```acorn
 // If x and y are Colors, these all work
@@ -215,7 +215,7 @@ MetricSpace.distance<Color>(x, y)
 // Implicitly typed, typeclass attribute
 MetricSpace.distance(x, y)
 
-// Explicitly typed, class attribute
+// Explicitly typed, type attribute
 Color.discrete(x, y)
 
 // Implicitly typed, type attribute
@@ -245,4 +245,4 @@ This is because the meaning of `x.distance(y)` is clear from the context.
 
 The same holds for infix operators. For example, `x * y` is just syntactic sugar for `x.mul(y)`.
 
-Currently, a class can only be an instance of a typeclass in one way. It's possible that we add additional syntax to handle this case in the future.
+Currently, a type can only be an instance of a typeclass in one way. It's possible that we add additional syntax to handle this case in the future.

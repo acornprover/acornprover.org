@@ -37,7 +37,7 @@ theorem even_nearby(n: nat.Nat) {
 }
 ```
 
-The `numerals` statement tells Acorn what class should be used to interpret numerals in this file, like `0`, `1`, and `2`. It's simplest do this at the top of the file, first all your `import` statements, then a `numerals` statement if you want one.
+The `numerals` statement tells Acorn what type should be used to interpret numerals in this file, like `0`, `1`, and `2`. It's simplest do this at the top of the file, first all your `import` statements, then a `numerals` statement if you want one.
 
 Here, we are using `nat.Nat` to refer to the type `Nat`, and `nat.divides` to refer to the function `divides`, both of which are implemented in `nat.ac`.
 

@@ -34,7 +34,7 @@ attributes LatticePoint {
 }
 ```
 
-The first argument to a function must be named `self`, and has the type of the class itself.
+The first argument to a function must be named `self`, and it automatically get the type that we're defining attributes for.
 
 Constants and functions defined inside an `attributes` block are now attributes accessible as `TypeName.attribute_name`. For example:
 
@@ -52,7 +52,7 @@ attributes block can also have numeric names. Thus `Nat.0` is the name for zero,
 
 Writing the `numerals Int` statement lets us avoid typing `Int.` before every numeral.
 
-It's okay to have multiple `attributes` blocks for a single class. You often want to define some attributes, prove some things about them, then define more attributes.
+It's okay to have multiple `attributes` blocks for a single type. You often want to define some attributes, prove some things about them, then define more attributes.
 
 ## Operators
 

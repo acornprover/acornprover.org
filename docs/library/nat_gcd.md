@@ -15,7 +15,7 @@ structure NatPair {
 }
 ```
 
-It would probably be better to have some polymorphic `Pair` class instead.
+It would probably be better to have some polymorphic `Pair` type instead.
 
 ## gcd_step: NatPair -> NatPair
 
