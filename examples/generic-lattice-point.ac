@@ -3,7 +3,7 @@ structure LatticePoint<T> {
     y: T
 }
 
-class LatticePoint<T> {
+attributes LatticePoint<T> {
     define swap(self) -> LatticePoint<T> {
         LatticePoint.new(self.y, self.x)
     }

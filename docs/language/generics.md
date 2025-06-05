@@ -57,14 +57,14 @@ inductive List<T> {
 
 A list can be a list of anything, but a particular list can only be a list of one type of thing. A `List<Int>` is a list of `Int`, a `List<Nat>` is a list of `Nat`, a `List<List<Bool>>` is a list of `List<Bool>`, and so on.
 
-## Generics with `class`
+## Generics with `attributes`
 
-You can define attributes for a parametrized type by adding parameters to the `class` statement. The parameters have to match those used in the initial definition of the type.
+You can define attributes for a parametrized type by adding parameters to the `attributes` statement. The parameters have to match those used in the initial definition of the type.
 
 For example:
 
 ```acorn
-class List<T> {
+attributes List<T> {
     // Whether this list contains a particular item.
     define contains(self, item: T) -> Bool {
         match self {
@@ -98,7 +98,7 @@ define colinear<T>(a: LatticePoint<T>, b: LatticePoint<T>) -> Bool {
 Similarly, you can define member functions on a generic structure.
 
 ```acorn
-class LatticePoint<T> {
+attributes LatticePoint<T> {
     define swap(self) -> LatticePoint<T> {
         LatticePoint.new(self.y, self.x)
     }

@@ -26,7 +26,7 @@ theorem projection(x: Int, y: Int) {
     LatticePoint.new(x, y).x = x and LatticePoint.new(x, y).y = y
 }
 
-class LatticePoint {
+attributes LatticePoint {
     // Now accessible as LatticePoint.origin
     let origin: LatticePoint = LatticePoint.new(0, 0)
 
@@ -43,7 +43,7 @@ theorem swap_is_involutive(p: LatticePoint) {
     p.swap.y = p.x
 }
 
-class LatticePoint {
+attributes LatticePoint {
     define add(self, other: LatticePoint) -> LatticePoint {
         LatticePoint.new(self.x + other.x, self.y + other.y)
     }

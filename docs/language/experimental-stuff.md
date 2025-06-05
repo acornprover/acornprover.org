@@ -10,11 +10,11 @@ We can't promise that your code will not break. But, we can promise that if you 
 
 ## Reading Numerals
 
-There is a special `read` function. If your class has member variables for the digits `0` through `9`, as well as a `read` function that combines an existing number with a new digit, it can be used in a `numerals` statement to process number strings.
+There is a special `read` function. If your type has attributes for the digits `0` through `9`, as well as a `read` function that combines an existing number with a new digit, it can be used in a `numerals` statement to process number strings.
 
 ```acorn
 // Not exactly how it works in the standard library, but close
-class Nat {
+attributes Nat {
     let 1: Nat = Nat.0.suc
     let 2: Nat = Nat.1.suc
     let 3: Nat = Nat.2.suc

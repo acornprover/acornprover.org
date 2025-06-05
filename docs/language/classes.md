@@ -2,9 +2,9 @@
 sidebar_position: 9
 ---
 
-# Classes
+# Attributes
 
-Once you've defined an inductive type or a structure type, you can augment it with additional class methods.
+Once you've defined an inductive type or a structure type, you can augment it with additional attributes.
 
 For example, let's start with this `LatticePoint` structure type.
 
@@ -18,12 +18,12 @@ structure LatticePoint {
 }
 ```
 
-## The class Statement
+## The attributes Statement
 
-To add extra methods to the `LatticePoint` type, you can define both methods and variables inside a block with the `class` keyword.
+To add extra attributes to the `LatticePoint` type, you can define both functions and variables inside a block with the `attributes` keyword.
 
 ```acorn
-class LatticePoint {
+attributes LatticePoint {
     // Now accessible as LatticePoint.origin
     let origin = LatticePoint.new(0, 0)
 
@@ -36,7 +36,7 @@ class LatticePoint {
 
 The first argument to a function must be named `self`, and has the type of the class itself.
 
-Constants and functions defined inside a `class` block are now methods accessible as `TypeName.method_name`. For example:
+Constants and functions defined inside an `attributes` block are now attributes accessible as `TypeName.attribute_name`. For example:
 
 ```acorn
 theorem swap_is_involutive(p: LatticePoint) {
@@ -47,20 +47,20 @@ theorem swap_is_involutive(p: LatticePoint) {
 }
 ```
 
-The names for constants and functions inside a class block are the same as outside, except that constants in a
-class can also have numeric names. Thus `Nat.0` is the name for zero, the natural number, and `Int.0` is the name for zero, the integer.
+The names for constants and functions inside an attributes block are the same as outside, except that constants in an
+attributes block can also have numeric names. Thus `Nat.0` is the name for zero, the natural number, and `Int.0` is the name for zero, the integer.
 
 Writing the `numerals Int` statement lets us avoid typing `Int.` before every numeral.
 
-It's okay to have multiple `class` blocks for a single class. You often want to define some methods, prove some things about them, then define more methods.
+It's okay to have multiple `attributes` blocks for a single class. You often want to define some attributes, prove some things about them, then define more attributes.
 
 ## Operators
 
 Every operator has a alphabetical reserved name. If you define a method of this name, the operator will work as well. For example, the `+` operator corresponds to the name `add`:
 
 ```acorn
-class LatticePoint {
-    define add(self, other: LatticePoint) {
+attributes LatticePoint {
+    define add(self, other: LatticePoint) -> LatticePoint {
         LatticePoint.new(self.x + other.x, self.y + other.y)
     }
 }

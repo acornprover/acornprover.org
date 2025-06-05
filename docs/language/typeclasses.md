@@ -189,7 +189,7 @@ When we use typeclasses that extend each other, any theorem that we prove for th
 Typeclass attributes and type attributes do not have exactly the same syntax. For example, let's say we defined `discrete` as an attribute on `Color` rather than a top-level function.
 
 ```acorn
-class Color {
+attributes Color {
     define discrete(self, other: Color) -> Real {
         if x = y {
             0
