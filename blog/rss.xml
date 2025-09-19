@@ -4,10 +4,33 @@
         <title>The Acorn Theorem Prover Blog</title>
         <link>https://acornprover.org/blog/</link>
         <description>The Acorn Theorem Prover Blog</description>
-        <lastBuildDate>Thu, 29 May 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 19 Sep 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Proof Certificates]]></title>
+            <link>https://acornprover.org/blog/proof-certificates/</link>
+            <guid>https://acornprover.org/blog/proof-certificates/</guid>
+            <pubDate>Fri, 19 Sep 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Acorn 0.1 is out! It might not be obvious at first, but there's a big change in the guts of how the prover works. When a proof is successfully verified, the build directory now contains a "proof certificate" explaining step by step how the proof works.]]></description>
+            <content:encoded><![CDATA[<p>Acorn 0.1 is out! It might not be obvious at first, but there's a big change in the guts of how the prover works. When a proof is successfully verified, the build directory now contains a "proof certificate" explaining step by step how the proof works.</p>
+<p>The proof certificate itself is simple: it's just valid Acorn code. It spells out every step of the proof in high detail. If you want to take a look under the hood, the certificates are kept in <code>.jsonl</code> files in the <code>build</code> directory, or alongside your <code>.ac</code> files if you don't have a <code>build</code> directory. They look like:</p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#000000;--prism-background-color:#ffffff"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#000000;background-color:#ffffff"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#000000"><span class="token punctuation" style="color:rgb(4, 81, 165)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">  </span><span class="token property">"goal"</span><span class="token operator" style="color:rgb(0, 0, 0)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(163, 21, 21)">"f(List.nil&lt;T&gt;)"</span><span class="token punctuation" style="color:rgb(4, 81, 165)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">  </span><span class="token property">"proof"</span><span class="token operator" style="color:rgb(0, 0, 0)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(4, 81, 165)">[</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    </span><span class="token string" style="color:rgb(163, 21, 21)">"List.nil&lt;T&gt;.contains(item) or f(List.nil&lt;T&gt;)"</span><span class="token punctuation" style="color:rgb(4, 81, 165)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    </span><span class="token string" style="color:rgb(163, 21, 21)">"List.nil&lt;T&gt;.contains(item)"</span><span class="token punctuation" style="color:rgb(4, 81, 165)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">    </span><span class="token string" style="color:rgb(163, 21, 21)">"List.nil&lt;T&gt; != List.nil&lt;T&gt; or not List.nil&lt;T&gt;.contains(item)"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(4, 81, 165)">]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#000000"><span class="token plain"></span><span class="token punctuation" style="color:rgb(4, 81, 165)">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Proof certificates are a restricted subset of Acorn. They only support certain basic steps of reasoning:</p>
+<ul>
+<li>Assuming the negated goal, to prove a contradiction</li>
+<li>Instantiation of a generic theorem</li>
+<li>Congruence closure, i.e. sequences of substitution of equal terms</li>
+<li>Propositional calculus on concrete literals</li>
+<li>Introducing variables for existential quantifiers</li>
+<li>Plus a few obscure edge cases</li>
+</ul>
+<p>Since the reasoning steps are restricted, it's fast to validate a proof certificate. This just speeds up many common operations with Acorn.</p>
+<p>More excitingly but abstractly, the proof certificate format is no longer dependent on the internals of the prover, which means in the future we'll be able to experiment with slower, more powerful AI models.</p>
+<p>If you're interested in helping out with this experimentation, let us know in <a href="https://discord.gg/RqXxaye4MC" target="_blank" rel="noopener noreferrer">Discord</a>. Happy proving!</p>]]></content:encoded>
+            <category>tooling</category>
+        </item>
         <item>
             <title><![CDATA[Extending Typeclasses]]></title>
             <link>https://acornprover.org/blog/extending-typeclasses/</link>
