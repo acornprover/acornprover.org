@@ -63,15 +63,6 @@ let from_rat = function(r: Rat) {
 ```
 
 Converts a rational number to a real number.
-## gt
-
-```acorn
-define gt(self, other: Real) -> Bool {
-    other.lt(self)
-}
-```
-
-True if this real number is strictly greater than the other.
 ## gt_rat
 
 ```acorn
@@ -79,15 +70,6 @@ Real.gt_rat: (Real, Rat) -> Bool
 ```
 
 True if this real number is greater than the given rational number.
-## gte
-
-```acorn
-define gte(self, other: Real) -> Bool {
-    other.lte(self)
-}
-```
-
-True if this real number is greater than or equal to the other.
 ## is_close
 
 ```acorn
@@ -115,15 +97,6 @@ define is_positive(self) -> Bool {
 ```
 
 True if this real number is positive (greater than zero).
-## lt
-
-```acorn
-define lt(self, other: Real) -> Bool {
-    self != other and self.lte(other)
-}
-```
-
-True if this real number is strictly less than the other.
 ## lte
 
 ```acorn

@@ -12,7 +12,7 @@ structure Rat {
 Rational numbers represented as fractions in reduced form.
 The constraint ensures the fraction is always in lowest terms with positive denominator.
 
-[GitHub](https://github.com/acornprover/acornlib/blob/master/src/rat.ac)
+[GitHub](https://github.com/acornprover/acornlib/blob/master/src/rat/default.ac)
 
 ---
 ## abs
@@ -72,24 +72,6 @@ let from_nat: Nat -> Rat = function(n: Nat) {
 ```
 
 Converts a natural number to a rational number.
-## gt
-
-```acorn
-define gt(self, other: Rat) -> Bool {
-    other < self
-}
-```
-
-True if this rational is greater than the other.
-## gte
-
-```acorn
-define gte(self, other: Rat) -> Bool {
-    other <= self
-}
-```
-
-True if this rational is greater than or equal to the other.
 ## is_close
 
 ```acorn
@@ -117,20 +99,11 @@ define is_positive(self) -> Bool {
 ```
 
 True if the rational is positive.
-## lt
-
-```acorn
-define lt(self, other: Rat) -> Bool {
-    (other - self).is_positive
-}
-```
-
-True if this rational is less than the other.
 ## lte
 
 ```acorn
 define lte(self, other: Rat) -> Bool {
-    self < other or self = other
+    (other - self).is_positive or self = other
 }
 ```
 

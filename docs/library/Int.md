@@ -37,11 +37,20 @@ The absolute value of an integer.
 
 ```acorn
 define add(self, other: Int) -> Int {
-    sub_nat(pos_part(self) + pos_part(other), neg_part(self) + neg_part(other))
+    sub_nat(self.pos_part + other.pos_part, self.neg_part + other.neg_part)
 }
 ```
 
 The sum of two integers.
+## divides
+
+```acorn
+define divides(self, b: Int) -> Bool {
+    exists(d: Int) {
+        d * self = b
+    }
+}
+```
 ## exp
 
 ```acorn
@@ -66,26 +75,6 @@ Int.from_nat: Nat -> Int
 ```
 
 `Int.from_nat` converts a natural number to an integer via the typical embedding.
-## gt
-
-```acorn
-define gt(self, b: Int) -> Bool {
-    b < self
-}
-```
-
-TODO: currently this is defined independently, but we should be able to just
-inherit this operator from `PartialOrder`.
-## gte
-
-```acorn
-define gte(self, b: Int) -> Bool {
-    b <= self
-}
-```
-
-TODO: currently this is defined independently, but we should be able to just
-inherit this operator from `PartialOrder`.
 ## is_negative
 
 ```acorn
@@ -104,21 +93,11 @@ define is_positive(self) -> Bool {
 ```
 
 True if the integer is positive.
-## lt
-
-```acorn
-define lt(self, b: Int) -> Bool {
-    (b - self).is_positive
-}
-```
-
-TODO: currently this is defined independently, but we should be able to just
-inherit this operator from `PartialOrder`.
 ## lte
 
 ```acorn
 define lte(self, b: Int) -> Bool {
-    (self < b) or self = b
+    (b - self).is_positive or self = b
 }
 ```
 
@@ -128,14 +107,27 @@ define lte(self, b: Int) -> Bool {
 ```acorn
 define mul(self, n: Int) -> Int {
     if n.is_positive {
-        mul_nat(self, abs(n))
+        self.mul_nat(abs(n))
     } else {
-        -(mul_nat(self, abs(n)))
+        -(self.mul_nat(abs(n)))
     }
 }
 ```
 
 The product of two integers.
+## mul_nat
+
+```acorn
+define mul_nat(self, n: Nat) -> Int {
+    if self.is_negative {
+        -(Int.from_nat(abs(self) * n))
+    } else {
+        Int.from_nat(abs(self) * n)
+    }
+}
+```
+
+Multiply this integer by a natural number.
 ## neg
 
 ```acorn
@@ -152,6 +144,19 @@ define neg(self) -> Int {
 ```
 
 The negation of an integer.
+## neg_part
+
+```acorn
+define neg_part(self) -> Nat {
+    if self.is_positive {
+        Nat.0
+    } else {
+        abs(self)
+    }
+}
+```
+
+The negative part of this integer.
 ## neg_suc
 
 ```acorn
@@ -161,6 +166,19 @@ Int.neg_suc: Nat -> Int
 `Int.neg_suc` converts a natural number `x` into `-(x+1)`.
 This isn't particularly intuitive, it's just to give every integer a unique constructor.
 In particular, `neg_suc` can construct any negative integer, but not zero.
+## pos_part
+
+```acorn
+define pos_part(self) -> Nat {
+    if self.is_positive {
+        abs(self)
+    } else {
+        Nat.0
+    }
+}
+```
+
+The positive part of this integer.
 ## read
 
 ```acorn

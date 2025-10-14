@@ -76,6 +76,24 @@ define contains_every(self) -> Bool {
 ```
 
 True if this list contains every element of type T.
+## count
+
+```acorn
+define count(self, item: T) -> Nat {
+    match self {
+        List.nil[T] {
+            Nat.0
+        }
+        List.cons(head, tail) {
+            if head = item {
+                1 + tail.count(item)
+            } else {
+                tail.count(item)
+            }
+        }
+    }
+}
+```
 ## drop
 
 ```acorn
@@ -131,8 +149,52 @@ define filter(self, f: T -> Bool) -> List[T] {
 }
 ```
 
+Alternate name for `Nat.range`.
 Creates a list of natural numbers from 0 to n-1.
 Filters the list, keeping only elements that satisfy the given predicate.
+## find_first_idx
+
+```acorn
+define find_first_idx(self, item: T) -> Nat {
+    match self {
+        List.nil {
+            Nat.0
+        }
+        List.cons(head, tail) {
+            if head = item {
+                Nat.0
+            } else {
+                1 + tail.find_first_idx(item)
+            }
+        }
+    }
+}
+```
+## get_idx
+
+```acorn
+define get_idx(self, i: Nat) -> Option[T] {
+    match self {
+        List.nil {
+            Option.none
+        }
+        List.cons(head, tail) {
+            if i > 0 {
+                tail.get_idx(i - 1)
+            } else {
+                Option.some(head)
+            }
+        }
+    }
+}
+```
+## is_unique
+
+```acorn
+define is_unique(self) -> Bool {
+    self.unique = self
+}
+```
 ## length
 
 ```acorn
@@ -149,6 +211,22 @@ define length(self) -> Nat {
 ```
 
 Yields the number of elements in the list.
+## map
+
+```acorn
+define map[U](self, f: T -> U) -> List[U] {
+    match self {
+        List.nil {
+            List.nil[U]
+        }
+        List.cons(head, tail) {
+            List.cons(f(head), tail.map(f))
+        }
+    }
+}
+```
+
+Applies a function to each element of a list, creating a new list of results.
 ## nil
 
 ```acorn
@@ -159,8 +237,28 @@ The empty list.
 ## range
 
 ```acorn
-let range: Nat -> List[Nat] = range
+let range: Nat -> List[Nat] = Nat.range
 ```
+## remove_elem
+
+```acorn
+define remove_elem(self, elem: T) -> List[T] {
+    match self {
+        List.nil {
+            List.nil[T]
+        }
+        List.cons(head, tail) {
+            if head != elem {
+                List.cons(head, tail.remove_elem(elem))
+            } else {
+                tail.remove_elem(elem)
+            }
+        }
+    }
+}
+```
+
+Remove all instances of an element from the list.
 ## singleton
 
 ```acorn

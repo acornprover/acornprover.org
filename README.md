@@ -30,6 +30,12 @@ To deploy to production, run:
 npm run deploy
 ```
 
+## Autogenerating the library docs
+
+```
+acorn --lib ~/acornlib --doc-root ./docs/library
+```
+
 ## Social cards
 
 The social card is the image that gets included on social media when a page gets shared.

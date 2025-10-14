@@ -29,6 +29,15 @@ define add(self, other: Nat) -> Nat {
 ```
 
 Addition is defined recursively.
+## divides
+
+```acorn
+define divides(self, b: Nat) -> Bool {
+    exists(c: Nat) {
+        self * c = b
+    }
+}
+```
 ## exp
 
 ```acorn
@@ -46,33 +55,36 @@ define exp(self, b: Nat) -> Nat {
 
 Note that 0^0 = 1.
 TODO: ideally this would use an inherited `pow` from `Monoid`.
-## gt
+## factorial
 
 ```acorn
-define gt(self, b: Nat) -> Bool {
-    b < self
+define factorial(self) -> Nat {
+    match self {
+        Nat.0 {
+            1
+        }
+        Nat.suc(pred) {
+            self * pred.factorial
+        }
+    }
 }
 ```
-
-TODO: currently we define this separately, but we could inherit it from `PartialOrder`.
-## gte
+## is_composite
 
 ```acorn
-define gte(self, b: Nat) -> Bool {
-    b <= self
+define is_composite(self) -> Bool {
+    exists(b: Nat, c: Nat) {
+        1 < b and 1 < c and self = b * c
+    }
 }
 ```
-
-TODO: currently we define this separately, but we could inherit it from `PartialOrder`.
-## lt
+## is_prime
 
 ```acorn
-define lt(self, b: Nat) -> Bool {
-    self <= b and self != b
+define is_prime(self) -> Bool {
+    1 < self and not self.is_composite
 }
 ```
-
-TODO: currently we define this separately, but we could inherit it from `PartialOrder`.
 ## lte
 
 ```acorn
@@ -83,7 +95,12 @@ define lte(self, b: Nat) -> Bool {
 }
 ```
 
-`a <= b` if there's a naturla number that can be added to `a` to get `b`.
+`a <= b` if there's a natural number that can be added to `a` to get `b`.
+## mod
+
+```acorn
+let mod = mod
+```
 ## mul
 
 ```acorn

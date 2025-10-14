@@ -35,5 +35,7 @@ Inherited from [Monoid](../Monoid/#mul_identity_left).
 Inherited from [Monoid](../Monoid/#mul_identity_right).
 ## neg
 Inherited from [AddGroup](../AddGroup/#neg).
+## pow
+Inherited from [Monoid](../Monoid/#pow).
 ## sub
 Inherited from [AddGroup](../AddGroup/#sub).

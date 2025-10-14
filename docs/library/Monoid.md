@@ -41,3 +41,19 @@ mul_identity_right(a: M) {
 ```
 
 The identity element must satisfy the identity property on the right.
+## pow
+
+```acorn
+define pow(self, exp: Nat) -> M {
+    match exp {
+        Nat.0 {
+            M.1
+        }
+        Nat.suc(n) {
+            self * self.pow(n)
+        }
+    }
+}
+```
+
+Raises a monoid element to a natural number power using repeated multiplication.

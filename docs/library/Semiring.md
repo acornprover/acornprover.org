@@ -54,3 +54,5 @@ Inherited from [Semigroup](../Semigroup/#mul_associative).
 Inherited from [Monoid](../Monoid/#mul_identity_left).
 ## mul_identity_right
 Inherited from [Monoid](../Monoid/#mul_identity_right).
+## pow
+Inherited from [Monoid](../Monoid/#pow).
