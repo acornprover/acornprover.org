@@ -1,7 +1,7 @@
 # FiniteSet
 
 ```acorn
-structure FiniteSet<T> {
+structure FiniteSet[T] {
     contains: T -> Bool
 } constraint {
     finite_constraint(contains)
@@ -17,14 +17,14 @@ The constraint ensures that only finitely many elements are members.
 ## contains
 
 ```acorn
-FiniteSet.contains: (FiniteSet<T>, T) -> Bool
+FiniteSet.contains: (FiniteSet[T], T) -> Bool
 ```
 
 Finite sets are defined by a membership function.
 ## from_list
 
 ```acorn
-let from_list: List<T> -> FiniteSet<T> = function(ts: List<T>) {
+let from_list: List[T] -> FiniteSet[T] = function(ts: List[T]) {
     FiniteSet.new(ts.contains)
 }
 ```
@@ -33,7 +33,7 @@ Converts a list to a finite set.
 ## insert
 
 ```acorn
-define insert(self, item: T) -> FiniteSet<T> {
+define insert(self, item: T) -> FiniteSet[T] {
     FiniteSet.new(functional_insert(self.contains, item))
 }
 ```
@@ -53,7 +53,7 @@ True if the set contains no elements.
 ## remove
 
 ```acorn
-define remove(self, item: T) -> FiniteSet<T> {
+define remove(self, item: T) -> FiniteSet[T] {
     FiniteSet.new(functional_remove(self.contains, item))
 }
 ```

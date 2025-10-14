@@ -1,7 +1,7 @@
 # Option
 
 ```acorn
-inductive Option<T> {
+inductive Option[T] {
     none
     some(T)
 }
@@ -16,14 +16,14 @@ Useful for representing values that may or may not exist.
 ## none
 
 ```acorn
-Option.none: Option<T>
+Option.none: Option[T]
 ```
 
 `Option.none` represents the absence of a value.
 ## some
 
 ```acorn
-Option.some: T -> Option<T>
+Option.some: T -> Option[T]
 ```
 
 `Option.some(value)` represents the presence of a value.

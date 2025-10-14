@@ -1,7 +1,7 @@
 # GroupHom
 
 ```acorn
-structure GroupHom<G: Group, H: Group> {
+structure GroupHom[G: Group, H: Group] {
     hom: G -> H
 } constraint {
     is_hom(hom)
@@ -16,7 +16,7 @@ A group homomorphism that preserves the group structure.
 ## hom
 
 ```acorn
-GroupHom.hom: (GroupHom<G, H>, G) -> H
+GroupHom.hom: (GroupHom[G, H], G) -> H
 ```
 
 The mapping for the homomorphism.

@@ -1,7 +1,7 @@
 # Multiset
 
 ```acorn
-structure Multiset<T> {
+structure Multiset[T] {
     multiplicity: T -> Nat
 }
 ```
@@ -35,7 +35,7 @@ True if any element appears more than once in the multiset.
 ## insert
 
 ```acorn
-define insert(self, item: T) -> Multiset<T> {
+define insert(self, item: T) -> Multiset[T] {
     Multiset.new(function(x: T) {
         if x = item {
             self.multiplicity(x).suc
@@ -61,7 +61,7 @@ True if the multiset is empty (contains no elements).
 ## multiplicity
 
 ```acorn
-Multiset.multiplicity: (Multiset<T>, T) -> Nat
+Multiset.multiplicity: (Multiset[T], T) -> Nat
 ```
 
 A function taking each element to a count of how many times it appears in the multiset.

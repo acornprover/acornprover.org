@@ -13,11 +13,11 @@ The proof certificate itself is simple: it's just valid Acorn code. It spells ou
 
 ```json
 {
-  "goal": "f(List.nil<T>)",
+  "goal": "f(List.nil[T])",
   "proof": [
-    "List.nil<T>.contains(item) or f(List.nil<T>)",
-    "List.nil<T>.contains(item)",
-    "List.nil<T> != List.nil<T> or not List.nil<T>.contains(item)"
+    "List.nil[T].contains(item) or f(List.nil[T])",
+    "List.nil[T].contains(item)",
+    "List.nil[T] != List.nil[T] or not List.nil[T].contains(item)"
   ]
 }
 ```

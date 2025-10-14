@@ -69,19 +69,19 @@ Here, `x` is the arguments to the rule, and `x.distance(x) = 0` is the condition
 In any statement that can take generic type parameters, you can also provide typeclasses. In particular, this lets you prove theorems about a typeclass. For example:
 
 ```acorn
-theorem distance_non_negative<M: MetricSpace>(x: M, y: M) {
+theorem distance_non_negative[M: MetricSpace](x: M, y: M) {
     not x.distance(y).is_negative
 }
 ```
 
 (By some definitions of metric space, this would be a condition on the metric space itself. With our definition, we can prove it from the other conditions, so it can be a theorem.)
 
-In this theorem statement, the `<M: MetricSpace>` expresses that we are proving this theorem generically, where `M` can be any metric space. If we had just written `<M>`, we would be trying to prove it for every type. That wouldn't compile, though; we can only call `x.distance` because `x` is a `MetricSpace`.
+In this theorem statement, the `[M: MetricSpace]` expresses that we are proving this theorem generically, where `M` can be any metric space. If we had just written `[M]`, we would be trying to prove it for every type. That wouldn't compile, though; we can only call `x.distance` because `x` is a `MetricSpace`.
 
 When we prove theorems about typeclasses, we can use the conditions on the typeclass. For example:
 
 ```acorn
-theorem distance_non_negative<M: MetricSpace>(x: M, y: M) {
+theorem distance_non_negative[M: MetricSpace](x: M, y: M) {
     not x.distance(y).is_negative
 } by {
     x.distance(x) <= x.distance(y) + y.distance(x)
@@ -127,7 +127,7 @@ is specifying that when we are considering the `Color` type as an instance of th
 You can refer to these attributes by either the type or the typeclass name. So these expressions are now equivalent:
 
 ```acorn
-MetricSpace.distance<Color>(x, y)
+MetricSpace.distance[Color](x, y)
 discrete(x, y)
 ```
 
@@ -210,7 +210,7 @@ Here, `discrete` is an attribute of the `Color` type. But `distance` is an attri
 // If x and y are Colors, these all work
 
 // Explicitly typed, typeclass attribute
-MetricSpace.distance<Color>(x, y)
+MetricSpace.distance[Color](x, y)
 
 // Implicitly typed, typeclass attribute
 MetricSpace.distance(x, y)
@@ -236,7 +236,7 @@ With a generic theorem, you can use the implicit dot syntax to refer to typeclas
 ```acorn
 // x.distance(y) is okay when x is an M: MetricSpace.
 // It isn't okay when x is a Color.
-theorem distance_non_negative<M: MetricSpace>(x: M, y: M) {
+theorem distance_non_negative[M: MetricSpace](x: M, y: M) {
     not x.distance(y).is_negative
 }
 ```

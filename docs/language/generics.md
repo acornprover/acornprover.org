@@ -16,7 +16,7 @@ after the type name.
 For example, let's define a `LatticePoint` that doesn't just have to be composed of integers, but can be any type.
 
 ```acorn
-structure LatticePoint<T> {
+structure LatticePoint[T] {
     x: T
     y: T
 }
@@ -24,7 +24,7 @@ structure LatticePoint<T> {
 
 Here, `T` is the generic parameter.
 
-If we define `LatticePoint` this way, then `LatticePoint<Int>` works exactly the same as if we had defined it with:
+If we define `LatticePoint` this way, then `LatticePoint[Int]` works exactly the same as if we had defined it with:
 
 ```acorn
 structure LatticePoint {
@@ -36,7 +36,7 @@ structure LatticePoint {
 You can have multiple generic parameters in a single parameter list.
 
 ```acorn
-structure Pair<T, U> {
+structure Pair[T, U] {
     first: T
     second: U
 }
@@ -49,13 +49,13 @@ Similarly, you can define a generic inductive type.
 For example, let's define the generic `List` type.
 
 ```acorn
-inductive List<T> {
+inductive List[T] {
     nil
-    cons(T, List<T>)
+    cons(T, List[T])
 }
 ```
 
-A list can be a list of anything, but a particular list can only be a list of one type of thing. A `List<Int>` is a list of `Int`, a `List<Nat>` is a list of `Nat`, a `List<List<Bool>>` is a list of `List<Bool>`, and so on.
+A list can be a list of anything, but a particular list can only be a list of one type of thing. A `List[Int]` is a list of `Int`, a `List[Nat]` is a list of `Nat`, a `List[List[Bool]]` is a list of `List[Bool]`, and so on.
 
 ## Generics with `attributes`
 
@@ -64,7 +64,7 @@ You can define attributes for a parametrized type by adding parameters to the `a
 For example:
 
 ```acorn
-attributes List<T> {
+attributes List[T] {
     // Whether this list contains a particular item.
     define contains(self, item: T) -> Bool {
         match self {
@@ -83,14 +83,14 @@ attributes List<T> {
 }
 ```
 
-Acorn tries to infer the type for generics, so that you don't have to include the `<T>` everywhere. In this example, we only have to use the type parameter `T` to specify the type of the `item` argument.
+Acorn tries to infer the type for generics, so that you don't have to include the `[T]` everywhere. In this example, we only have to use the type parameter `T` to specify the type of the `item` argument.
 
 ## Generics with `define`
 
 You can define a generic function by including type parameters after the function name.
 
 ```acorn
-define colinear<T>(a: LatticePoint<T>, b: LatticePoint<T>) -> Bool {
+define colinear[T](a: LatticePoint[T], b: LatticePoint[T]) -> Bool {
     a.x = b.x or a.y = b.y
 }
 ```
@@ -98,8 +98,8 @@ define colinear<T>(a: LatticePoint<T>, b: LatticePoint<T>) -> Bool {
 Similarly, you can define member functions on a generic structure.
 
 ```acorn
-attributes LatticePoint<T> {
-    define swap(self) -> LatticePoint<T> {
+attributes LatticePoint[T] {
+    define swap(self) -> LatticePoint[T] {
         LatticePoint.new(self.y, self.x)
     }
 }
@@ -113,7 +113,7 @@ import Int
 numerals Int
 
 // No parameters on LatticePoint.new are needed.
-let origin: LatticePoint<Int> = LatticePoint.new(0, 0)
+let origin: LatticePoint[Int] = LatticePoint.new(0, 0)
 
 // No parameters on colinear are needed.
 theorem origin_self_colinear {
@@ -126,7 +126,7 @@ theorem origin_self_colinear {
 Similarly, you can define generic theorems by including type parameters after the theorem name.
 
 ```acorn
-theorem swap_is_involutive<T>(p: LatticePoint<T>) {
+theorem swap_is_involutive[T](p: LatticePoint[T]) {
     p.swap.swap = p
 } by {
     p.swap.x = p.y
@@ -144,7 +144,7 @@ you could guess how it worked anyway.
 But just in case. It looks like this:
 
 ```acorn
-let is_finite<T>: Bool = exists(xs: List<T>) {
+let is_finite[T]: Bool = exists(xs: List[T]) {
     forall(x: T) {
         xs.contains(x)
     }

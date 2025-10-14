@@ -31,9 +31,9 @@ For more information, see the [typeclasses documentation](/docs/language/typecla
 The second improvement is _generic inductive types_.
 
 ```acorn
-inductive List<T> {
+inductive List[T] {
     nil
-    cons(T, List<T>)
+    cons(T, List[T])
 }
 ```
 
