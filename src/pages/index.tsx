@@ -16,6 +16,22 @@ function HomepageHeader() {
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div
+          className="margin-vert--lg"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <img
+            src="/img/acorn-social-card.png"
+            alt="Acorn Social Card"
+            style={{ maxWidth: "800px", width: "100%", height: "auto" }}
+          />
+        </div>
+        <p className="hero__subtitle">
+          Write down a theorem and a sketch of a proof. The Acorn AI puts check
+          marks by the statements it can verify, and squiggles under the
+          statements that need more detail. It's the easiest way to formally
+          verify your mathematics.
+        </p>
         <div className={`margin-top--lg ${styles.buttons}`}>
           <Link
             className={`button button--secondary margin-horiz--md ${styles.leftButton}`}

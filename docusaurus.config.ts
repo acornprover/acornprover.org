@@ -5,6 +5,8 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "The Acorn Theorem Prover",
   tagline: "Perfectly rigorous mathematics, as simple as possible.",
+  explanation:
+    "Type a theorem and a sketch of a proof into VS Code. Acorn puts check marks by the statements it can verify, and squiggles by the ones that need more detail.",
   favicon: "img/achy64.png",
 
   url: "https://acornprover.org",
