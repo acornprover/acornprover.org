@@ -94,6 +94,8 @@ define count(self, item: T) -> Nat {
     }
 }
 ```
+
+The number of times the given item appears in the list.
 ## drop
 
 ```acorn
@@ -149,7 +151,6 @@ define filter(self, f: T -> Bool) -> List[T] {
 }
 ```
 
-Alternate name for `Nat.range`.
 Creates a list of natural numbers from 0 to n-1.
 Filters the list, keeping only elements that satisfy the given predicate.
 ## find_first_idx
@@ -170,6 +171,9 @@ define find_first_idx(self, item: T) -> Nat {
     }
 }
 ```
+
+The index of the first occurrence of the item in the list.
+Returns the list length if the item is not found.
 ## get_idx
 
 ```acorn
@@ -188,6 +192,8 @@ define get_idx(self, i: Nat) -> Option[T] {
     }
 }
 ```
+
+The element at index i, or none if the index is out of bounds.
 ## is_unique
 
 ```acorn
@@ -195,6 +201,8 @@ define is_unique(self) -> Bool {
     self.unique = self
 }
 ```
+
+True if all elements in the list are distinct.
 ## length
 
 ```acorn

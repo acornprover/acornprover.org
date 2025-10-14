@@ -18,11 +18,15 @@ define c(self) -> Set[K] {
     Set[K].new(negate_fun(self.contains))
 }
 ```
+
+The complement of this set.
 ## contains
 
 ```acorn
 Set.contains: (Set[K], K) -> Bool
 ```
+
+True if the element is in the set.
 ## difference
 
 ```acorn
@@ -57,6 +61,8 @@ define is_empty(self) -> Bool {
     }
 }
 ```
+
+True if the set has no elements.
 ## is_singleton
 
 ```acorn
@@ -66,6 +72,8 @@ define is_singleton(self) -> Bool {
     }
 }
 ```
+
+True if the set contains exactly one element.
 ## singleton
 
 ```acorn
@@ -73,6 +81,8 @@ let singleton: K -> Set[K] = function(a: K) {
     Set[K].new(singleton_fun(a))
 }
 ```
+
+Creates a set containing exactly one element.
 ## subset
 
 ```acorn
@@ -107,3 +117,5 @@ self ∪ s
 ```acorn
 let universal_set = Set[K].new(negate_fun(constant_false[K]))
 ```
+
+The universal set containing all elements of type K.

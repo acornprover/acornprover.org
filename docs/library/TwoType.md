@@ -7,6 +7,8 @@ inductive TwoType {
 }
 ```
 
+A type with exactly two values.
+
 [GitHub](https://github.com/acornprover/acornlib/blob/master/src/set.ac)
 
 ---
@@ -15,8 +17,12 @@ inductive TwoType {
 ```acorn
 TwoType.first: TwoType
 ```
+
+The first value.
 ## second
 
 ```acorn
 TwoType.second: TwoType
 ```
+
+The second value.

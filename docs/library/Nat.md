@@ -38,6 +38,8 @@ define divides(self, b: Nat) -> Bool {
     }
 }
 ```
+
+True if this number divides b (equivalently, there exists c such that this * c = b).
 ## exp
 
 ```acorn
@@ -69,6 +71,8 @@ define factorial(self) -> Nat {
     }
 }
 ```
+
+The factorial of this number (the product 1 * 2 * ... * n).
 ## is_composite
 
 ```acorn
@@ -78,6 +82,8 @@ define is_composite(self) -> Bool {
     }
 }
 ```
+
+True if this number is composite (has nontrivial factors).
 ## is_prime
 
 ```acorn
@@ -85,6 +91,8 @@ define is_prime(self) -> Bool {
     1 < self and not self.is_composite
 }
 ```
+
+True if this number is prime (greater than 1 and not composite).
 ## lte
 
 ```acorn

@@ -21,6 +21,8 @@ structure FiniteSubgroup[G: FiniteGroup] {
 }
 ```
 
+A finite subgroup of a finite group.
+
 [GitHub](https://github.com/acornprover/acornlib/blob/master/src/finite_group.ac)
 
 ---
@@ -29,6 +31,8 @@ structure FiniteSubgroup[G: FiniteGroup] {
 ```acorn
 FiniteSubgroup.elements: FiniteSubgroup[G] -> List[G]
 ```
+
+A list containing all elements of the subgroup.
 ## order
 
 ```acorn
@@ -36,3 +40,5 @@ define order(self) -> Nat {
     self.elements.length
 }
 ```
+
+The number of elements in the subgroup.

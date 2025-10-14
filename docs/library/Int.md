@@ -51,6 +51,8 @@ define divides(self, b: Int) -> Bool {
     }
 }
 ```
+
+True if this integer divides b (equivalently, there exists d such that d * this = b).
 ## exp
 
 ```acorn
