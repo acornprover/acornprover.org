@@ -8,6 +8,12 @@ typeclass S: Semiring extends AddCommMonoid, Monoid {
     distrib_right(a: S, b: S, c: S) {
         (a + b) * c = (a * c) + (b * c)
     }
+    mul_zero_left(a: S) {
+        a * S.0 = S.0
+    }
+    mul_zero_right(a: S) {
+        S.0 * a = S.0
+    }
 }
 ```
 
@@ -54,5 +60,23 @@ Inherited from [Semigroup](../Semigroup/#mul_associative).
 Inherited from [Monoid](../Monoid/#mul_identity_left).
 ## mul_identity_right
 Inherited from [Monoid](../Monoid/#mul_identity_right).
+## mul_zero_left
+
+```acorn
+mul_zero_left(a: S) {
+    a * S.0 = S.0
+}
+```
+
+Multiplying by the additive identity yields the additive identity.
+## mul_zero_right
+
+```acorn
+mul_zero_right(a: S) {
+    S.0 * a = S.0
+}
+```
+
+Multiplying the additive identity by anything yields the additive identity.
 ## pow
 Inherited from [Monoid](../Monoid/#pow).

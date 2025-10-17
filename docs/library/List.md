@@ -151,7 +151,6 @@ define filter(self, f: T -> Bool) -> List[T] {
 }
 ```
 
-Creates a list of natural numbers from 0 to n-1.
 Filters the list, keeping only elements that satisfy the given predicate.
 ## find_first_idx
 
@@ -247,6 +246,8 @@ The empty list.
 ```acorn
 let range: Nat -> List[Nat] = Nat.range
 ```
+
+Creates a list of natural numbers from 0 to n-1.
 ## remove_elem
 
 ```acorn

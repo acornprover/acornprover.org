@@ -68,6 +68,10 @@ Inherited from [Semigroup](../Semigroup/#mul_associative).
 Inherited from [Monoid](../Monoid/#mul_identity_left).
 ## mul_identity_right
 Inherited from [Monoid](../Monoid/#mul_identity_right).
+## mul_zero_left
+Inherited from [Semiring](../Semiring/#mul_zero_left).
+## mul_zero_right
+Inherited from [Semiring](../Semiring/#mul_zero_right).
 ## neg
 Inherited from [AddGroup](../AddGroup/#neg).
 ## pow

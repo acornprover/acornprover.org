@@ -109,6 +109,8 @@ define lte(self, b: Nat) -> Bool {
 ```acorn
 let mod = mod
 ```
+
+The remainder when dividing this number by m.
 ## mul
 
 ```acorn
