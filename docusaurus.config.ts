@@ -91,6 +91,12 @@ const config: Config = {
           position: "left",
           label: "Library Reference",
         },
+        {
+          type: "doc",
+          docId: "cli",
+          position: "left",
+          label: "CLI",
+        },
         { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/acornprover/acornlib",
