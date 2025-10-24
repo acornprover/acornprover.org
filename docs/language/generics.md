@@ -109,7 +109,7 @@ When you call generic functions, you generally do not need to provide the type p
 they can be inferred from the types of the arguments.
 
 ```acorn
-import Int
+from int import Int
 numerals Int
 
 // No parameters on LatticePoint.new are needed.
