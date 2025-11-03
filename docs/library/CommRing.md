@@ -1,7 +1,7 @@
 # CommRing
 
 ```acorn
-typeclass CommRing extends Ring, AddCommGroup
+typeclass CommRing extends Ring, CommMonoid
 ```
 
 A commutative ring is a ring where multiplication is also commutative.
@@ -13,12 +13,14 @@ A commutative ring is a ring where multiplication is also commutative.
 Inherited from [AddSemigroup](../AddSemigroup/#add).
 ## add_associative
 Inherited from [AddSemigroup](../AddSemigroup/#add_associative).
+## add_commutative
+Inherited from [AddCommSemigroup](../AddCommSemigroup/#add_commutative).
 ## add_identity_left
 Inherited from [AddMonoid](../AddMonoid/#add_identity_left).
 ## add_identity_right
 Inherited from [AddMonoid](../AddMonoid/#add_identity_right).
 ## commutative
-Inherited from [AddCommSemigroup](../AddCommSemigroup/#commutative).
+Inherited from [CommSemigroup](../CommSemigroup/#commutative).
 ## distrib_left
 Inherited from [Semiring](../Semiring/#distrib_left).
 ## distrib_right

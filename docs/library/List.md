@@ -10,7 +10,7 @@ inductive List[T] {
 A generic list data structure that can hold elements of any type.
 Lists are constructed using nil (empty list) and cons (prepending an element).
 
-[GitHub](https://github.com/acornprover/acornlib/blob/master/src/list.ac)
+[GitHub](https://github.com/acornprover/acornlib/blob/master/src/list/default.ac)
 
 ---
 ## add

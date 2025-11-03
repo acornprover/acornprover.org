@@ -33,7 +33,7 @@ npm run deploy
 ## Autogenerating the library docs
 
 ```
-acorn --lib ~/acornlib --doc-root ./docs/library
+acorn --lib ~/acornlib docs ./docs/library
 ```
 
 ## Social cards

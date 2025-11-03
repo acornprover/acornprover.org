@@ -54,6 +54,15 @@ define div(self, other: Rat) -> Rat {
 
 The quotient of two rational numbers.
 Division by zero is defined to yield zero.
+## floor
+
+```acorn
+define floor(self) -> Int {
+    floor_impl(self)
+}
+```
+
+The floor of a rational number (the greatest integer less than or equal to it).
 ## from_int
 
 ```acorn

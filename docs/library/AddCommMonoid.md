@@ -13,9 +13,9 @@ AddCommMonoid represents a commutative, additive monoid.
 Inherited from [AddSemigroup](../AddSemigroup/#add).
 ## add_associative
 Inherited from [AddSemigroup](../AddSemigroup/#add_associative).
+## add_commutative
+Inherited from [AddCommSemigroup](../AddCommSemigroup/#add_commutative).
 ## add_identity_left
 Inherited from [AddMonoid](../AddMonoid/#add_identity_left).
 ## add_identity_right
 Inherited from [AddMonoid](../AddMonoid/#add_identity_right).
-## commutative
-Inherited from [AddCommSemigroup](../AddCommSemigroup/#commutative).

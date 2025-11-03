@@ -29,6 +29,13 @@ define add(self, other: Nat) -> Nat {
 ```
 
 Addition is defined recursively.
+## choose
+
+```acorn
+let choose = choose
+```
+
+The binomial coefficient "n choose k".
 ## divides
 
 ```acorn
@@ -40,23 +47,6 @@ define divides(self, b: Nat) -> Bool {
 ```
 
 True if this number divides b (equivalently, there exists c such that this * c = b).
-## exp
-
-```acorn
-define exp(self, b: Nat) -> Nat {
-    match b {
-        Nat.0 {
-            1
-        }
-        Nat.suc(pred) {
-            self * self.exp(pred)
-        }
-    }
-}
-```
-
-Note that 0^0 = 1.
-TODO: ideally this would use an inherited `pow` from `Monoid`.
 ## factorial
 
 ```acorn
@@ -73,6 +63,15 @@ define factorial(self) -> Nat {
 ```
 
 The factorial of this number (the product 1 * 2 * ... * n).
+## gcd
+
+```acorn
+define gcd(self, b: Nat) -> Nat {
+    gcd_pair(Pair.new(self, b))
+}
+```
+
+The greatest common divisor of this number and b.
 ## is_composite
 
 ```acorn
@@ -107,7 +106,7 @@ define lte(self, b: Nat) -> Bool {
 ## mod
 
 ```acorn
-let mod = mod
+let mod = nat_mod
 ```
 
 The remainder when dividing this number by m.
@@ -127,6 +126,22 @@ define mul(self, b: Nat) -> Nat {
 ```
 
 Multiplication is defined recursively.
+## range
+
+```acorn
+define range(self) -> List[Nat] {
+    match self {
+        Nat.0 {
+            List.nil[Nat]
+        }
+        Nat.suc(n) {
+            n.range.append(n)
+        }
+    }
+}
+```
+
+Creates a list of natural numbers from 0 to n-1.
 ## read
 
 ```acorn
@@ -155,3 +170,21 @@ Nat.suc: Nat -> Nat
 ```
 
 The successor of a natural number is also a natural number.
+## until
+
+```acorn
+define until(self, n: Nat) -> List[Nat] {
+    n.range.drop(self)
+}
+```
+
+Creates a list of natural numbers from self to n-1 (exclusive of n).
+## upto
+
+```acorn
+define upto(self, n: Nat) -> List[Nat] {
+    self.until(n.suc)
+}
+```
+
+Creates a list of natural numbers from self to n (inclusive).

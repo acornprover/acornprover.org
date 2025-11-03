@@ -53,23 +53,6 @@ define divides(self, b: Int) -> Bool {
 ```
 
 True if this integer divides b (equivalently, there exists d such that d * this = b).
-## exp
-
-```acorn
-define exp(self, b: Nat) -> Int {
-    match b {
-        Nat.0 {
-            1
-        }
-        Nat.suc(pred) {
-            self * self.exp(pred)
-        }
-    }
-}
-```
-
-Note that 0^0 = 1.
-TODO: we should be able to inherit `pow` from some underlying algebraic structure.
 ## from_nat
 
 ```acorn
@@ -77,6 +60,15 @@ Int.from_nat: Nat -> Int
 ```
 
 `Int.from_nat` converts a natural number to an integer via the typical embedding.
+## gcd
+
+```acorn
+define gcd(self, b: Int) -> Int {
+    Int.from_nat(abs(self).gcd(abs(b)))
+}
+```
+
+The greatest common divisor of this integer and b.
 ## is_negative
 
 ```acorn

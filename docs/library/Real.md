@@ -97,6 +97,50 @@ define is_positive(self) -> Bool {
 ```
 
 True if this real number is positive (greater than zero).
+## is_set_greatest_lower_bound
+
+```acorn
+define is_set_greatest_lower_bound(self, s: Real -> Bool) -> Bool {
+    self.is_set_lower_bound(s) and forall(y: Real) {
+        y.is_set_lower_bound(s) implies y <= self
+    }
+}
+```
+
+True if this real number is the greatest lower bound (infimum) for the set s.
+## is_set_least_upper_bound
+
+```acorn
+define is_set_least_upper_bound(self, s: Real -> Bool) -> Bool {
+    self.is_set_upper_bound(s) and forall(y: Real) {
+        y.is_set_upper_bound(s) implies self <= y
+    }
+}
+```
+
+True if this real number is the least upper bound (supremum) for the set s.
+## is_set_lower_bound
+
+```acorn
+define is_set_lower_bound(self, s: Real -> Bool) -> Bool {
+    forall(y: Real) {
+        s(y) implies self <= y
+    }
+}
+```
+
+True if this real number is a lower bound for the set s.
+## is_set_upper_bound
+
+```acorn
+define is_set_upper_bound(self, s: Real -> Bool) -> Bool {
+    forall(y: Real) {
+        s(y) implies y <= self
+    }
+}
+```
+
+True if this real number is an upper bound for the set s.
 ## lte
 
 ```acorn
