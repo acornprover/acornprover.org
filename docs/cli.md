@@ -59,8 +59,8 @@ Arguments:
 
 Options:
 
-- `--no-cache-skip` - Do not skip unchanged modules based on manifest hash checks
-- `--no-write-cache` - Do not write verification results to the cache
+- `--ignore-hash` - Ignore manifest hash checks and reprocess unchanged modules
+- `--read-only` - Verify without writing results to the cache
 - `--line <LINE>` - Search for a proof at a specific line number
 - `--fail-fast` - Exit on the first verification failure
 - `--strict` - Reject any use of the `axiom` keyword
@@ -161,7 +161,7 @@ Options:
 - `--line <LINE>` - Search for a proof at a specific line number
 - `--fail-fast` - Exit immediately on the first verification failure
 - `--timeout <SECONDS>` - Timeout in seconds for proof search
-- `--write-cache` - Write reproved results to the cache
+- `--save-results` - Save reproved results to the cache
 
 ### `select`
 
