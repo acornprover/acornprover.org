@@ -1,0 +1,4 @@
+interface:
+  display_name: "Update The Docs"
+  short_description: "Regenerate Acorn website docs"
+  default_prompt: "Use $update-the-docs to regenerate the Acorn website library reference."
