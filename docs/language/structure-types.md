@@ -75,10 +75,9 @@ structure OrderedIntPair {
 }
 ```
 
-All types in Acorn must be inhabited, so when you define a constrained type, you must prove that it
-is possible to satisfy the constraints.
+A constrained type also has a default `new` constructor, but it returns an `Option` rather than an object of the type. To unwrap the option, you must prove the constraint it satisfied.
 
-This can result in a `by` block after the `constraint` block. For example, you could prove this explicitly with:
+For example:
 
 ```acorn
 structure OrderedIntPair {
@@ -86,13 +85,27 @@ structure OrderedIntPair {
     second: Int
 } constraint {
     first <= second
-} by {
-    let first: Int = 0
-    let second: Int = 1
-    first <= second
 }
+
+// Unwrapping the option requires a proof
+let Option.some(pair) = OrderedIntPair.new(1, 2) by {
+    1 <= 2
+}
+
+theorem t1 {
+    pair.first = 1
+}
+
+theorem t2 {
+    pair.second = 2
+}
+
+theorem must_be_lte {
+    OrderedIntPair.new(2, 1) = Option.none
+} by {
+    not (1 <= 2)
+}
+
 ```
 
-When there is a constraint, the function `OrderedIntPair.new` is still defined on all of its arguments. But the projection theorem is only true when the constraint holds.
-
-(If we decide to include Option types in the base language, we could make `new` return an Option instead.)
+Constrained types may have no elements at all. In this case, the constructor will always return `Option.none`.
