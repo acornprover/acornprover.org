@@ -1,4 +1,6 @@
-# AddLeftOrderedGroup
+---
+title: AddLeftOrderedGroup
+---
 
 ```acorn
 typeclass G: AddLeftOrderedGroup extends AddGroup, LinearOrder {
@@ -15,7 +17,7 @@ This means that if `a <= b`, then `c + a <= c + b` for any c in the group.
 
 ---
 ## add
-Inherited from [AddSemigroup](../AddSemigroup/#add).
+Inherited from [Add](../Add/#add).
 ## add_associative
 Inherited from [AddSemigroup](../AddSemigroup/#add_associative).
 ## add_identity_left
@@ -42,13 +44,13 @@ Left addition preserves the order relation: if `a ≤ b`, then `c + a ≤ c + b`
 ## lt
 Inherited from [PartialOrder](../PartialOrder/#lt).
 ## lte
-Inherited from [PartialOrder](../PartialOrder/#lte).
+Inherited from [LTE](../LTE/#lte).
 ## max
 Inherited from [LinearOrder](../LinearOrder/#max).
 ## min
 Inherited from [LinearOrder](../LinearOrder/#min).
 ## neg
-Inherited from [AddGroup](../AddGroup/#neg).
+Inherited from [Neg](../Neg/#neg).
 ## reflexive
 Inherited from [PartialOrder](../PartialOrder/#reflexive).
 ## sub

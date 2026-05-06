@@ -1,8 +1,9 @@
-# Monoid
+---
+title: Monoid
+---
 
 ```acorn
-typeclass M: Monoid extends Semigroup {
-    1: M
+typeclass M: Monoid extends Semigroup, One {
     mul_identity_right(a: M) {
         a * M.1 = a
     }
@@ -20,7 +21,7 @@ One doesn't imply the other.
 
 ---
 ## mul
-Inherited from [Semigroup](../Semigroup/#mul).
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 Inherited from [Semigroup](../Semigroup/#mul_associative).
 ## mul_identity_left
@@ -46,7 +47,7 @@ The identity element must satisfy the identity property on the right.
 ```acorn
 define pow(self, exp: Nat) -> M {
     match exp {
-        Nat.0 {
+        Nat.zero {
             M.1
         }
         Nat.suc(n) {

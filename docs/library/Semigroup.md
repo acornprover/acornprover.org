@@ -1,8 +1,9 @@
-# Semigroup
+---
+title: Semigroup
+---
 
 ```acorn
-typeclass S: Semigroup {
-    mul: (S, S) -> S
+typeclass S: Semigroup extends Mul {
     mul_associative(a: S, b: S, c: S) {
         a * (b * c) = (a * b) * c
     }
@@ -16,12 +17,7 @@ For an additive semigroup, see add_semigroup.ac.
 
 ---
 ## mul
-
-```acorn
-mul: (S, S) -> S
-```
-
-The binary operation that combines two elements of the semigroup.
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 
 ```acorn

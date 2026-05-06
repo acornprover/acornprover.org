@@ -1,8 +1,9 @@
-# AddMonoid
+---
+title: AddMonoid
+---
 
 ```acorn
-typeclass A: AddMonoid extends AddSemigroup {
-    0: A
+typeclass A: AddMonoid extends AddSemigroup, Zero {
     add_identity_right(a: A) {
         a + A.0 = a
     }
@@ -18,7 +19,7 @@ An additive monoid is an additive semigroup with an identity element.
 
 ---
 ## add
-Inherited from [AddSemigroup](../AddSemigroup/#add).
+Inherited from [Add](../Add/#add).
 ## add_associative
 Inherited from [AddSemigroup](../AddSemigroup/#add_associative).
 ## add_identity_left

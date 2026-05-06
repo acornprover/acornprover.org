@@ -1,8 +1,9 @@
-# Field
+---
+title: Field
+---
 
 ```acorn
-typeclass F: Field extends CommRing {
-    inverse: F -> F
+typeclass F: Field extends CommRing, Inverse {
     field_inverse_zero {
         F.0.inverse = F.0
     }
@@ -21,7 +22,7 @@ A field is a commutative ring with multiplicative inverses for all non-zero elem
 
 ---
 ## add
-Inherited from [AddSemigroup](../AddSemigroup/#add).
+Inherited from [Add](../Add/#add).
 ## add_associative
 Inherited from [AddSemigroup](../AddSemigroup/#add_associative).
 ## add_commutative
@@ -57,16 +58,11 @@ We define the field inverse so that the inverse of zero is zero.
 It would be nice to instead express that an inverse is "not valid" or yields "no value"
 but it is not convenient to do so in the current type system.
 ## inverse
-
-```acorn
-inverse: F -> F
-```
-
-The multiplicative inverse function.
+Inherited from [Inverse](../Inverse/#inverse).
 ## inverse_right
 Inherited from [AddGroup](../AddGroup/#inverse_right).
 ## mul
-Inherited from [Semigroup](../Semigroup/#mul).
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 Inherited from [Semigroup](../Semigroup/#mul_associative).
 ## mul_identity_left
@@ -78,7 +74,7 @@ Inherited from [Semiring](../Semiring/#mul_zero_left).
 ## mul_zero_right
 Inherited from [Semiring](../Semiring/#mul_zero_right).
 ## neg
-Inherited from [AddGroup](../AddGroup/#neg).
+Inherited from [Neg](../Neg/#neg).
 ## pow
 Inherited from [Monoid](../Monoid/#pow).
 ## sub

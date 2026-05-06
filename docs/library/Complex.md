@@ -1,4 +1,6 @@
-# Complex
+---
+title: Complex
+---
 
 ```acorn
 structure Complex {
@@ -22,15 +24,6 @@ define abs_squared(self) -> Real {
 ```
 
 Computes the squared magnitude |z|² = re² + im².
-## add
-
-```acorn
-define add(self, other: Complex) -> Complex {
-    Complex.new(self.re + other.re, self.im + other.im)
-}
-```
-
-Adds two complex numbers component-wise.
 ## conj
 
 ```acorn
@@ -44,7 +37,7 @@ Yields the complex conjugate (negates the imaginary part).
 
 ```acorn
 define div(self, other: Complex) -> Complex {
-    self * other.reciprocal
+    self * other.inverse
 }
 ```
 
@@ -91,24 +84,6 @@ define is_real(self) -> Bool {
 ```
 
 True if this complex number has no imaginary component.
-## mul
-
-```acorn
-define mul(self, other: Complex) -> Complex {
-    Complex.new(self.re * other.re - self.im * other.im, self.re * other.im + self.im * other.re)
-}
-```
-
-Multiplies two complex numbers using the formula (a+bi)(c+di) = (ac-bd)+(ad+bc)i.
-## neg
-
-```acorn
-define neg(self) -> Complex {
-    Complex.new(-self.re, -self.im)
-}
-```
-
-Yields the additive inverse of this complex number.
 ## re
 
 ```acorn
@@ -116,13 +91,3 @@ Complex.re: Complex -> Real
 ```
 
 The real part of the complex number.
-## reciprocal
-
-```acorn
-define reciprocal(self) -> Complex {
-    self.conj * Complex.from_real(self.abs_squared.reciprocal)
-}
-```
-
-Computes the multiplicative inverse (1/z) for non-zero complex numbers.
-Yields 0 when applied to 0 (division by zero yields zero).

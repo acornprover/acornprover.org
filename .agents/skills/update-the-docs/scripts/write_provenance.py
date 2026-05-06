@@ -27,9 +27,10 @@ def main() -> None:
         description="Write docs/library/generated.json for Acorn docs generation."
     )
     parser.add_argument("--repo-root", default=".", help="Path to acornprover.org")
+    parser.add_argument("--acorn-bin", default="acorn", help="Acorn executable used")
     parser.add_argument(
         "--lib",
-        default="vendor/acornlib",
+        default="../acornlib",
         help="Path to acornlib, relative to repo root unless absolute",
     )
     parser.add_argument(
@@ -43,12 +44,14 @@ def main() -> None:
     lib_path = Path(args.lib)
     if not lib_path.is_absolute():
         lib_path = repo_root / lib_path
+    lib_path = lib_path.resolve()
 
     output_path = Path(args.output)
     if not output_path.is_absolute():
         output_path = repo_root / output_path
+    output_path = output_path.resolve()
 
-    acorn_version = run(["acorn", "--version"], cwd=repo_root)
+    acorn_version = run([args.acorn_bin, "--version"], cwd=repo_root)
     acornlib_commit = run(["git", "rev-parse", "HEAD"], cwd=lib_path)
     acornlib_remote = run(["git", "remote", "get-url", "origin"], cwd=lib_path)
 
@@ -58,12 +61,13 @@ def main() -> None:
         .isoformat()
         .replace("+00:00", "Z"),
         "generator": {
-            "command": "acorn --lib vendor/acornlib docs ./docs/library",
+            "command": f"{args.acorn_bin} --lib ../acornlib docs ./docs/library",
+            "acorn_binary": args.acorn_bin,
             "acorn_cli": acorn_version,
         },
         "source": {
             "name": "acornlib",
-            "path": "vendor/acornlib",
+            "path": args.lib,
             "remote": acornlib_remote,
             "commit": acornlib_commit,
         },

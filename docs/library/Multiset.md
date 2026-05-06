@@ -1,4 +1,6 @@
-# Multiset
+---
+title: Multiset
+---
 
 ```acorn
 structure Multiset[T] {
@@ -21,6 +23,13 @@ define contains(self, item: T) -> Bool {
 ```
 
 True if the multiset contains at least one copy of the given item.
+## ext
+
+```acorn
+let ext = multiset_ext[T]
+```
+
+Multiset extensionality from pointwise equality of multiplicity.
 ## has_duplicates
 
 ```acorn

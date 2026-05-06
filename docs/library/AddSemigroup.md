@@ -1,8 +1,9 @@
-# AddSemigroup
+---
+title: AddSemigroup
+---
 
 ```acorn
-typeclass A: AddSemigroup {
-    add: (A, A) -> A
+typeclass A: AddSemigroup extends Add {
     add_associative(a: A, b: A, c: A) {
         a + (b + c) = (a + b) + c
     }
@@ -15,12 +16,7 @@ An additive semigroup is associative, and that's about it.
 
 ---
 ## add
-
-```acorn
-add: (A, A) -> A
-```
-
-The binary addition operation that combines two elements of the semigroup.
+Inherited from [Add](../Add/#add).
 ## add_associative
 
 ```acorn

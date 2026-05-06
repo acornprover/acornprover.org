@@ -1,4 +1,6 @@
-# OrderedGroup
+---
+title: OrderedGroup
+---
 
 ```acorn
 typeclass G: OrderedGroup extends LeftOrderedGroup {
@@ -28,13 +30,13 @@ Inherited from [LeftOrderedGroup](../LeftOrderedGroup/#left_invariance).
 ## lt
 Inherited from [PartialOrder](../PartialOrder/#lt).
 ## lte
-Inherited from [PartialOrder](../PartialOrder/#lte).
+Inherited from [LTE](../LTE/#lte).
 ## max
 Inherited from [LinearOrder](../LinearOrder/#max).
 ## min
 Inherited from [LinearOrder](../LinearOrder/#min).
 ## mul
-Inherited from [Semigroup](../Semigroup/#mul).
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 Inherited from [Semigroup](../Semigroup/#mul_associative).
 ## mul_identity_left

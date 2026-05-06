@@ -1,8 +1,9 @@
-# PartialOrder
+---
+title: PartialOrder
+---
 
 ```acorn
-typeclass P: PartialOrder {
-    lte: (P, P) -> Bool
+typeclass P: PartialOrder extends LTE {
     reflexive {
         is_reflexive(P.lte)
     }
@@ -58,12 +59,7 @@ define lt(self, other: P) -> Bool {
 
 Strict less-than comparison.
 ## lte
-
-```acorn
-lte: (P, P) -> Bool
-```
-
-The less-than-or-equal-to relation defining the partial order.
+Inherited from [LTE](../LTE/#lte).
 ## reflexive
 
 ```acorn

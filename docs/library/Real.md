@@ -1,4 +1,6 @@
-# Real
+---
+title: Real
+---
 
 ```acorn
 structure Real {
@@ -27,24 +29,22 @@ define abs(self) -> Real {
 ```
 
 The absolute value of this real number.
-## add
-
-```acorn
-define add(self, other: Real) -> Real {
-    Real.new(add_gt(self, other))
-}
-```
-
-The sum of two real numbers.
 ## div
 
 ```acorn
 define div(self, other: Real) -> Real {
-    self * other.reciprocal
+    self * other.inverse
 }
 ```
 
 The quotient of two real numbers (`self/other`).
+## ext
+
+```acorn
+let ext = real_ext
+```
+
+Real extensionality from pointwise equality of the cut.
 ## from_int
 
 ```acorn
@@ -57,9 +57,7 @@ Converts an integer to a real number.
 ## from_rat
 
 ```acorn
-let from_rat = function(r: Rat) {
-    Real.new(r.gt)
-}
+let from_rat = real_from_rat
 ```
 
 Converts a rational number to a real number.
@@ -141,48 +139,13 @@ define is_set_upper_bound(self, s: Real -> Bool) -> Bool {
 ```
 
 True if this real number is an upper bound for the set s.
-## lte
+## one_half
 
 ```acorn
-define lte(self, other: Real) -> Bool {
-    forall(r: Rat) {
-        self.gt_rat(r) implies other.gt_rat(r)
-    }
-}
+let one_half: Real = Real.from_rat(Rat.2.inverse)
 ```
 
-The less-than-or-equal-to relation for real numbers.
-## mul
-
-```acorn
-define mul(self, other: Real) -> Real {
-    limit_rat(mul_rat_seq(rat_seq(self), rat_seq(other)))
-}
-```
-
-The product of two real numbers.
-## neg
-
-```acorn
-define neg(self) -> Real {
-    Real.new(neg_gt(self))
-}
-```
-
-The negative of this real number.
-## reciprocal
-
-```acorn
-define reciprocal(self) -> Real {
-    if self = Real.0 {
-        Real.0
-    } else {
-        limit_rat(recip_rat_seq(rat_seq(self)))
-    }
-}
-```
-
-The reciprocal of this real number (`1/x`). For zero, returns zero.
+One half (1/2).
 ## unit_sign
 
 ```acorn

@@ -1,4 +1,6 @@
-# TwoType
+---
+title: TwoType
+---
 
 ```acorn
 inductive TwoType {
@@ -19,6 +21,11 @@ TwoType.first: TwoType
 ```
 
 The first value.
+## match
+
+```acorn
+TwoType.match: (TwoType, R*, R*) -> R*
+```
 ## second
 
 ```acorn

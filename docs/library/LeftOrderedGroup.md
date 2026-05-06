@@ -1,4 +1,6 @@
-# LeftOrderedGroup
+---
+title: LeftOrderedGroup
+---
 
 ```acorn
 typeclass G: LeftOrderedGroup extends Group, LinearOrder {
@@ -36,13 +38,13 @@ Left multiplication preserves the order relation: if `a ≤ b`, then `c * a ≤ 
 ## lt
 Inherited from [PartialOrder](../PartialOrder/#lt).
 ## lte
-Inherited from [PartialOrder](../PartialOrder/#lte).
+Inherited from [LTE](../LTE/#lte).
 ## max
 Inherited from [LinearOrder](../LinearOrder/#max).
 ## min
 Inherited from [LinearOrder](../LinearOrder/#min).
 ## mul
-Inherited from [Semigroup](../Semigroup/#mul).
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 Inherited from [Semigroup](../Semigroup/#mul_associative).
 ## mul_identity_left

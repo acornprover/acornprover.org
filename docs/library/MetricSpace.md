@@ -1,4 +1,6 @@
-# MetricSpace
+---
+title: MetricSpace
+---
 
 ```acorn
 typeclass M: MetricSpace {

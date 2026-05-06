@@ -1,4 +1,6 @@
-# AddCommMonoid
+---
+title: AddCommMonoid
+---
 
 ```acorn
 typeclass M: AddCommMonoid extends AddCommSemigroup, AddMonoid
@@ -10,7 +12,7 @@ AddCommMonoid represents a commutative, additive monoid.
 
 ---
 ## add
-Inherited from [AddSemigroup](../AddSemigroup/#add).
+Inherited from [Add](../Add/#add).
 ## add_associative
 Inherited from [AddSemigroup](../AddSemigroup/#add_associative).
 ## add_commutative

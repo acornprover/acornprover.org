@@ -1,4 +1,6 @@
-# CommSemigroup
+---
+title: CommSemigroup
+---
 
 ```acorn
 typeclass S: CommSemigroup extends Semigroup {
@@ -23,6 +25,6 @@ commutative(a: S, b: S) {
 
 The multiplication operation must be commutative: `a * b = b * a`.
 ## mul
-Inherited from [Semigroup](../Semigroup/#mul).
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 Inherited from [Semigroup](../Semigroup/#mul_associative).

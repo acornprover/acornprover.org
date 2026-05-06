@@ -1,4 +1,6 @@
-# LinearOrder
+---
+title: LinearOrder
+---
 
 ```acorn
 typeclass L: LinearOrder extends PartialOrder {
@@ -22,7 +24,7 @@ Inherited from [PartialOrder](../PartialOrder/#gte).
 ## lt
 Inherited from [PartialOrder](../PartialOrder/#lt).
 ## lte
-Inherited from [PartialOrder](../PartialOrder/#lte).
+Inherited from [LTE](../LTE/#lte).
 ## max
 
 ```acorn

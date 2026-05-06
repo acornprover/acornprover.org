@@ -1,4 +1,6 @@
-# FiniteSet
+---
+title: FiniteSet
+---
 
 ```acorn
 structure FiniteSet[T] {
@@ -52,34 +54,51 @@ Membership predicate.
 ## difference
 
 ```acorn
-define difference(self, other: FiniteSet[T]) -> FiniteSet[T] {
-    FiniteSet.new(self.underlying_set.difference(other.underlying_set))
-}
+let difference: (FiniteSet[T], FiniteSet[T]) -> FiniteSet[T] = fs_difference
 ```
 
 Difference of finite sets.
 ## empty
 
 ```acorn
-let empty: FiniteSet[T] = FiniteSet.new(Set[T].empty_set)
+let empty: FiniteSet[T] = fs_empty(Set[T].empty_set)
 ```
 
 The empty finite set.
+## ext
+
+```acorn
+let ext = finite_set_ext[T]
+```
+
+Finite set extensionality from equality of the underlying sets.
+## from_list
+
+```acorn
+let from_list: List[T] -> FiniteSet[T] = fs_from_list
+```
+
+The finite set whose elements are the elements of the list.
+## image
+
+```acorn
+define image[U](self, f: T -> U) -> FiniteSet[U] {
+    fs_image(self, f)
+}
+```
+
+Image of a finite set under a function.
 ## insert
 
 ```acorn
-define insert(self, item: T) -> FiniteSet[T] {
-    FiniteSet.new(self.underlying_set.insert(item))
-}
+let insert: (FiniteSet[T], T) -> FiniteSet[T] = fs_insert
 ```
 
 Insert preserves finiteness.
 ## intersection
 
 ```acorn
-define intersection(self, other: FiniteSet[T]) -> FiniteSet[T] {
-    FiniteSet.new(self.underlying_set.intersection(other.underlying_set))
-}
+let intersection: (FiniteSet[T], FiniteSet[T]) -> FiniteSet[T] = fs_intersection
 ```
 
 Intersection of finite sets.
@@ -104,9 +123,7 @@ Empty predicate.
 ## remove
 
 ```acorn
-define remove(self, item: T) -> FiniteSet[T] {
-    FiniteSet.new(self.underlying_set.remove(item))
-}
+let remove: (FiniteSet[T], T) -> FiniteSet[T] = fs_remove
 ```
 
 Remove preserves finiteness.
@@ -138,9 +155,7 @@ The underlying set.
 ## union
 
 ```acorn
-define union(self, other: FiniteSet[T]) -> FiniteSet[T] {
-    FiniteSet.new(self.underlying_set.union(other.underlying_set))
-}
+let union: (FiniteSet[T], FiniteSet[T]) -> FiniteSet[T] = fs_union
 ```
 
 Union of finite sets.

@@ -1,4 +1,6 @@
-# Set
+---
+title: Set
+---
 
 ```acorn
 structure Set[K] {
@@ -11,6 +13,13 @@ Sets with elements of type `K` are defined as Boolean functions over `K`
 [GitHub](https://github.com/acornprover/acornlib/blob/master/src/set.ac)
 
 ---
+## antisymm
+
+```acorn
+let antisymm = subset_antisymm[K]
+```
+
+Subset antisymmetry from mutual inclusion.
 ## c
 
 ```acorn
@@ -25,9 +34,7 @@ The complement of this set.
 ```acorn
 define cardinality_at_most(self, n: Nat) -> Bool {
     exists(superset: List[K]) {
-        forall(x: K) {
-            self.contains(x) implies superset.contains(x)
-        } and superset.length <= n
+        superset.contains_set(self) and superset.length <= n
     }
 }
 ```
@@ -38,9 +45,7 @@ True if the cardinality is at most n.
 ```acorn
 define cardinality_is(self, n: Nat) -> Bool {
     exists(containing_list: List[K]) {
-        forall(x: K) {
-            self.contains(x) implies containing_list.contains(x)
-        } and containing_list.filter(self.contains).unique.length = n
+        containing_list.contains_set(self) and containing_list.filter(self.contains).unique.length = n
     }
 }
 ```
@@ -69,6 +74,13 @@ let empty_set = Set[K].new(constant_false[K])
 ```
 
 Set basics
+## ext
+
+```acorn
+let ext = set_ext[K]
+```
+
+Set extensionality from pointwise equality of membership.
 ## insert
 
 ```acorn
@@ -118,6 +130,15 @@ define is_finite(self) -> Bool {
 ```
 
 True if the set contains only finitely many elements.
+## is_infinite
+
+```acorn
+define is_infinite(self) -> Bool {
+    not self.is_finite
+}
+```
+
+True if the set contains infinitely many elements.
 ## is_singleton
 
 ```acorn

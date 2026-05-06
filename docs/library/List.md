@@ -1,4 +1,6 @@
-# List
+---
+title: List
+---
 
 ```acorn
 inductive List[T] {
@@ -101,7 +103,7 @@ The number of times the given item appears in the list.
 ```acorn
 define drop(self, n: Nat) -> List[T] {
     match n {
-        Nat.0 {
+        Nat.zero {
             self
         }
         Nat.suc(pred) {
@@ -234,6 +236,11 @@ define map[U](self, f: T -> U) -> List[U] {
 ```
 
 Applies a function to each element of a list, creating a new list of results.
+## match
+
+```acorn
+List.match: (List[T*], R*, (T*, List[T*]) -> R*) -> R*
+```
 ## nil
 
 ```acorn

@@ -1,4 +1,6 @@
-# AddOrderedGroup
+---
+title: AddOrderedGroup
+---
 
 ```acorn
 typeclass G: AddOrderedGroup extends AddLeftOrderedGroup {
@@ -14,7 +16,7 @@ An ordered group has both left and right invariance.
 
 ---
 ## add
-Inherited from [AddSemigroup](../AddSemigroup/#add).
+Inherited from [Add](../Add/#add).
 ## add_associative
 Inherited from [AddSemigroup](../AddSemigroup/#add_associative).
 ## add_identity_left
@@ -34,13 +36,13 @@ Inherited from [AddLeftOrderedGroup](../AddLeftOrderedGroup/#left_invariance).
 ## lt
 Inherited from [PartialOrder](../PartialOrder/#lt).
 ## lte
-Inherited from [PartialOrder](../PartialOrder/#lte).
+Inherited from [LTE](../LTE/#lte).
 ## max
 Inherited from [LinearOrder](../LinearOrder/#max).
 ## min
 Inherited from [LinearOrder](../LinearOrder/#min).
 ## neg
-Inherited from [AddGroup](../AddGroup/#neg).
+Inherited from [Neg](../Neg/#neg).
 ## reflexive
 Inherited from [PartialOrder](../PartialOrder/#reflexive).
 ## right_invariance

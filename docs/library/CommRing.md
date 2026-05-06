@@ -1,4 +1,6 @@
-# CommRing
+---
+title: CommRing
+---
 
 ```acorn
 typeclass CommRing extends Ring, CommMonoid
@@ -6,11 +8,11 @@ typeclass CommRing extends Ring, CommMonoid
 
 A commutative ring is a ring where multiplication is also commutative.
 
-[GitHub](https://github.com/acornprover/acornlib/blob/master/src/comm_ring.ac)
+[GitHub](https://github.com/acornprover/acornlib/blob/master/src/comm_ring/default.ac)
 
 ---
 ## add
-Inherited from [AddSemigroup](../AddSemigroup/#add).
+Inherited from [Add](../Add/#add).
 ## add_associative
 Inherited from [AddSemigroup](../AddSemigroup/#add_associative).
 ## add_commutative
@@ -28,7 +30,7 @@ Inherited from [Semiring](../Semiring/#distrib_right).
 ## inverse_right
 Inherited from [AddGroup](../AddGroup/#inverse_right).
 ## mul
-Inherited from [Semigroup](../Semigroup/#mul).
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 Inherited from [Semigroup](../Semigroup/#mul_associative).
 ## mul_identity_left
@@ -40,7 +42,7 @@ Inherited from [Semiring](../Semiring/#mul_zero_left).
 ## mul_zero_right
 Inherited from [Semiring](../Semiring/#mul_zero_right).
 ## neg
-Inherited from [AddGroup](../AddGroup/#neg).
+Inherited from [Neg](../Neg/#neg).
 ## pow
 Inherited from [Monoid](../Monoid/#pow).
 ## sub

@@ -1,0 +1,14 @@
+{
+  "generated_at_utc": "2026-05-06T22:34:34Z",
+  "generator": {
+    "command": "/home/lacker/acorn/target/release/acorn --lib ../acornlib docs docs/library",
+    "acorn_binary": "/home/lacker/acorn/target/release/acorn",
+    "acorn_cli": "acorn 0.1.73"
+  },
+  "source": {
+    "name": "acornlib",
+    "path": "../acornlib",
+    "remote": "git@github.com:lacker/acornlib.git",
+    "commit": "3a2e81c30c663f62bc5e1d0ba78a73e421313998"
+  }
+}

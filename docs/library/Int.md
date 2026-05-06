@@ -1,4 +1,6 @@
-# Int
+---
+title: Int
+---
 
 ```acorn
 inductive Int {
@@ -33,15 +35,6 @@ define abs(self) -> Int {
 ```
 
 The absolute value of an integer.
-## add
-
-```acorn
-define add(self, other: Int) -> Int {
-    sub_nat(self.pos_part + other.pos_part, self.neg_part + other.neg_part)
-}
-```
-
-The sum of two integers.
 ## divides
 
 ```acorn
@@ -87,28 +80,11 @@ define is_positive(self) -> Bool {
 ```
 
 True if the integer is positive.
-## lte
+## match
 
 ```acorn
-define lte(self, b: Int) -> Bool {
-    (b - self).is_positive or self = b
-}
+Int.match: (Int, Nat -> R*, Nat -> R*) -> R*
 ```
-
-`a <= b` when `(a - b)` is positive or zero.
-## mul
-
-```acorn
-define mul(self, n: Int) -> Int {
-    if n.is_positive {
-        self.mul_nat(abs(n))
-    } else {
-        -(self.mul_nat(abs(n)))
-    }
-}
-```
-
-The product of two integers.
 ## mul_nat
 
 ```acorn
@@ -122,22 +98,6 @@ define mul_nat(self, n: Nat) -> Int {
 ```
 
 Multiply this integer by a natural number.
-## neg
-
-```acorn
-define neg(self) -> Int {
-    match self {
-        Int.from_nat(n) {
-            neg_nat(n)
-        }
-        Int.neg_suc(n) {
-            Int.from_nat(n.suc)
-        }
-    }
-}
-```
-
-The negation of an integer.
 ## neg_part
 
 ```acorn

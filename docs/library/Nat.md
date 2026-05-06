@@ -1,8 +1,10 @@
-# Nat
+---
+title: Nat
+---
 
 ```acorn
 inductive Nat {
-    0
+    zero
     suc(Nat)
 }
 ```
@@ -13,26 +15,10 @@ We build natural numbers from Acorn's inherent properties of inductive types.
 [GitHub](https://github.com/acornprover/acornlib/blob/master/src/nat/default.ac)
 
 ---
-## add
+## binom
 
 ```acorn
-define add(self, other: Nat) -> Nat {
-    match other {
-        Nat.0 {
-            self
-        }
-        Nat.suc(pred) {
-            self.add(pred).suc
-        }
-    }
-}
-```
-
-Addition is defined recursively.
-## choose
-
-```acorn
-let choose = choose
+let binom = binom
 ```
 
 The binomial coefficient "n choose k".
@@ -52,7 +38,7 @@ True if this number divides b (equivalently, there exists c such that this * c =
 ```acorn
 define factorial(self) -> Nat {
     match self {
-        Nat.0 {
+        Nat.zero {
             1
         }
         Nat.suc(pred) {
@@ -92,17 +78,11 @@ define is_prime(self) -> Bool {
 ```
 
 True if this number is prime (greater than 1 and not composite).
-## lte
+## match
 
 ```acorn
-define lte(self, b: Nat) -> Bool {
-    exists(c: Nat) {
-        self + c = b
-    }
-}
+Nat.match: (Nat, R*, Nat -> R*) -> R*
 ```
-
-`a <= b` if there's a natural number that can be added to `a` to get `b`.
 ## mod
 
 ```acorn
@@ -110,28 +90,12 @@ let mod = nat_mod
 ```
 
 The remainder when dividing this number by m.
-## mul
-
-```acorn
-define mul(self, b: Nat) -> Nat {
-    match b {
-        Nat.0 {
-            0
-        }
-        Nat.suc(pred) {
-            self.mul(pred) + self
-        }
-    }
-}
-```
-
-Multiplication is defined recursively.
 ## range
 
 ```acorn
 define range(self) -> List[Nat] {
     match self {
-        Nat.0 {
+        Nat.zero {
             List.nil[Nat]
         }
         Nat.suc(n) {
@@ -188,3 +152,10 @@ define upto(self, n: Nat) -> List[Nat] {
 ```
 
 Creates a list of natural numbers from self to n (inclusive).
+## zero
+
+```acorn
+Nat.zero: Nat
+```
+
+Zero is a natural number, because it's much more convenient this way.

@@ -1,4 +1,6 @@
-# AddCommSemigroup
+---
+title: AddCommSemigroup
+---
 
 ```acorn
 typeclass A: AddCommSemigroup extends AddSemigroup {
@@ -14,7 +16,7 @@ Extending the additive semigroup with commutativity.
 
 ---
 ## add
-Inherited from [AddSemigroup](../AddSemigroup/#add).
+Inherited from [Add](../Add/#add).
 ## add_associative
 Inherited from [AddSemigroup](../AddSemigroup/#add_associative).
 ## add_commutative

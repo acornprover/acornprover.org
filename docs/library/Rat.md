@@ -1,4 +1,6 @@
-# Rat
+---
+title: Rat
+---
 
 ```acorn
 structure Rat {
@@ -28,15 +30,6 @@ define abs(self) -> Rat {
 ```
 
 The absolute value of a rational number.
-## add
-
-```acorn
-define add(self, other: Rat) -> Rat {
-    reduce(self.num * other.denom + other.num * self.denom, self.denom * other.denom)
-}
-```
-
-The sum of two rational numbers.
 ## denom
 
 ```acorn
@@ -48,7 +41,7 @@ The denominator of the rational number (always positive).
 
 ```acorn
 define div(self, other: Rat) -> Rat {
-    self * other.reciprocal
+    self * other.inverse
 }
 ```
 
@@ -66,9 +59,7 @@ The floor of a rational number (the greatest integer less than or equal to it).
 ## from_int
 
 ```acorn
-let from_int = function(n: Int) {
-    Rat.new(n, Int.1)
-}
+let from_int = rat_from_int
 ```
 
 Converts an integer to a rational number.
@@ -108,33 +99,6 @@ define is_positive(self) -> Bool {
 ```
 
 True if the rational is positive.
-## lte
-
-```acorn
-define lte(self, other: Rat) -> Bool {
-    (other - self).is_positive or self = other
-}
-```
-
-True if this rational is less than or equal to the other.
-## mul
-
-```acorn
-define mul(self, other: Rat) -> Rat {
-    reduce(self.num * other.num, self.denom * other.denom)
-}
-```
-
-The product of two rational numbers.
-## neg
-
-```acorn
-define neg(self) -> Rat {
-    Rat.new(-self.num, self.denom)
-}
-```
-
-The negation of a rational number.
 ## num
 
 ```acorn
@@ -151,13 +115,3 @@ define read(self, other: Rat) -> Rat {
 ```
 
 The rational formed by appending a digit to this rational in base 10.
-## reciprocal
-
-```acorn
-define reciprocal(self) -> Rat {
-    reduce(self.denom, self.num)
-}
-```
-
-The reciprocal of a rational number (1/x).
-The reciprocal of zero is defined to be zero.

@@ -1,4 +1,6 @@
-# CommGroup
+---
+title: CommGroup
+---
 
 ```acorn
 typeclass C: CommGroup extends CommMonoid, Group
@@ -16,7 +18,7 @@ Inherited from [Group](../Group/#inverse).
 ## inverse_right
 Inherited from [Group](../Group/#inverse_right).
 ## mul
-Inherited from [Semigroup](../Semigroup/#mul).
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 Inherited from [Semigroup](../Semigroup/#mul_associative).
 ## mul_identity_left

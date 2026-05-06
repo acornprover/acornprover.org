@@ -1,4 +1,6 @@
-# Semiring
+---
+title: Semiring
+---
 
 ```acorn
 typeclass S: Semiring extends AddCommMonoid, Monoid {
@@ -21,11 +23,11 @@ A semiring is like a ring but without additive inverses.
 It has two operations where addition forms a commutative monoid, multiplication forms a monoid,
 and multiplication distributes over addition.
 
-[GitHub](https://github.com/acornprover/acornlib/blob/master/src/semiring.ac)
+[GitHub](https://github.com/acornprover/acornlib/blob/master/src/semiring/default.ac)
 
 ---
 ## add
-Inherited from [AddSemigroup](../AddSemigroup/#add).
+Inherited from [Add](../Add/#add).
 ## add_associative
 Inherited from [AddSemigroup](../AddSemigroup/#add_associative).
 ## add_commutative
@@ -53,7 +55,7 @@ distrib_right(a: S, b: S, c: S) {
 
 Multiplication distributes over addition from the right: `(a + b) * c = (a * c) + (b * c)`.
 ## mul
-Inherited from [Semigroup](../Semigroup/#mul).
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 Inherited from [Semigroup](../Semigroup/#mul_associative).
 ## mul_identity_left

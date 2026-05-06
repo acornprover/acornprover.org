@@ -1,4 +1,6 @@
-# CommMonoid
+---
+title: CommMonoid
+---
 
 ```acorn
 typeclass M: CommMonoid extends CommSemigroup, Monoid
@@ -12,7 +14,7 @@ CommMonoid represents a commutative, multiplicative monoid.
 ## commutative
 Inherited from [CommSemigroup](../CommSemigroup/#commutative).
 ## mul
-Inherited from [Semigroup](../Semigroup/#mul).
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 Inherited from [Semigroup](../Semigroup/#mul_associative).
 ## mul_identity_left

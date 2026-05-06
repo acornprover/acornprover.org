@@ -1,4 +1,6 @@
-# Color
+---
+title: Color
+---
 
 ```acorn
 inductive Color {
@@ -27,6 +29,11 @@ Color.green: Color
 ```
 
 Green is not red or blue.
+## match
+
+```acorn
+Color.match: (Color, R*, R*, R*) -> R*
+```
 ## red
 
 ```acorn

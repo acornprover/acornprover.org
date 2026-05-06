@@ -1,4 +1,6 @@
-# OrderedField
+---
+title: OrderedField
+---
 
 ```acorn
 typeclass F: OrderedField extends Field, AddOrderedGroup {
@@ -14,7 +16,7 @@ A field with a total order compatible with the field operations.
 
 ---
 ## add
-Inherited from [AddSemigroup](../AddSemigroup/#add).
+Inherited from [Add](../Add/#add).
 ## add_associative
 Inherited from [AddSemigroup](../AddSemigroup/#add_associative).
 ## add_commutative
@@ -40,7 +42,7 @@ Inherited from [PartialOrder](../PartialOrder/#gt).
 ## gte
 Inherited from [PartialOrder](../PartialOrder/#gte).
 ## inverse
-Inherited from [Field](../Field/#inverse).
+Inherited from [Inverse](../Inverse/#inverse).
 ## inverse_right
 Inherited from [AddGroup](../AddGroup/#inverse_right).
 ## left_invariance
@@ -48,13 +50,13 @@ Inherited from [AddLeftOrderedGroup](../AddLeftOrderedGroup/#left_invariance).
 ## lt
 Inherited from [PartialOrder](../PartialOrder/#lt).
 ## lte
-Inherited from [PartialOrder](../PartialOrder/#lte).
+Inherited from [LTE](../LTE/#lte).
 ## max
 Inherited from [LinearOrder](../LinearOrder/#max).
 ## min
 Inherited from [LinearOrder](../LinearOrder/#min).
 ## mul
-Inherited from [Semigroup](../Semigroup/#mul).
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 Inherited from [Semigroup](../Semigroup/#mul_associative).
 ## mul_identity_left
@@ -75,7 +77,7 @@ Inherited from [Semiring](../Semiring/#mul_zero_left).
 ## mul_zero_right
 Inherited from [Semiring](../Semiring/#mul_zero_right).
 ## neg
-Inherited from [AddGroup](../AddGroup/#neg).
+Inherited from [Neg](../Neg/#neg).
 ## pow
 Inherited from [Monoid](../Monoid/#pow).
 ## reflexive

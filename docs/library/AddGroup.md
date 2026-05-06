@@ -1,8 +1,9 @@
-# AddGroup
+---
+title: AddGroup
+---
 
 ```acorn
-typeclass A: AddGroup extends AddMonoid {
-    neg: A -> A
+typeclass A: AddGroup extends AddMonoid, Neg {
     inverse_right(a: A) {
         a + -a = A.0
     }
@@ -15,7 +16,7 @@ An additive group is an additive monoid that also has inverses.
 
 ---
 ## add
-Inherited from [AddSemigroup](../AddSemigroup/#add).
+Inherited from [Add](../Add/#add).
 ## add_associative
 Inherited from [AddSemigroup](../AddSemigroup/#add_associative).
 ## add_identity_left
@@ -32,12 +33,7 @@ inverse_right(a: A) {
 
 This is what "additive inverse" means.
 ## neg
-
-```acorn
-neg: A -> A
-```
-
-The additive inverse of an element.
+Inherited from [Neg](../Neg/#neg).
 ## sub
 
 ```acorn

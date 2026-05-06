@@ -1,4 +1,6 @@
-# Group
+---
+title: Group
+---
 
 ```acorn
 typeclass G: Group extends Monoid {
@@ -31,7 +33,7 @@ inverse_right(a: G) {
 
 We only need right-inverse; we can prove left-inverse from it.
 ## mul
-Inherited from [Semigroup](../Semigroup/#mul).
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 Inherited from [Semigroup](../Semigroup/#mul_associative).
 ## mul_identity_left

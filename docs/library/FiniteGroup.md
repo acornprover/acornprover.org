@@ -1,4 +1,6 @@
-# FiniteGroup
+---
+title: FiniteGroup
+---
 
 ```acorn
 typeclass G: FiniteGroup extends Group {
@@ -30,7 +32,7 @@ Every group element appears in the elements list.
 
 ```acorn
 define cyclic_subgroup(self) -> FiniteSubgroup[G] {
-    FiniteSubgroup.new(map(G.order.range, self.pow).unique)
+    cyclic_subgroup_of(self)
 }
 ```
 
@@ -45,7 +47,7 @@ A list containing all elements of the group.
 ## identity_subgroup
 
 ```acorn
-let identity_subgroup: FiniteSubgroup[G] = FiniteSubgroup.new(List.singleton[G](G.1))
+let identity_subgroup: FiniteSubgroup[G] = isg[G]
 ```
 
 The trivial subgroup containing only the identity element.
@@ -54,7 +56,7 @@ Inherited from [Group](../Group/#inverse).
 ## inverse_right
 Inherited from [Group](../Group/#inverse_right).
 ## mul
-Inherited from [Semigroup](../Semigroup/#mul).
+Inherited from [Mul](../Mul/#mul).
 ## mul_associative
 Inherited from [Semigroup](../Semigroup/#mul_associative).
 ## mul_identity_left

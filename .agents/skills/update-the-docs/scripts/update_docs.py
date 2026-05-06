@@ -44,7 +44,7 @@ def resolve_path(repo_root: Path, value: str) -> Path:
 
 def ensure_clean_lib(lib_path: Path, allow_dirty: bool) -> None:
     if not (lib_path / ".git").exists():
-        fail(f"{lib_path} is not a git checkout; expected canonical acornlib input")
+        fail(f"{lib_path} is not a git checkout; expected adjacent acornlib input")
     status = output(["git", "status", "--short"], lib_path)
     if status and not allow_dirty:
         fail(
@@ -52,8 +52,14 @@ def ensure_clean_lib(lib_path: Path, allow_dirty: bool) -> None:
         )
 
 
-def write_provenance(repo_root: Path, lib_path: Path, docs_dir: Path, command: list[str]) -> None:
-    acorn_version = output(["acorn", "--version"], repo_root)
+def write_provenance(
+    repo_root: Path,
+    lib_path: Path,
+    docs_dir: Path,
+    command: list[str],
+    source_path: str,
+) -> None:
+    acorn_version = output([command[0], "--version"], repo_root)
     acornlib_commit = output(["git", "rev-parse", "HEAD"], lib_path)
     acornlib_remote = output(["git", "remote", "get-url", "origin"], lib_path)
 
@@ -64,13 +70,12 @@ def write_provenance(repo_root: Path, lib_path: Path, docs_dir: Path, command: l
         .replace("+00:00", "Z"),
         "generator": {
             "command": " ".join(command),
+            "acorn_binary": command[0],
             "acorn_cli": acorn_version,
         },
         "source": {
             "name": "acornlib",
-            "path": str(lib_path.relative_to(repo_root))
-            if lib_path.is_relative_to(repo_root)
-            else str(lib_path),
+            "path": source_path,
             "remote": acornlib_remote,
             "commit": acornlib_commit,
         },
@@ -86,7 +91,8 @@ def main() -> None:
         description="Run acorn docs for the Acorn website library reference."
     )
     parser.add_argument("--repo-root", default=".", help="Path to acornprover.org")
-    parser.add_argument("--lib", default="vendor/acornlib", help="Path to acornlib")
+    parser.add_argument("--acorn-bin", default="acorn", help="Acorn executable to run")
+    parser.add_argument("--lib", default="../acornlib", help="Path to acornlib")
     parser.add_argument("--docs-dir", default="docs/library", help="Generated docs dir")
     parser.add_argument(
         "--allow-dirty",
@@ -115,7 +121,7 @@ def main() -> None:
 
     ensure_clean_lib(lib_path, args.allow_dirty)
 
-    command = ["acorn", "--lib", str(lib_path), "docs", str(docs_dir)]
+    command = [args.acorn_bin, "--lib", args.lib, "docs", args.docs_dir]
     print("Running:", " ".join(command), flush=True)
     result = run(command, repo_root, check=False)
     if result.stdout:
@@ -130,7 +136,7 @@ def main() -> None:
         fail(f"acorn docs failed with exit code {result.returncode}")
 
     if not args.skip_provenance:
-        write_provenance(repo_root, lib_path, docs_dir, command)
+        write_provenance(repo_root, lib_path, docs_dir, command, args.lib)
 
 
 if __name__ == "__main__":
