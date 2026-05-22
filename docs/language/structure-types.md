@@ -108,4 +108,6 @@ theorem must_be_lte {
 
 ```
 
+The `let Option.some(pair) = ...` line is a destructuring let. It matches the constructor shape and names the wrapped value `pair`; the `by` block proves that this constructor shape is possible.
+
 Constrained types may have no elements at all. In this case, the constructor will always return `Option.none`.

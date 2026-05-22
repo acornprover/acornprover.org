@@ -8,6 +8,8 @@ Acorn is a line-oriented language. Usually, you write one thing on one line, the
 
 Sometimes, code is grouped into blocks. These are delineated with `{ ... }` braces, and sometimes keywords to connect subsequent blocks. Inside the blocks, it's one thing per line.
 
+Some blocks produce a value, such as function bodies, anonymous function bodies, `if` branches, and `match` branches. These blocks can start with local `let` bindings and end with a final expression.
+
 Comments start with `//` and extend through the rest of the line.
 
 Line breaks inside parentheses or after infix operators are ignored, which you can use to split a statement among multiple lines if you want.

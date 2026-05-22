@@ -28,6 +28,17 @@ let max_a_b: Nat = if a < b {
 
 As an expression, the `else` branch is required. Otherwise, what would the expression be if the condition was false?
 
+Each branch is a value-producing block. It can contain local `let` bindings before the final expression.
+
+```acorn
+let doubled_or_fallback: Nat = if p {
+    let doubled = a + a
+    doubled
+} else {
+    fallback
+}
+```
+
 # If Statements
 
 You can also use `if` as a statement with multiple steps inside its proof.

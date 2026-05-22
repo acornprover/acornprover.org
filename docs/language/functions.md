@@ -26,6 +26,15 @@ define square(n: Nat) -> Nat {
 
 This defines the function `square`, with type `Nat -> Nat`.
 
+The body is a value-producing block. It can be a single expression, or it can start with local `let` bindings and end with the expression to return.
+
+```acorn
+define square_twice(x: Nat) -> Nat {
+    let y = x * x
+    y * y
+}
+```
+
 Functions can have any positive number of arguments. You can't have a zero-argument function; there are no side effects in Acorn, so a function without any arguments is just a constant.
 
 ## Anonymous Functions
