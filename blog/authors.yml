@@ -7,3 +7,12 @@ lacker:
   socials:
     x: lacker
     github: lacker
+
+omegacombinator:
+  name: OmegaCombinator Lab
+  title: Explores how AI systems can reason, formalize, and conduct research in mathematics.
+  url: https://aixmath.org
+  image_url: https://github.com/OmegaCombinator.png
+  page: true
+  socials:
+    github: OmegaCombinator
