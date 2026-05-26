@@ -12,3 +12,8 @@ tooling:
   label: tooling
   permalink: /tooling
   description: Posts about the Acorn tools, like the VS Code extension.
+
+formalization:
+  label: formalization
+  permalink: /formalization
+  description: Posts about formalizing mathematics in Acorn.
