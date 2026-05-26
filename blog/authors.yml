@@ -10,7 +10,7 @@ lacker:
 
 omegacombinator:
   name: OmegaCombinator Lab
-  title: AI for Mathematics research organization
+  title: Explores how AI systems can reason, formalize, and conduct research in mathematics.
   url: https://aixmath.org
   image_url: https://github.com/OmegaCombinator.png
   page: true
