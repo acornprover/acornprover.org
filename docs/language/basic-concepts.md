@@ -32,6 +32,24 @@ Theorems typically have two blocks. The first block is the thing we're proving. 
 
 The variables defined as the arguments to the theorem can be used within both the expression of the theorem, and its proof.
 
+## Lemmas
+
+A `lemma` is a local theorem. It has the same syntax as a theorem, and it is verified in the same way, but it is only visible inside the file where it is written.
+
+```acorn
+lemma helper {
+    true
+}
+
+theorem public_fact {
+    true
+} by {
+    helper
+}
+```
+
+Use `lemma` for helper facts that make a proof easier to organize, but should not become part of another file's imported context or a package's public API. Later statements in the same file can use the lemma. Other files cannot import it or use it for proving.
+
 ## Expressions
 
 An expression in Acorn is either a named value, or a way of building one value out of other values. Here are some example expressions.

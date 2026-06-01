@@ -54,7 +54,7 @@ acorn verify [OPTIONS] [TARGET] [LINE]
 
 Arguments:
 
-- `[TARGET]` - Module or filename to verify. Supports `TARGET:LINE` syntax. If omitted, verifies all files. If `-` is provided, reads from stdin.
+- `[TARGET]` - Module, package, or filename to verify. Supports `TARGET:LINE` syntax. If omitted, verifies all files. If `-` is provided, reads from stdin.
 - `[LINE]` - Line number as a positional argument (alternative to `--line`).
 
 Options:
@@ -77,6 +77,9 @@ acorn verify myfile.ac
 
 # Verify a specific module
 acorn verify mymodule
+
+# Verify a package
+acorn verify mypackage
 
 # Verify from stdin
 cat myfile.ac | acorn verify -

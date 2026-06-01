@@ -78,6 +78,14 @@ You can import any types, variables, and functions defined at the top level.
 
 You can import individual theorems to cite them, but you generally shouldn't need to. Acorn's prover will index all theorems in the imported modules and use them for proving.
 
-## Caveat Mathematicus
+You cannot import lemmas. A lemma is deliberately file-local, so it is available only to later statements in the same file.
 
-Currently, you can only import from the standard library. You can't import your own modules. We'll need to improve this, in the fullness of time.
+## Packages
+
+When a folder contains an `interface.ac` file, that folder is a [package](./packages.md). From outside the folder, imports go through the package interface:
+
+```acorn
+from my_package import PublicType, public_theorem
+```
+
+The package's implementation files are private. A file outside the package cannot import `my_package.internal`; it can only import declarations listed in `my_package/interface.ac`.
